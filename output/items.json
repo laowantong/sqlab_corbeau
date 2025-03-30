@@ -1,0 +1,673 @@
+[
+  {
+    "kind": "context",
+    "text": "L'histoire commence le 21 avril 1933, dans une petite ville de province, ici ou ailleurs…\nM. Germain, 45 ans, est notre personnage principal."
+  },
+  {
+    "kind": "adventure",
+    "text": "Écrivez une requête SQL renvoyant le nom et l'adresse de ce M. Germain. <br>_Aide._ Utilisez l'opérateur `LIKE` sur la table `person`.",
+    "query": "SELECT person, complement, num, street\nFROM person A\nWHERE person LIKE \"% Germain\"\n    AND sex = \"M\"\n    AND age = 45",
+    "formula": "salt_064(sum(A.hash) OVER()) AS token",
+    "entry_token": "35475034373353",
+    "output_token": "139825195129217"
+  },
+  {
+    "kind": "hint",
+    "text": "Le M. Germain qui nous intéresse a 45 ans.",
+    "query": "SELECT person, complement, num, street\nFROM person A\nWHERE person LIKE \"% Germain\"\n    AND sex = \"M\"",
+    "formula": "salt_064(sum(A.hash) OVER()) AS token",
+    "entry_token": "334297691685878"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux individus de sexe masculin.",
+    "query": "SELECT person, complement, num, street\nFROM person A\nWHERE person LIKE \"% Germain\"\n    AND age = 45",
+    "formula": "salt_064(sum(A.hash) OVER()) AS token",
+    "entry_token": "149100025407851"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux individus de sexe masculin.",
+    "query": "SELECT person, complement, num, street\nFROM person A\nWHERE person LIKE \"% Germain\"",
+    "formula": "salt_064(sum(A.hash) OVER()) AS token",
+    "entry_token": "484859766608600"
+  },
+  {
+    "kind": "context",
+    "text": "La première scène se déroule dans une cour de ferme. Il y a là une vieille femme vêtue de noir, Mme Henriette Beaugé. Silencieuse, elle est à l'écoute de tous les bruits qui viennent de la maison. Des voisines sont à ses côtés.\n\nEnfin un homme sort de la maison, l'air grave. C'est Germain. Ses mains et ses poignets sont tachés de sang. Il les plonge dans une barrique pleine d'eau et les frotte en silence. La grand-mère s'est levée. Elle vient à lui à petits pas, lui apportant son chapeau et sa redingote.\n\n- La mère est sauvée, lâche-t-il.\n- Et l'enfant ?\n\nIl la regarde dans les yeux, met son chapeau, secoue la tête.\n\n- Non.  \n- Mon Dieu, docteur... Vous n'avez pas fait ça ?  \n- Je l'ai fait, répond-il. En conscience.  \n\nAprès un moment, il reprend :  \n\n- Si vous tenez à avoir un petit-fils... Dans... dans six ou huit mois — mais pas avant, hein ! — vous demanderez à votre gendre de lui en faire un autre.\n\nLes deux voisines, restées un peu en retrait, commentent à mi-voix :  \n\n- Il a déjà eu du mal la première fois...  \n- Il se fera aider par un voisin !"
+  },
+  {
+    "kind": "question",
+    "text": "Écrivez une requête donnant le nom des voisines. <br>_Aide._ Vous aurez besoin de la table `relation` qui, pour certaines personnes, donne la nature de leur relation avec certaines autres. Cette table est symétrique, c'est-à-dire par exemple que si la personne 1 est répertoriée comme fille des personnes 2 et 3, les personnes 2 et 3 sont également répertoriées comme père et mère de la personne 1.",
+    "query": "SELECT person_1\nFROM relation A\nWHERE person_2 = \"Henriette Beaugé\"\n    AND nature = \"voisine\"",
+    "formula": "salt_002(sum(A.hash) OVER()) AS token",
+    "entry_token": "139825195129217",
+    "output_token": "26814008885635"
+  },
+  {
+    "kind": "hint",
+    "text": "On demande les voisines de Mme Beaugé, pas tous ses voisins.",
+    "query": "SELECT DISTINCT person_1\nFROM relation A\nWHERE person_2 = \"Henriette Beaugé\"\n    AND nature LIKE \"voisin%\";",
+    "formula": "salt_002(sum(A.hash) OVER()) AS token",
+    "entry_token": "397194862914975"
+  },
+  {
+    "kind": "hint",
+    "text": "On demande les voisines de Mme Beaugé, et non les personnes dont Mme Beaugé est la voisine.",
+    "query": "SELECT person_2\nFROM relation A\nWHERE person_1 = \"Henriette Beaugé\"\n    AND nature = \"voisine\"",
+    "formula": "salt_002(sum(A.hash) OVER()) AS token",
+    "entry_token": "531466186008040"
+  },
+  {
+    "kind": "context",
+    "text": "Le médecin est rentré dans sa voiture. Avant de démarrer, il prend les mains de la vieille femme :  \n\n- Ne pleurez pas, grand-mère. Vous gardez votre fille. C'est l'essentiel.\n\nPendant ce temps, dans la salle commune de l'hôpital de Saint-Robin, une infirmière au visage fermé, à l'air revêche, vient de poser un verre sur la table de chevet d'un jeune homme. Celui-ci tente péniblement de le prendre.\n\n- Quand vous aurez fini de gémir, lui lance-t-elle...  \n- Je ne peux pas me relever...  \n- Eh bien, restez couché ! dit-elle en quittant la salle.  \n\nUne autre employée se trouve là, les bras chargés de livres qu'elle distribue aux malades. C'est l'épouse du docteur Vorzet, qui dirige le service des aliénés. Elle s'approche et, avec beaucoup de douceur, aide le malade à se redresser. Il la prend à témoin :\n\n- C'est une méchante femme.  \n- Allons... Ne parlez pas ainsi. C'est ma sœur.  \n- Pardon... c'est une méchante sœur.  \n- Non, c'est une malheureuse... Elle l'a toujours été."
+  },
+  {
+    "kind": "question",
+    "text": "Extrayez de la table `relation` deux lignes comportant, à gauche le nom de l'infirmière et de sa sœur, et à droite celui du Dr. Vorzet. <br>_Aide._ La sœur de ma femme est ma _____-____.",
+    "query": "SELECT person_1, nature, person_2\nFROM relation A\nWHERE (nature = \"femme\"\n       OR nature = \"belle-soeur\")\n    AND person_2 LIKE \"% Vorzet\"",
+    "formula": "salt_048(sum(A.hash) OVER()) AS token",
+    "entry_token": "26814008885635",
+    "output_token": "132632717410880"
+  },
+  {
+    "kind": "variant",
+    "text": "Avec l'opérateur d'appartenance `IN`.",
+    "query": "SELECT person_1, nature, person_2\nFROM relation A\nWHERE nature IN (\"femme\", \"belle-sœur\")\n    AND person_2 LIKE \"% Vorzet\"",
+    "formula": "salt_048(sum(A.hash) OVER()) AS token"
+  },
+  {
+    "kind": "hint",
+    "text": "Votre expression booléenne n'est pas correctement parenthésée. Souvenez-vous que le `AND` est prioritaire sur le `OR`.",
+    "query": "SELECT person_1, nature, person_2\nFROM relation A\nWHERE nature = \"femme\"\n    OR nature = \"belle-soeur\"\n    AND person_2 LIKE \"% Vorzet\"",
+    "formula": "salt_048(sum(A.hash) OVER()) AS token",
+    "entry_token": "2381533976680876"
+  },
+  {
+    "kind": "hint",
+    "text": "Votre expression booléenne n'est pas correctement parenthésée. Souvenez-vous que le `AND` est prioritaire sur le `OR`.",
+    "query": "SELECT person_1, nature, person_2\nFROM relation A\nWHERE person_2 LIKE \"% Vorzet\"\n    AND nature = \"femme\"\n    OR nature = \"belle-soeur\"",
+    "formula": "salt_048(sum(A.hash) OVER ()) AS token",
+    "entry_token": "55091582265641"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous avez trouvé la belle-sœur de M. Vorzet. Il nous faut aussi sa femme.",
+    "query": "SELECT person_1\nFROM relation A\nWHERE nature = \"belle-soeur\"\n    AND person_2 = \"Michel Vorzet\"",
+    "formula": "salt_048(sum(A.hash) OVER ()) AS token",
+    "entry_token": "231631829303435"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous avez trouvé la sœur de Mme Vorzet. Ce n'est pas ce qui est demandé.",
+    "query": "SELECT person_1\nFROM relation A\nWHERE person_2 LIKE \"%Vorzet\"\n    AND nature = \"soeur\"",
+    "formula": "salt_048(sum(A.hash) OVER ()) AS token",
+    "entry_token": "217127608282287"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous avez trouvé la femme de M. Vorzet. Il nous faut aussi sa belle-sœur.",
+    "query": "SELECT person_1\nFROM relation A\nWHERE person_2 LIKE \"%Vorzet\"\n    AND nature = \"femme\"",
+    "formula": "salt_048(sum(A.hash) OVER ()) AS token",
+    "entry_token": "187636243862125"
+  },
+  {
+    "kind": "context",
+    "text": "- Tenez, vous lirez ça ce soir, dit Laura Vorzet.  \n\nLe malade regarde distraitement la couverture du livre qu'elle lui apporte et, à brûle-pourpoint :\n\n- Madame... Est-ce que... est-ce que votre mari pourrait me faire changer de lit ?  \n- De lit ?  \n- Oui, le mien a ce numéro qui porte malheur... Si je reste ici, il m'arrivera quelque chose."
+  },
+  {
+    "kind": "question",
+    "text": "Qui est ce patient ? <br>_Aide._ Vous devez deviner le numéro du lit (stocké comme un entier), et rechercher qui est hospitalisé ce jour-là dans ce lit. Relisez le début de l'histoire si vous ne souvenez plus quel jour elle commence. Chaque ligne de la table `consultation` donne les noms d'un patient et du médecin qui l'a examiné. Si cette consultation a donné lieu à une hospitalisation, celle-ci se trouve dans la table `hospitalization`, sous le même identifiant, avec les dates d'entrée et de sortie, ainsi que le numéro de lit. L'information étant répartie dans ces deux tables, vous avez besoin d'une jointure.",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING(consultation)\nWHERE bed = 13\n    AND \"1933-04-21\" BETWEEN check_in AND check_out",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "132632717410880",
+    "output_token": "548639268795494"
+  },
+  {
+    "kind": "hint",
+    "text": "On ne cherche pas les patients ayant passé une consultation le 21 avril 1933. Relisez l'énoncé.",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING (consultation)\nWHERE date = \"1933-04-21\"",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "110517508006323"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous avez trouvé le bon numéro de lit. Cependant, on ne cherche pas les patients qui ont été hospitalisés le jour de leur consultation, mais ceux qui se trouvent à l'hôpital le 21 avril 1933.",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING (consultation)\nWHERE A.date = B.check_in\n    AND B.bed = 13",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "1763959691028667"
+  },
+  {
+    "kind": "hint",
+    "text": "Plusieurs François ont été hospitalisés. Utilisez les dates d'hospitalisation et le numéro de lit pour trouver le bon.",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING (consultation)\nWHERE A.patient LIKE \"François%\";",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "665454391990493"
+  },
+  {
+    "kind": "hint",
+    "text": "Quel numéro porte malheur en France ?",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING (consultation)\nWHERE \"1933-04-21\" BETWEEN check_in AND check_out\n    AND patient LIKE \"François %\"",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "824753229677455"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous avez trouvé le bon numéro de lit, mais on ne s'intéresse pas à tous les malades qui s'y sont succédé. Souvenez-vous : nous sommes le 21 avril 1933.",
+    "query": "SELECT patient\nFROM consultation A\nJOIN hospitalization B USING (consultation)\nWHERE bed = 13",
+    "formula": "salt_073(sum(A.hash + B.hash) OVER ()) AS token",
+    "entry_token": "4701277967254422"
+  },
+  {
+    "kind": "context",
+    "text": "- Ne dites pas de sottises, dit Laura avec un sourire... Tenez, voilà votre mère qui vous rend visite. Je vous laisse.\n\nLe visage de l'homme s'est éclairé.\n\n- Bonjour, maman.  \n- Bonjour, François.  \n\nElle l'embrasse.  \n\n- Oh ! tu as le visage en sueur. Comment vas-tu ? Tiens, je t'ai apporté un nouveau rasoir.\n\nIl prend l'objet entre ses mains, l'ouvre. Il pose le fil de la lame sur son ongle et entreprend de le tailler.\n\n----\n\nEn sortant de la salle commune, Laura Vorzet est tombée sur sa sœur :\n\n- Marie, pourquoi es-tu si désagréable avec les malades ?  \n- Pourquoi es-tu si aimable avec le docteur Germain ?  \n- Qu'est-ce que tu dis ?  \n- Je dis que depuis quelque temps, on te voit beaucoup trop dans son service. Je le signalerai à Michel quand il rentrera.  \n- Mon mari est au courant et il trouve ça très bien.  \n- D'autres trouvent ça très mal.  \n- Mais enfin, tout de même, c'est mon devoir : je suis assistante sociale !  \n- Tu es une traînée !  \n\nÀ ce moment, la porte s'ouvre. Elles se taisent. C'est le docteur Germain. Il les salue, traverse le corridor et entre dans le bureau d'un confrère."
+  },
+  {
+    "kind": "question",
+    "text": "Dressez la liste du personnel de l'hôpital de Saint-Robin avec, pour chaque membre, sa fonction dans l'établissement. <br>_Aide._ Pour chaque personne de la table `person`, vous avez une clé étrangère vers la table `job` qui va vous permettre de retrouver le nom de son métier, ainsi que la structure qui l'emploie.",
+    "query": "SELECT person\nFROM person A\nJOIN job B USING(job)\nWHERE structure = \"hôpital\"",
+    "formula": "salt_060(sum(A.hash) OVER()) AS token",
+    "entry_token": "548639268795494",
+    "output_token": "1402152924966667"
+  },
+  {
+    "kind": "variant",
+    "text": "En imbriqué.",
+    "query": "SELECT person\nFROM person A\nJOIN job B USING(job)\nWHERE job in\n        (SELECT job\n         FROM job\n         WHERE structure = \"hôpital\" )",
+    "formula": "salt_060(sum(A.hash) OVER()) AS token"
+  },
+  {
+    "kind": "context",
+    "text": "- Alors ? dit le docteur Bertrand à l'entrée de son confrère.\n- J'ai sauvé la mère.\n- Encore ?  \n- Pourquoi, encore ?  \n- C'est la troisième fois en six semaines.  \n- Si vous ne me faites pas confiance, pourquoi vous décharger sur moi de ces consultations ?  \n- Oh ! rassurez-vous : je ne vous imposerai plus ce dérangement !"
+  },
+  {
+    "kind": "question",
+    "text": "Donnez la liste des accouchements assurés par le docteur Germain au cours des six dernières semaines (avec le numéro et la date de la consultation, le nom et l'âge de la patiente) ordonnée par date croissante. Le résultat vous permettra (facultativement) d'en déduire le nom de la fille de Mme Beaugé. <br>_Aide._ Vous avez besoin d'une jointure triple. Un accouchement est stocké comme une `consultation` dont le `diagnostic` inclut « accouchement » dans la colonne `trouble`. Utilisez la fonction `SUBDATE()` pour calculer proprement la date de début de cette période.",
+    "query": "SELECT A.consultation, A.date, A.patient, B.age\nFROM consultation A\nJOIN person B ON(patient = person)\nJOIN diagnostic C USING(consultation)\nWHERE doctor = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND date BETWEEN subdate(\"1933-04-21\", INTERVAL 6 WEEK) AND \"1933-04-21\"\nORDER BY date",
+    "formula": "salt_069(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "1402152924966667",
+    "output_token": "1491886236279858"
+  },
+  {
+    "kind": "hint",
+    "text": "On veut les accouchements assurés par le docteur Germain.",
+    "query": "SELECT A.consultation, A.date, A.patient, B.age\nFROM consultation A\nJOIN person B ON(patient = person)\nJOIN diagnostic C USING(consultation)\nWHERE trouble = \"accouchement\"\n    AND date BETWEEN subdate(\"1933-04-21\", 6 * 7) AND \"1933-04-21\"\nORDER BY date",
+    "formula": "salt_069(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "2693598191447084"
+  },
+  {
+    "kind": "hint",
+    "text": "La fonction `SUBDATE()` renvoie une date, pas un booléen.",
+    "query": "SELECT A.consultation, A.date, A.patient, B.age\nFROM consultation A\nJOIN person B ON(patient = person)\nJOIN diagnostic C USING(consultation)\nWHERE doctor = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND subdate(\"1933-04-21\", 6 * 7)\nORDER BY date",
+    "formula": "salt_069(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "2534109147541957"
+  },
+  {
+    "kind": "context",
+    "text": "À ce moment, le docteur Delorme entre à son tour dans le bureau.\n\n- Encore en train de vous chamailler ?\n- Ah ! M. le Directeur, jugez plutôt... commence le docteur Bertrand.\n- Oh, non, non ! Ne me mêlez pas à vos bisbilles. Tenez. J'ai rentré ce matin un cas de gangrène tout à fait pittoresque... Le tibia est sorti de la jambe de plus de dix centimètres !\n- Dix centimètres ! s'exclame le docteur Bertrand. Vous blaguez ?\n- Si je vous le dis ! Allez, au lieu de vous disputer, venez tous les deux avec moi.\n- Je vous demande pardon, M. le Directeur, répond le docteur Germain, mais je ne suis guère amateur de blagues.\n- Tant pis pour vous. Le docteur Bertrand profitera seul du spectacle. Mais vous le regretterez !\n- J'en suis sûr, fait Germain.\n- Vous allez voir, mon cher Bertrand, c'est tordant !"
+  },
+  {
+    "kind": "question",
+    "text": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ? <br>_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
+    "query": "SELECT C.patient\nFROM consultation C\nJOIN hospitalization H USING(consultation)\nJOIN diagnostic D USING(consultation)\nWHERE H.check_in = \"1933-04-21\"\n    AND C.doctor LIKE \"% Delorme\"\n    AND D.trouble = \"gangrène\"",
+    "formula": "salt_090(sum(C.hash) OVER()) AS token",
+    "entry_token": "1491886236279858",
+    "output_token": "4759373510280"
+  },
+  {
+    "kind": "hint",
+    "text": "Vérifiez que vous restreignez bien le résultat à la date d'hospitalisation du patient. Vérifiez également que vous faites bien une jointure entre `consultation` et `hospitalization`, et non un simple produit cartésien.",
+    "query": "SELECT C.patient\nFROM consultation C\nJOIN hospitalization H USING(consultation)\nJOIN diagnostic D USING(consultation)\nWHERE C.doctor LIKE \"% Delorme\"\n    AND D.trouble = \"gangrène\"",
+    "formula": "salt_090(sum(C.hash) OVER()) AS token",
+    "entry_token": "290373066499138"
+  },
+  {
+    "kind": "hint",
+    "text": "C'est le docteur Delorme lui-même qui a fait hospitaliser ce patient.",
+    "query": "SELECT C.patient\nFROM consultation C\nJOIN hospitalization H USING(consultation)\nJOIN diagnostic D USING(consultation)\nWHERE H.check_in = \"1933-04-21\"\n    AND D.trouble = \"gangrène\"",
+    "formula": "salt_090(sum(C.hash) OVER()) AS token",
+    "entry_token": "72591397728089"
+  },
+  {
+    "kind": "hint",
+    "text": "Il s'agit d'un cas de gangrène.",
+    "query": "SELECT C.patient\nFROM consultation C\nJOIN hospitalization H USING(consultation)\nWHERE H.check_in = \"1933-04-21\"\n    AND C.doctor LIKE \"% Delorme\"",
+    "formula": "salt_090(sum(C.hash) OVER()) AS token",
+    "entry_token": "38613731426077"
+  },
+  {
+    "kind": "context",
+    "text": "En passant devant la buanderie de l'hôpital, le docteur Germain regarde machinalement par le carreau de la porte. Il aperçoit Marie Corbin qui sort une lettre de son enveloppe. Il fait irruption dans la pièce.\n\n- Eh bien, ne vous gênez pas ! Donnez-moi ça.\n\nIl prend la lettre et la déchire.\n\n- Vous laissez tout un tas de paperasse dans vos poches, se défend l'infirmière. Il faut bien que je change votre correspondance de blouse si vous ne voulez pas qu'elle aille à l'étuve.\n- Je ne vous demande pas de la lire.\n- Et moi, je ne vous demande pas pourquoi vous écrivez à ma sœur, répond-elle sans se démonter.\n- Vous êtes chargée de la surveiller ?\n- Ce que j'en dis, c'est pour vous : Laura est une petite vipère.  \n- Pas pendant le service, voulez-vous ?\n\nEt, changeant de sujet :\n\n- Le 13 se plaint de ne pas dormir."
+  },
+  {
+    "kind": "question",
+    "text": "Pourquoi François Boulin n'arrive-t-il pas à dormir ? Vous le saurez en listant les spécialités que Germain lui a prescrites, mais qui ne sont pas ou plus disponibles à la pharmacie. Vous projetterez également le stock correspondant. <br>_Aide._ La table `prescription` a pour clé primaire deux clés étrangères, l'une vers la table `consultation`, l'autre vers la table `speciality`. Celle-ci répertorie les différentes « spécialités » (ou médicaments), avec éventuellement leur stock en pharmacie.",
+    "query": "SELECT A.speciality, A.stock\nFROM consultation B\nJOIN prescription C USING (consultation)\nJOIN speciality A USING (speciality)\nWHERE B.patient = \"François Boulin\"\n    AND B.doctor = \"Rémy Germain\"\n    AND (A.stock = 0\n         OR A.stock IS NULL)",
+    "formula": "salt_099(sum(A.hash + B.hash + C.hash) OVER()) AS token",
+    "entry_token": "4759373510280",
+    "output_token": "1214408487456300"
+  },
+  {
+    "kind": "hint",
+    "text": "Incluez également les spécialités qui n'ont pas lieu d'être stockées en pharmacie (`NULL`).",
+    "query": "SELECT A.speciality, A.stock\nFROM consultation B\nJOIN prescription C USING (consultation)\nJOIN speciality A USING (speciality)\nWHERE B.patient = \"François Boulin\"\n    AND B.doctor = \"Rémy Germain\"\n    AND A.stock = 0",
+    "formula": "salt_099(sum(A.hash + B.hash + C.hash) OVER()) AS token",
+    "entry_token": "712432571142668"
+  },
+  {
+    "kind": "hint",
+    "text": "Certaines de ces spécialités ne lui ont pas été prescrites par le docteur Germain.",
+    "query": "SELECT A.speciality, A.stock\nFROM consultation B\nJOIN prescription C USING (consultation)\nJOIN speciality A USING (speciality)\nWHERE B.patient = \"François Boulin\"\n    AND (A.stock = 0\n         OR A.stock IS NULL)",
+    "formula": "salt_099(sum(A.hash + B.hash + C.hash) OVER()) AS token",
+    "entry_token": "1836392672107944"
+  },
+  {
+    "kind": "hint",
+    "text": "Il s'agit là de toutes les spécialités qui ont été prescrites à François Boulin, pas forcément par le docteur Germain. De plus, certaines son disponibles en pharmacie.",
+    "query": "SELECT S.speciality, S.stock\nFROM consultation C\nJOIN prescription P USING (consultation)\nJOIN speciality S USING (speciality)\nWHERE C.patient = \"François Boulin\"",
+    "formula": "salt_099(sum(S.hash) OVER()) AS token",
+    "entry_token": "671403540618809"
+  },
+  {
+    "kind": "hint",
+    "text": "Il s'agit là de toutes les spécialités qui ont été prescrites à François Boulin par le docteur Germain, y compris celles qui ne sont pas ou plus en stock.",
+    "query": "SELECT S.speciality, S.stock\nFROM consultation C\nJOIN prescription P USING (consultation)\nJOIN speciality S USING (speciality)\nWHERE C.patient = \"François Boulin\"\n    AND C.doctor = \"Rémy Germain\"",
+    "formula": "salt_099(sum(S.hash) OVER()) AS token",
+    "entry_token": "268723976151153"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous devez utiliser la table `speciality` dans le calcul du code. Vérifiez également que vous projetez bien le stock comme demandé.",
+    "query": "SELECT P.speciality\nFROM consultation C\nJOIN prescription P USING (consultation)\nJOIN speciality S USING (speciality)\nWHERE C.patient = \"François Boulin\"\n    AND C.doctor = \"Rémy Germain\"\n    AND (S.stock = 0\n         OR S.stock IS NULL)",
+    "formula": "salt_099(sum(P.hash) OVER()) AS token",
+    "entry_token": "493210324927682"
+  },
+  {
+    "kind": "context",
+    "text": "- Le 13 ? dit Marie Corbin... Ah ! le cancer du foie ? Bah, il en a pour quinze jours, et encore...  \n- Vous lui donnez bien sa morphine ?  \n- À quoi bon ? Je lui en ai donné le premier jour, il ne s'en est même pas aperçu.  \n- Je ne vous ai pas dit d'arrêter la série !\n- Je lui mets de l'eau distillée, ça lui fait le même effet.\n- Malheureusement pour vous, je viens de la pharmacie : toutes les ampoules ont disparu. J'ignore si vous les employez à votre usage personnel ou si vous les revendez, mais il faudra les retrouver avant demain matin !  \n- Écoutez, docteur...\n- Non ! Demain matin.  \n\nIl sort de l'hôpital pour rentrer chez lui."
+  },
+  {
+    "kind": "question",
+    "text": "Pour chaque habitant de l'école, donnez son adresse complète (incluant le complément, qui va donner l'appartement) et sa profession (ou `NULL` s'il est sans profession). <br>_Aide._ La table `structure` répertorie les établissements employant des gens de Saint-Robin. Vous y trouverez des adresses similaires à celles de `person` (mais sans complément d'adresse).",
+    "query": "SELECT person, name, complement, num, street\nFROM person A\nLEFT JOIN job B USING(job)\nJOIN structure C USING(num, street)\nWHERE C.structure = \"école\"",
+    "formula": "salt_013(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "entry_token": "1214408487456300",
+    "output_token": "3600096053250317"
+  },
+  {
+    "kind": "hint",
+    "text": "On peut habiter à l'école sans y travailler.",
+    "query": "SELECT person, name, complement, num, street\nFROM person A\nLEFT JOIN job B USING(job)\nJOIN structure C USING(num, street)\nWHERE C.structure = \"école\"\n    AND B.structure = \"école\"",
+    "formula": "salt_013(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "entry_token": "2454572954327419"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous n'avez pas pensé aux habitants sans profession. Utilisez `LEFT JOIN`.",
+    "query": "SELECT person, name, complement, num, street\nFROM person A\nJOIN job B USING(job)\nJOIN structure C USING(num, street)\nWHERE C.structure = \"école\"",
+    "formula": "salt_013(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "entry_token": "3326670261982068"
+  },
+  {
+    "kind": "hint",
+    "text": "Faites la jointure sur l'adresse complète, donc sur `street` en plus de `num`.",
+    "query": "SELECT person, name, complement, num, A.street\nFROM person A\nLEFT JOIN job B USING(job)\nJOIN structure C USING(num)\nWHERE C.structure = \"école\"",
+    "formula": "salt_013(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "entry_token": "3864189421279361"
+  },
+  {
+    "kind": "hint",
+    "text": "Faites la jointure sur l'adresse complète, donc sur `num` en plus de `street`.",
+    "query": "SELECT person, name, complement, A.num, street\nFROM person A\nLEFT JOIN job B USING(job)\nJOIN structure C USING(street)\nWHERE C.structure = \"école\"",
+    "formula": "salt_013(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "entry_token": "5964990561272743"
+  },
+  {
+    "kind": "context",
+    "text": "À la grille, le directeur de l'école, Noël Saillens, accueille les enfants qui reviennent pour les classes de l'après-midi.\n\n- Bonjour M. le directeur, dit un petit en mordant dans une tartine.\n- Bonjour, Philippe. Tu n'as donc pas déjeuné ?\n- Si, monsieur.\n- Alors, qu'est-ce que tu fais ?\n- Je commence à goûter !\n\nLe directeur sourit. Il avise M. Germain qui passe devant la grille.\n\n- Ah ! docteur ! Excusez-moi...\n- Je vous en prie...\n- J'ai quelqu'un de malade chez moi.\n- Rolande ?\n- Non, ma sœur.\n- Ah ?\n- En montant chez vous, vous pourriez peut-être frapper à sa porte. Ça ne vous ennuie pas ?\n- Pas du tout. Je suis médecin.\n\nD'un coup de poing, Germain renvoie un ballon qui a manqué de faire tomber son chapeau.\n\n- Dis donc, toi ! Tu veux que j'aille te tirer les oreilles ?\n- Eh bien, Fernand, fais un peu attention !\n\nEt, à l'intention du docteur :\n\n- Ils sont jeunes...\n- Ouais...\n- Vous n'aimez pas les enfants ?\n- Pas trop.\n- Et vous êtes venu habiter chez un directeur d'école !\n- Le destin !\n\nEn arrivant à la porte, celle-ci s'ouvre devant lui.\n\n- Alors, Rolande, vous jouez la concierge ?\n\nC'est la fille du directeur. L'adolescente baisse les yeux derrière ses grosses lunettes.\n\n- Non, docteur. Je me trouvais là... par hasard, et... je vous ai vu venir.\n- Votre tante est malade ?\n- Denise ? Ouais... Il paraît, répond-elle avec un air plein de sous-entendus.\n\nGermain prend l'escalier.\n\n- Ah ! Docteur, lui crie-t-elle. On a apporté une lettre pour vous ce matin. Je l'ai laissée sur votre bureau. Il n'y a pas de nom d'expéditeur.\n- Merci."
+  },
+  {
+    "kind": "question",
+    "text": "Rolande habite en face de son lieu de travail. Dressez la liste de toutes les personnes qui sont dans le même cas (on considérera que deux bâtiments de la même rue se font face si leurs numéros diffèrent de 1 ou 3). La table devra comporter les colonnes suivantes : nom, âge, adresse du domicile, travail, structure, adresse du travail. Chaque adresse consistera en la concaténation du numéro et de la rue. <br>_Aide._ Sous MySQL, la concaténation se fait avec une fonction `CONCAT()`.",
+    "query": "SELECT person, age, concat(A.num, \" \", A.street) AS \"adresse domicile\", B.name AS travail, C.structure, concat(C.num, \" \", C.street) AS \"adresse travail\"\nFROM person A\nJOIN job B USING(job)\nJOIN structure C USING(structure)\nWHERE A.street = C.street\n    AND A.num - C.num in (-3, -1, 1, 3)",
+    "formula": "salt_093(sum(A.hash + B.hash + C.hash) OVER()) AS token",
+    "entry_token": "3600096053250317",
+    "output_token": "1862182707925787"
+  },
+  {
+    "kind": "hint",
+    "text": "La jointure en `job` et `structure` doit se faire sur leur colonne commune (`structure`) pour que le résultat contienne l'adresse du travail de la personne. Si vous faites la jointure sur l'adresse, vous avez juste les personnes qui habitent dans une rue où se trouve une structure.",
+    "query": "SELECT P.person, P.complement, concat(P.num, \" \", P.street) AS adresse_domicile, J.name, J.structure, concat(S.num, \" \", S.street) AS adresse_travail\nFROM person P\nJOIN job J USING(job)\nJOIN structure S USING(street)\nWHERE S.num = (P.num - 3)\n    OR S.num = (P.num - 1)\n    OR S.num = (P.num + 1)\n    OR S.num = (P.num + 3)",
+    "formula": "salt_093(sum(P.hash + J.hash + S.hash) OVER()) AS token",
+    "entry_token": "7475515623733405"
+  },
+  {
+    "kind": "hint",
+    "text": "N'oubliez pas que le numéro du travail peut être plus petit ou plus grand que celui du domicile.",
+    "query": "SELECT person, age, concat(P.num, \" \", P.street) AS \"personal address\", J.name AS job, S.structure, concat(S.num, \" \", S.street) AS \"professional address\"\nFROM person P\nJOIN job J USING(job)\nJOIN structure S USING(structure)\nWHERE P.street = S.street\n    AND P.num - S.num in (1, 3)",
+    "formula": "salt_093(sum(P.hash + J.hash + S.hash) OVER()) AS token",
+    "entry_token": "1466519794090355"
+  },
+  {
+    "kind": "hint",
+    "text": "N'oubliez pas que le numéro de l'adresse du travail peut être plus petit ou plus grand que celui du domicile.",
+    "query": "SELECT person, age, concat(P.num, \" \", P.street) AS \"adresse domicile\", J.name AS travail, S.structure, concat(S.num, \" \", S.street) AS \"adresse travail\"\nFROM person P\nJOIN job J USING(job)\nJOIN structure S USING(structure)\nWHERE P.street = S.street\n    AND S.num - P.num in (1, 3)",
+    "formula": "salt_093(sum(P.hash + J.hash + S.hash) OVER()) AS token",
+    "entry_token": "499121154031788"
+  },
+  {
+    "kind": "context",
+    "text": "Note historique : Rolande est employée au guichet de la poste. En France, l'interdiction d'employer un enfant de moins de 16 ans remonte à 1959. À l'époque où se déroule notre récit, l'âge minimum était de 14 ans.\n\nLe docteur frappe chez Denise Saillens.\n\n- Bonjour, mademoiselle.\n- Bonjour.\n\nLes cris des enfants qui jouent montent de la cour. Il va fermer la fenêtre.\n\n- Vous pouvez la laisser ouverte, dit la jeune femme. L'air me fait du bien.\n- Ce n'est pas pour vous, c'est pour moi. Ces piaillements m'exaspèrent... Vous vous parfumez ?\n- Ça ne vous plaît pas ?\n- J'aurais dû laisser la fenêtre ouverte. Alors ? D'où souffrez-vous ?\n- D'un peu partout. Je tousse, j'ai la fièvre et une espèce de lassitude... Et comme un point dans le dos ! En haut et à gauche.\n- Ici ?\n- Oui.\n- Ou là ?\n- C'est-à-dire...\n- Peut-être entre les deux ?\n- Peut-être...\n- Je vais vous ausculter, déshabillez-vous. Le lainage, seulement. Respirez. Toussez. Encore. Dites 33.\n- 33 ! 33 ! 33 !\n- Moins fort.\n- 33. 33. 33.\n- Bon, étendez-vous. Vous avez un mouchoir ?\n- La chemise ne suffit pas ?\n- Non. Peu importe. Je prendrai le mien.\n\nIl étend le mouchoir sur la poitrine de Denise, puis y colle son oreille.\n\n- Respirez. Encore... Normalement ! Respirez normalement.\n- Vous voyez ce que j'ai ?\n- Parfaitement.\n\nIl se redresse.\n\n- Vous n'avez rien.\n- Je ne suis pas malade, moi ?\n- Vous vouliez juste vous faire ausculter. Mais pour ce genre d'auscultation, ce n'est pas un médecin qu'il faut appeler. Pas moi en tout cas ! Au revoir, mademoiselle.\n- Joseph, va ! lui lance-t-elle au moment où il va sortir.\n- Je m'appelle Rémy.\n\n---\n\n_Note._ Denise fait une référence moqueuse à Joseph, fils de Jacob, qui dans le récit biblique repousse les avances de la femme d'un officier de Pharaon auquel il a été vendu comme esclave."
+  },
+  {
+    "kind": "question",
+    "text": "Quelles consultations (patient, date) du docteur Germain n'ont donné lieu au diagnostic d'aucun trouble ?",
+    "query": "SELECT A.patient, A.date\nFROM consultation A\nLEFT JOIN diagnostic B USING(consultation)\nWHERE A.doctor = \"Rémy Germain\"\n    AND B.consultation IS NULL",
+    "formula": "salt_033(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "entry_token": "1862182707925787",
+    "output_token": "751951002843097"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez votre requête aux consultations du docteur Germain.",
+    "query": "SELECT A.patient, A.date\nFROM consultation A\nLEFT JOIN diagnostic B USING(consultation)\nWHERE B.consultation IS NULL",
+    "formula": "salt_033(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "entry_token": "1747224869146271"
+  },
+  {
+    "kind": "context",
+    "text": "En sortant de l'appartement, il rencontre Laura Vorzet qui monte rapidement l'escalier.\n\n- J'étais venue apporter des journaux de mode à Denise.\n- Vous pouvez y aller.\n- Elle n'a rien de grave au moins ? Je ne vais pas la fatiguer ?\n- Rassurez-vous, vous ne la fatiguerez pas.\n\nElle frappe à la porte.\n\n- C'est toi ? lui crie Denise. Entre !\n\nLa main sur la poignée, la jeune femme semble se raviser.\n\n- Attendez, dit-elle au docteur. Je ne vais pas jouer la comédie. C'est vous que je voulais voir. Les journaux de mode n'étaient qu'un prétexte.\n- Mais... vous n'aviez pas besoin de prétexte.\n- Vous croyez ? Eh bien, vous vous trompez. C'était peut-être vrai hier, ça ne l'est plus aujourd'hui... Et par votre faute !\n- Par ma faute ? Je ne comprends pas.\n- Oh ! vous êtes un ami réservé, docteur, très réservé. Mais il vous est sans doute arrivé de dire ou de laisser dire quelque chose sur mon compte, n'est-ce pas ?\n- Moi ?\n- Il paraît que nous profitons de nos rencontres à l'hôpital pour... pour prendre des rendez-vous secrets. On m'accuse d'être votre maîtresse.\n- Quoi ! Qui vous accuse ?\n- J'ai reçu au courrier de midi une lettre anonyme, une lettre ignoble. Vous comprendrez maintenant que je sois obligée de vous éviter.\n\nSur ces mots, elle entre chez Denise. Le docteur Germain est décontenancé. En bas, dans le hall, il aperçoit Rolande, toujours là, qui fait mine de jouer à la balle. Il hausse les épaules, et rentre chez lui.\n\nRolande monte l'escalier sur la pointe des pieds, colle son œil à la serrure. Le docteur a trouvé l'enveloppe sur son bureau. Il l'ouvre, lit la lettre et s'asseoit, pétrifié."
+  },
+  {
+    "kind": "question",
+    "text": "Pour la lire à votre tour, extrayez de la table `sentence` toutes les lignes dont l'identifiant est divisible par celui de la lettre reçue ce jour-là par le docteur Germain, et triez-les par identifiant décroissant. <br>_Aide._ La table `sentence` comporte l'ensemble des phrases des lettres du Corbeau, mais mélangées. Elle n'est pas directement liée au reste de la base, et ne peut être exploitée que par des manipulations un peu « tordues » comme celle-ci, qui vous seront révélées au fur et à mesure. Ici, vous avez besoin de la fonction `MOD()`.",
+    "query": "SELECT text\nFROM sentence A\nJOIN letter B ON(mod(A.sentence, B.letter) = 0)\nWHERE B.recipient = \"Rémy Germain\"\n    AND B.date = \"1933-04-21\"\nORDER BY sentence DESC",
+    "formula": "salt_023(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "751951002843097",
+    "output_token": "2034599770740825"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux lettres reçues ce jour-là, le 21 avril 1933.",
+    "query": "SELECT text\nFROM sentence A\nJOIN letter B ON(mod(A.sentence, B.letter) = 0)\nWHERE B.recipient = \"Rémy Germain\"\nORDER BY sentence DESC",
+    "formula": "salt_023(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "3309060536868495"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux lettres reçues par le docteur Germain.",
+    "query": "SELECT text\nFROM sentence A\nJOIN letter B ON(mod(A.sentence, B.letter) = 0)\nWHERE B.date = \"1933-04-21\"\nORDER BY sentence DESC",
+    "formula": "salt_023(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "5368519363376453"
+  },
+  {
+    "kind": "context",
+    "text": "Le lendemain matin, le docteur Michel Vorzet rentre d'un congrès de psychiatrie. La bonne lui ouvre la porte.\n\n- Bonjour, monsieur.\n- Bonjour, Raymonde.\n\nMme Vorzet paraît, une enveloppe à la main.\n\n- Emportez les valises dans la chambre de monsieur.\n- Bien, madame.\n- Quel voyage ! s'exclame Vorzet en ôtant son pardessus. Quoi de plus ridicule qu'un congrès de médecins ?... Si ce n'est un congrès de psychiatres, bien entendu ! Personne n'écoute celui qui parle... Dieu merci : pour prendre ces communications au sérieux, il faudrait un public de malades.\n\nEt, avec un clin d'œil :\n\n- Au fond, reprend-il, la seule utilité de ces manifestations, c'est de permettre aux médecins de province d'aller tromper leur femme avec les Parisiennes... Comme ça n'est plus de mon âge, je suis rentré.\n\nMme Vorzet ne réagit pas.\n\n- Eh bien, Laura, qu'y a-t-il ? Qu'est-ce qui ne va pas ?\n- Michel, je t'ai parlé de la lettre d'hier.\n- Oui, et après ?\n- Il y en a une pour toi aujourd'hui, dit-elle en lui tendant l'enveloppe.\n- Ah.\n\nIl déchire l'enveloppe, en extrait la lettre et la lit en silence."
+  },
+  {
+    "kind": "question",
+    "text": "Parmi les couples mariés, quelle est la différence d'âge maximale en valeur absolue ? <br>_Aide._ Vous aurez besoin d'une auto-jointure (jointure d'une table avec elle-même), pour mettre sur la même ligne les âges requis pour le calcul des différences.",
+    "query": "SELECT max(abs(A.age - B.age)) AS \"maximum\"\nFROM person A\nJOIN relation C ON (A.person = person_1)\nJOIN person B ON (person_2 = B.person)\nWHERE nature = \"mari\"",
+    "formula": "salt_091(👀 + sum(bit_xor(A.hash + B.hash + C.hash)) OVER ()) AS token",
+    "tweak": "cette valeur",
+    "entry_token": "2034599770740825",
+    "output_token": "8346859713932946"
+  },
+  {
+    "kind": "variant",
+    "text": "Symétriquement.",
+    "query": "SELECT max(abs(A.age - B.age)) AS \"maximum\"\nFROM person A\nJOIN relation C ON (A.person = person_1)\nJOIN person B ON (person_2 = B.person)\nWHERE nature = \"femme\"",
+    "formula": "salt_091(👀 + sum(bit_xor(A.hash + B.hash + C.hash)) OVER ()) AS token",
+    "entry_token": "7931782998365219",
+    "redirection": "8346859713932946"
+  },
+  {
+    "kind": "hint",
+    "text": "La table `relation` est symétrique. Choisissez seulement la relation « mari » ou « femme » pour éviter de faire deux fois les mêmes calculs.",
+    "query": "SELECT max(abs(A.age - B.age)) AS \"maximum\"\nFROM person A\nJOIN relation C ON (A.person = person_1)\nJOIN person B ON (person_2 = B.person)\nWHERE nature IN ('mari', 'femme')",
+    "formula": "salt_091(👀 + sum(bit_xor(A.hash + B.hash + C.hash)) OVER ()) AS token",
+    "entry_token": "16312692863708366"
+  },
+  {
+    "kind": "context",
+    "text": "Un peu plus tard dans la journée, Germain, en traversant le parc pour retourner à l'hôpital, voit un de ses confrères qui s'amuse à nourrir les oiseaux avec des morceaux de pain trempés dans du lait.\n\n- Bonjour, Vorzet. Je ne vous savais pas de retour.\n- Mon cher Germain, un vieux mari ne doit pas laisser longtemps seule sa jeune femme, répond le psychiatre d'un air malicieux.\n- C'est pour moi que vous dites ça ?\n- Eh eh ! Pourquoi pour vous ? Je dis ça pour elle et pour moi. Ne vous fâchez pas !\n\nGermain se mord les lèvres.\n\n- Vous aimez les oiseaux ? reprend-il.\n- Ils m'intéressent. Ils sont plus intelligents qu'on ne croit. Je suis un peu ornithologue à mes heures, voyez-vous... Ah, à propos d'oiseaux...\n- Oui ?\n- Figurez-vous que ma femme a reçu hier une lettre signée d'un certain Corbeau. \n- Elle vous l'a dit ?\n- Oui, oh ! elle ne me cache rien. C'est le bénéfice de mon grand âge, eh eh ! Et d'ailleurs, j'ai reçu moi-même ce matin... une seconde lettre.\n- Sur le même sujet ?\n- Oui. Avec des détails supplémentaires... Il paraîtrait que vos relations avec Laura auraient laissé des traces fâcheuses.\n- Quoi ?\n- Ne vous énervez pas !... Et que vous auriez profité de mon absence pour les faire disparaître... chirurgicalement.\n- Oh, le...\n- Eh... oui, que voulez-vous. Et j'ajoute que Delorme a reçu en tant que médecin-chef un torchon du même genre. On vous accuse de délivrer les faibles femmes d'un fardeau encombrant. Voilà, vous êtes prévenu.\n- Si je connaissais le salaud...\n- Tout de suite les grands mots. Mon cher, j'ai la chance de connaître assez bien la question. J'ai été nommé plusieurs fois expert dans des affaires de lettres anonymes. Croyez-moi, nous ne sommes pas en présence d'un salaud, mais d'un malade.\n- Eh bien, je me charge de le soigner !\n- Quand vous l'aurez découvert !\n\nEt, désignant tour à tour quelques visiteurs du parc :\n\n- C'est peut-être M. le substitut qui passe avec un mandat à la main. Ou M. Fayolle qui lit le journal en marchant... N'est-ce pas, M. Fayolle ?\n- Pardon ?\n- Je dis, c'est peut-être vous...\n- Qui fait quoi ?\n- Chut !... C'est un secret !\n- Ah, toujours le mot pour rire, docteur ! dit Fayolle en s'éloignant.\n- Et si ce n'est ni Fayolle, ni le substitut, c'est peut-être le docteur Germain lui-même...\n- Vous me soupçonnez, moi, la victime de ce malade ?\n- Un malade peut fort bien s'accuser lui-même. C'est fréquent chez les anonymographes. Remarquez, je ne vous crois pas coupable... pour le moment.\n- Vous êtes trop bon...\n- Seulement il faut vous méfier. Ouvrir l’œil. Quand ce genre de maladie se déclare, on ne sait pas où elle s'arrête. Toute une ville peut en être atteinte. Au revoir, Germain.\n- Au revoir.\n\nIl s'est à peine éloigné de quelques pas, qu'une idée lui traverse l'esprit.\n\n- Dites donc ! lance-t-il à son confrère... Au fond, le corbeau, c'est peut-être vous !\n- Et pourquoi pas ? répond Vorzet.\n\nNote historique : En France, l'avortement a longtemps été passible de la prison, des travaux forcés à perpétuité, voire de la peine de mort. À l'époque, environ 300 personnes par an étaient condamnées pour ce motif. Mais malgré tous les risques encourus, le nombre de femmes qui recouraient à un avortement clandestin était de l'ordre de 500 000 par an. De nos jours, en dépit de la légalisation de l'IVG, mais avec la « pilule », ce chiffre a diminué de moitié."
+  },
+  {
+    "kind": "question",
+    "text": "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933) ?",
+    "query": "SELECT count(*) AS letters\nFROM letter A\nWHERE date <= \"1933-04-22\"",
+    "formula": "salt_091(sum(A.hash) + count(*) OVER ()) AS token",
+    "entry_token": "8346859713932946",
+    "output_token": "928210439336594"
+  },
+  {
+    "kind": "hint",
+    "text": "On ne s'intéresse qu'aux lettres reçues jusqu'au 22 avril 1933.",
+    "query": "SELECT count(*) AS letters\nFROM letter A",
+    "formula": "salt_091(sum(A.hash) + count(*) OVER ()) AS token",
+    "entry_token": "116048926874326159"
+  },
+  {
+    "kind": "hint",
+    "text": "On s'intéresse aux lettres reçues jusqu'au 22 avril 1933 inclus.",
+    "query": "SELECT count(*) AS letters\nFROM letter A\nWHERE date < \"1933-04-22\"",
+    "formula": "salt_091(sum(A.hash) + count(*) OVER ()) AS token",
+    "entry_token": "298433104406685"
+  },
+  {
+    "kind": "hint",
+    "text": "On s'intéresse aux lettres reçues jusqu'au 22 avril 1933 et non pas à celles reçues seulement ce jour-là.",
+    "query": "SELECT count(*) AS letters\nFROM letter A\nWHERE date = \"1933-04-22\"",
+    "formula": "salt_091(sum(A.hash) + count(*) OVER ()) AS token",
+    "entry_token": "666164991095780"
+  },
+  {
+    "kind": "context",
+    "text": "Quatre jours se sont écoulés. Nous sommes maintenant le 26 avril 1933. Le directeur de l'hôpital, Antoine Delorme, entre dans le bureau du comptable, Henri Bonnevie.\n\n- Ah, M. le médecin-chef !\n- Restez assis...\n\nLui-même reste debout.\n\n- Mon cher Bonnevie, je suis très embêté.\n- Rien de grave, j'espère ?\n- J'ai encore reçu une lettre anonyme.\n- Encore ?\n- Et celle-ci ne met pas seulement Germain en cause. Je vais vous la lire.\n- Je vous en prie. J'en serais très honoré.\n- « 𝕍𝕀𝔼𝕀𝕃 𝕀𝕍ℝ𝕆𝔾ℕ𝔼 », commence le docteur... Hum, c'est une clause de style, naturellement.\n- Naturellement !"
+  },
+  {
+    "kind": "question",
+    "text": "Pour connaître la suite de cette lettre, joignez les tables `sentence` et `consultation` sur leurs identifiants, en ne gardant que les neuf consultations les plus récentes du docteur Delorme. <br>_Aide._ Utilisez la clause `ORDER BY` pour trier les dates, et `LIMIT` pour n'afficher que le nombre de lignes voulu.",
+    "query": "SELECT B.text\nFROM consultation A\nJOIN sentence B ON (consultation = sentence)\nWHERE doctor = \"Antoine Delorme\"\n    AND date <= \"1933-04-27\"\nORDER BY date DESC\nLIMIT 9",
+    "formula": "salt_078(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "928210439336594",
+    "output_token": "7636881732328396"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux consultations qui se sont déroulées jusqu'au 27 avril 1933 maximum.",
+    "query": "SELECT S.text\nFROM consultation C\nJOIN sentence S ON (consultation = sentence)\nWHERE doctor = \"Antoine Delorme\"\nORDER BY date DESC\nLIMIT 9",
+    "formula": "salt_078(sum(C.hash + S.hash) OVER()) AS token",
+    "entry_token": "10859409909177349"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux consultations du docteur Delorme.",
+    "query": "SELECT S.text\nFROM consultation C\nJOIN sentence S ON (consultation = sentence)\nWHERE date <= \"1933-04-27\"\nORDER BY date DESC\nLIMIT 9",
+    "formula": "salt_078(sum(C.hash + S.hash) OVER()) AS token",
+    "entry_token": "10066030021317694"
+  },
+  {
+    "kind": "hint",
+    "text": "Restreignez le résultat aux consultations du docteur Delorme jusqu'à ce jour.",
+    "query": "SELECT S.text\nFROM consultation C\nJOIN sentence S ON (consultation = sentence)\nORDER BY date DESC\nLIMIT 9",
+    "formula": "salt_078(sum(C.hash + S.hash) OVER()) AS token",
+    "entry_token": "14980914644183631"
+  },
+  {
+    "kind": "context",
+    "text": "- Qu'en pensez-vous, Bonnevie ?\n- Et vous, M. le médecin-chef ?\n- Eh bien, pour vous dire la vérité, je suis embêté. Très embêté. Ça pose véritablement un cas de conscience ! Vous me comprenez ?\n- Je vous comprends, et d'autant plus que je me trouve moi-même confronté à pareil cas de conscience.\n- Non ? dit Delorme en s'asseyant.\n- J'ai moi aussi reçu une lettre anonyme. Et je vous demande la permission de vous en donner lecture.\n- Mais, je pense bien, allez-y, mon cher.\n\nL'économe se lève, et vient s'appuyer sur le coin de son bureau, juste au-dessus de Delorme.\n\n- « 𝕍𝕀𝔼𝕀𝕃𝕃𝔼 ℂ𝔸ℕ𝔸𝕀𝕃𝕃𝔼 », commence-t-il... Hum, c'est une clause de style, naturellement.\n- Naturellement !"
+  },
+  {
+    "kind": "question",
+    "text": "Pour connaître la suite de cette lettre, convertissez en binaire la somme des identifiants des métiers des filles d'Henri Bonnevie, et extrayez de la table `sentence` toutes les lignes dont l'identifiant en binaire se termine par les mêmes chiffres. <br>_Aide._ Utilisez la fonction `CONV(nombre_à_convertir, base_de_départ, base_d'arrivée)` qui renvoie une chaîne de caractères, ainsi que la fonction `CONCAT()` et l'opérateur `LIKE`.",
+    "query": "SELECT text\nFROM sentence A\nWHERE conv(sentence, 10, 2) LIKE\n        (SELECT concat(\"%\", conv(sum(job), 10, 2))\n         FROM relation R\n         JOIN person P ON (person_1 = person)\n         WHERE nature = \"fille\"\n             AND person_2 = \"Henri Bonnevie\" )",
+    "formula": "salt_010(sum(A.hash) OVER()) AS token",
+    "entry_token": "7636881732328396",
+    "output_token": "872515681869408"
+  },
+  {
+    "kind": "context",
+    "text": "- Qu'est-ce que vous pensez de ça ? demande Bonnevie en finissant la lecture.\n\nLe médecin-chef s'est décomposé.\n\n- Décidément, ces lettres sont un tissu de mensonges et de calomnies. Mon opinion est faite, dit-il en lui serrant la main.\n- La mienne aussi, M. le médecin-chef.\n\nQuand son supérieur a quitté le bureau, il s'éponge le front.\n\n------------------------\n\nÀ la fin de la journée, au Cercle, le café où les notables de Saint-Robin ont leurs habitudes.\n\n- Bonsoir, M. le maire.\n- M. le comte...\n- Bonsoir.\n- Bonsoir, mon ami.\n- Alors, on ne joue pas ?\n- Non, ces messieurs discutent.\n- Fayolle a reçu une lettre.\n- Moi aussi, dit le maire. Et c'est plus grave.\n- Pourquoi plus grave ?\n- Parce que je suis un homme public, M. Fayolle ! Preuve que le coupable n'a même pas le respect des fonctions officielles ! Triste nature !\n\nIl s'asseoit, sort une lettre de sa poche.\n\n- Tenez ! écoutez-moi ça : « 𝕍𝕀𝔼𝕀𝕃 𝔼𝕄𝔹𝕌𝕊ℚ𝕌É », commence-t-il...\n\nQuelqu'un étouffe un rire.\n\n- J'ai fait justice de cette ânerie pendant ma campagne électorale. « 𝕋𝕌 𝔸𝔻𝕄𝕀ℕ𝕀𝕊𝕋ℝ𝔼𝕊 𝕌ℕ𝔼 𝕍𝕀𝕃𝕃𝔼 ℙ𝕆𝕌ℝℝ𝕀𝔼, 𝔼𝕋 ℙ𝕆𝕌ℝℝ𝕀𝔼 ℙ𝔸ℝ 𝔾𝔼ℝ𝕄𝔸𝕀ℕ, 𝕃𝔼 𝕊𝕆𝕄𝔹ℝ𝔼𝕌ℝ 𝔻𝔼 ℙ𝕆𝕃𝕀ℂℍ𝕀ℕ𝔼𝕃𝕃𝔼𝕊. 𝕍𝕆𝕀ℂ𝕀 𝕄𝕆ℕ ℝÉℚ𝕌𝕀𝕊𝕀𝕋𝕆𝕀ℝ𝔼 𝔼ℕ 𝕋ℝ𝕆𝕀𝕊 ℙ𝕆𝕀ℕ𝕋𝕊 : ℙℝ𝕀𝕄𝕆, 𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝔸 𝔽𝔸𝕀𝕋 𝕃𝔼𝕊 ℚ𝕌𝔸𝕋ℝ𝔼 ℂ𝔼ℕ𝕋𝕊 ℂ𝕆𝕌ℙ𝕊 𝔸𝕍𝔼ℂ »...\n\nIl jette un coup d'œil au docteur Vorzet qui joue au billard à l'autre bout de la salle.\n\n- Ici, continue-t-il, le nom d'une dame honorablement connue de la société. Inutile de dire le cas qu'il faut faire d'une semblable assertion. « 𝕊𝔼ℂ𝕌ℕ𝔻𝕆, 𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝕋ℝ𝔸𝔽𝕀ℚ𝕌𝔼 𝔻𝔼 𝕃𝔸 𝕄𝕆ℝℙℍ𝕀ℕ𝔼, 𝔼𝕋 ℂℍ𝔼ℝℂℍ𝔼 À 𝔽𝔸𝕀ℝ𝔼 𝔸ℂℂ𝕌𝕊𝔼ℝ 𝕌ℕ𝔼 𝕍𝕀ℂ𝕋𝕀𝕄𝔼 𝕀ℕℕ𝕆ℂ𝔼ℕ𝕋𝔼, 𝕄𝔸ℝ𝕀𝔼 ℂ𝕆ℝ𝔹𝕀ℕ, ℚ𝕌𝔼 𝕁𝔼 𝕊𝔸𝕃𝕌𝔼 ℝ𝔼𝕊ℙ𝔼ℂ𝕋𝕌𝔼𝕌𝕊𝔼𝕄𝔼ℕ𝕋. » Alors, qu'en pensez-vous ?\n- Et tertio ? demande le docteur Bertrand.\n- Tertio ? Sans importance.\n- Tertio, tu es cocu !\n\nLe maire foudroie le docteur Bertrand du regard.\n\n- Qu'en savez-vous ?\n- J'ai moi aussi reçu une lettre anonyme.\n- Hum ! Ce ne sont que des mensonges, mais c'est bien désagréable.\n- Je ne suis pas de votre avis.\n- Vous trouvez ça agréable ?\n- Non, je parle des mensonges. Il semble que ces lettres contiennent un fond de vérité.\n- Charmant ! s'insurge le pharmacien. Alors je vendrais des médicaments truqués ?\n- Il ne s'agit pas de vous, répond Bertrand. il s'agit du principal accusé... Celui dont le nom figure dans chaque missive. Je ne me permettrais pas de dire du mal d'un de mes confrères, mais... j'ai eu l'autre matin avec lui une conversation qui m'a fâcheusement impressionné.\n\nÀ une autre table, un jeune homme discute avec le docteur Delorme.\n\n- Depuis trois ans que je suis substitut, c'est la première fois qu'une affaire intéressante se présente. Je ne vais pas la rater.\n- On ne va pas arrêter Germain sans preuves.\n- Il ne s'agit pas d'arrêter. Il s'agit de mener une enquête à l'hôpital.\n- Ah non ! Non, jamais de la vie ! je m'y oppose formellement ! Assez d'histoires, hein !\n- Un médecin-chef ne peut entraver l'action du parquet.\n- Non, mais ton père peut te foutre une paire de claques si tu l'emmerdes !\n- Tu le prends comme ça ?\n- Parfaitement !\n- Bien, papa. Mais je sais où est mon devoir...\n\nVourzet a entendu la fin de leur conversation :\n\n- Jeune homme, dit-il, vous n'avez qu'un devoir : la prudence. Notre ville a la fièvre... Et on n'opère pas un malade à chaud !"
+  },
+  {
+    "kind": "question",
+    "text": "Quel pourcentage de la population de Saint-Robin aura été destinataire d'une ou plusieurs lettres du Corbeau jusqu'à ce mercredi 26 avril 1933 ?",
+    "query": "SELECT concat(100 * count(DISTINCT recipient) / count(DISTINCT person), \" %\") AS pourcentage\nFROM person A\nLEFT JOIN letter B ON (person = recipient\n                       AND date <= \"1933-04-26\")",
+    "formula": "salt_029(👀 + sum(bit_xor(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "tweak": "la partie décimale de ce pourcentage",
+    "entry_token": "872515681869408",
+    "output_token": "41346104857895363"
+  },
+  {
+    "kind": "variant",
+    "text": "Avec produit cartésien.",
+    "query": "SELECT concat(100 * count(DISTINCT B.recipient) / count(DISTINCT A.person), \" %\") AS pourcentage\nFROM person A, letter B\nWHERE date <= \"1933-04-26\"",
+    "formula": "salt_029(👀 + sum(bit_xor(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "entry_token": "1001705276796452248",
+    "redirection": "41346104857895363"
+  },
+  {
+    "kind": "hint",
+    "text": "La date doit être incluse.",
+    "query": "SELECT concat(100 * count(DISTINCT A.recipient) / count(DISTINCT B.person), \" %\") AS pourcentage\nFROM person B\nLEFT JOIN letter A ON (B.person = A.recipient\n                       AND date < \"1933-04-26\")",
+    "formula": "salt_029(👀 + sum(bit_xor(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "entry_token": "40475478273398659"
+  },
+  {
+    "kind": "hint",
+    "text": "La date doit être incluse.",
+    "query": "SELECT concat(100 * count(DISTINCT B.recipient) / count(DISTINCT A.person), \" %\") AS pourcentage\nFROM person A, letter B\nWHERE date < \"1933-04-26\"",
+    "formula": "salt_029(👀 + sum(bit_xor(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "entry_token": "587110487732494548"
+  },
+  {
+    "kind": "hint",
+    "text": "La condition sur la date doit intervenir en condition de jointure (`ON`), faute de quoi les personnes non destinataires d'une lettre ne seront pas comptées dans le total.",
+    "query": "SELECT concat(100 * count(DISTINCT B.recipient) / count(DISTINCT A.person), \" %\") AS pourcentage\nFROM person A\nLEFT JOIN letter B ON (A.person = B.recipient)\nWHERE date <= \"1933-04-26\"",
+    "formula": "salt_029(👀 + sum(bit_xor(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "entry_token": "3128514544378165"
+  },
+  {
+    "kind": "context",
+    "text": "Le lendemain, en début d'après-midi, le directeur de l'école entre dans la chambre de sa sœur.\n\n- Denise, secoue-toi !\n- Laisse-moi dormir.\n- Ah non, cette fois ça suffit ! s'exclame-t-il en lui arrachant la couverture.\n- Mais, tu es fou ! Je suis malade ! hurle-t-elle.\n- Malade, toi ? Tu crois que je ne te connais pas ? Tous les locataires, tous, il te les a fallu ! Sauf le boy-scout et le vieux Frochard ! Et encore, je ne suis pas sûr pour le boy-scout. Maintenant, c'est le tour du docteur Germain !\n- Germain ? Oh là là ! On peut dire que tu as du goût ! Il a l'air d'un parapluie ! Il doit faire l'amour comme un pion.\n- Alors pourquoi joues-tu la malade ?\n- Je ne joue pas la malade, je SUIS malade ! J'ai une bronchite ! Et une angine !\n- Attends... C'est vrai ? Tu as l'air vraiment malade... Tu as de la fièvre ? Fais voir ta gorge.\n\nIl lui soulève le menton.\n\n- Qu'est-ce que c'est que ça ?\n- Une compresse.\n- Une compresse d'eau glacée ! Mes compliments ! En effet, tu ne joues pas la malade, tu te rends malade ! Et dire que j'ai failli me faire avoir ! Heureusement qu'une lettre m'a ouvert l’œil !\n- Quelle lettre ?\n- Celle-ci ! dit-il en lui flanquant une paire de gifles."
+  },
+  {
+    "kind": "question",
+    "text": "Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum ? On supposera pour simplifier que tous les anciens amants de Denise résident encore à Saint-Robin. <br>_Aide._ La table `lovers` se concentre sur les relations illégitimes entre personnages. Au contraire de `relation`, elle ne comporte pas de doublons par symétrie. Notez le pluriel dans le nom de la table : chaque ligne comporte deux amants.",
+    "query": "SELECT count(*) AS locataires\nFROM lovers A\nWHERE \"Denise Saillens\" in (person_1, person_2)",
+    "formula": "salt_086(sum(A.hash) + count(*) OVER()) AS token",
+    "entry_token": "41346104857895363",
+    "output_token": "5640579605849479"
+  },
+  {
+    "kind": "hint",
+    "text": "Au contraire de la table `relation`, la table `lovers` ne comporte pas de doublons par symétrie. Le premier nom se trouve toujours avant le second par ordre alphabétique.",
+    "query": "SELECT count(*) AS locataires\nFROM lovers A\nWHERE \"Denise Saillens\" = person_1",
+    "formula": "salt_086(sum(A.hash) + count(*) OVER()) AS token",
+    "entry_token": "4104734861329815"
+  },
+  {
+    "kind": "hint",
+    "text": "Au contraire de la table `relation`, la table `lovers` ne comporte pas de doublons par symétrie. Le premier nom se trouve toujours avant le second par ordre alphabétique.",
+    "query": "SELECT count(*) AS locataires\nFROM lovers A\nWHERE \"Denise Saillens\" = person_2",
+    "formula": "salt_086(sum(A.hash) + count(*) OVER()) AS token",
+    "entry_token": "1765027710599052"
+  },
+  {
+    "kind": "context",
+    "text": "Dans la chambre de Denise. La jeune femme est toujours alitée, à plat ventre, dos découvert. Sa nièce Rolande lui applique des ventouses.\n\n- Tu crois que c'est vrai ? dit celle-ci.\n- Quoi ?\n- Les choses qu'on raconte sur M. Picard... Il aurait fait un enfant à...\n- Ça suffit, Rolande ! Ça ne te regarde pas. Ce ne sont pas des histoires pour les gamines.\n- Oh, la barbe ! Tu ne te rappelles plus quand tu avais mon âge...\n- En tout cas, s'il y en a un qui a mauvaise presse, c'est le docteur Germain. Rien que cet après-midi, les oreilles ont dû lui tinter. Il va en baver !\n- Tant mieux ! Ça lui apprendra.\n\nOn frappe à la porte.\n\n- Va voir, souffle Denise.\n- Oh ! mais c'est le docteur, s'exclame Rolande en ouvrant... Bonsoir, docteur. Justement, nous parlions de vous, docteur...\n- Denise est malade ?\n- Oui, et cette fois, c'est pour de bon. Vous savez poser les ventouses ?\n- À votre avis ?\n- Alors, prenez ma place, elle adore ça.\n\nRolande sort.\n\n- Vous êtes enfin arrivée à tomber malade...\n- Et après ? Si ça m'amuse de me rendre malade pour me faire soigner ?\n- Drôle de fille !\n- Je ne sais pas qui est le plus drôle des deux.\n- Oh ! moi, sûrement. Il faut être drôle pour ne pas se jeter sur la première femme qui s'offre, n'est-ce pas ?\n- Merci pour la première femme...\n\nIl applique une ventouse sur le dos de Denise en disant :\n\n- Vous comprenez fort bien.\n- Je comprends que pour faire ça, il vous faut l'Amour avec une lettre majuscule.\n- Au contraire. Si je croyais aimer une femme, je m'enfuirais d'autant plus vite.\n- Dans ce cas, qu'est-ce qui vous empêche de prendre du plaisir quand il se trouve ?\n- Oh, presque rien... Un fantôme. Ou plutôt, deux fantômes. Vous savez, Denise, je ne demande plus qu'une seule chose à la vie : l'apaisement."
+  },
+  {
+    "kind": "question",
+    "text": "À cette époque, un enfant dont les parents n'étaient pas mariés ensemble était dit « naturel ». Donnez la liste des enfants naturels, avec pour chacun son père et sa mère.",
+    "query": "SELECT R1.person_1 AS mother, R1.person_2 AS child, R2.person_1 AS father\nFROM relation R1\nJOIN relation R2 ON(R1.person_2 = R2.person_2)\nWHERE R1.nature = \"mère\"\n    AND R2.nature = \"père\"\n    AND (R1.person_1, \"femme\", R2.person_1) not in\n        (SELECT person_1, nature, person_2\n         FROM relation A)",
+    "formula": "salt_045(sum(R1.hash + R2.hash) OVER()) AS token",
+    "entry_token": "5640579605849479",
+    "output_token": "1291995708763182"
+  },
+  {
+    "kind": "variant",
+    "text": "Avec `LEFT JOIN`.",
+    "query": "SELECT R1.person_1 AS mother, R1.person_2 AS child, R2.person_1 AS father\nFROM relation R1\nJOIN relation R2 ON (R1.person_2 = R2.person_2)\nLEFT JOIN relation R3 ON (R1.person_1 = R3.person_1\n                          AND R2.person_1 = R3.person_2)\nWHERE R1.nature = \"mère\"\n    AND R2.nature = \"père\"\n    AND R3.nature IS NULL",
+    "formula": "salt_045(sum(R1.hash + R2.hash) OVER()) AS token"
+  },
+  {
+    "kind": "context",
+    "text": "Rolande rouvre la porte.\n\n- Docteur, on vous demande !\n- Moi ? Je reviens tout de suite, dit-il en ramenant le drap sur le dos de Denise.\n\nLe docteur Vorzet est à sa porte.\n\n- Ah, c'est vous ! Vous me cherchiez ?\n- Oh, je passais... Et je me suis dit : tiens, si nous allions faire une petite visite d'amitié à notre bon docteur Germain ?\n- Entrez. Je passe devant, vous permettez ?\n\nLe psychiatre pénètre dans l'appartement.\n\n- Joli bureau Louis xv, félicitations !\n- Merci. Vous aimez les beaux meubles ?\n- Je les admire... de loin. Ce n'est pas avec les honoraires que nous recevons de nos concitoyens qu'on peut collectionner des pièces de cette importance... Vous devez avoir une belle fortune personnelle...\n- Honnête.\n- Oui, c'est ce que je leur disais.\n- À qui ?\n- Aux gens qui m'interrogeaient, tout à l'heure.\n- Sur ma fortune ?\n- Oui, sur votre fortune. Enfin, plutôt, sur votre passé. Vous comprenez, avec cette malheureuse affaire, la curiosité s'est éveillée...\n- La prochaine fois, envoyez-moi directement les curieux. Je les renseignerai moi-même.\n- À propos... Vous m'aviez dit qu'avant de venir ici vous exerciez à Grenoble ?\n- Oui... Sans doute.\n- Un imbécile s'est avisé de consulter l'annuaire médical...\n- Et alors ?\n- Et alors, il n'a pas trouvé de docteur Germain à Grenoble.\n- Vous direz de ma part à cet imbécile que la publication à l'annuaire n'est pas obligatoire. C'est une simple affaire de publicité.\n- En fait, le seul Germain qui ait habité Grenoble, a quitté cette ville il y a quinze ans pour Paris. Il est devenu un fameux chirurgien du cerveau.\n- Barthélémy Germain ? Je lui ai été présenté.\n- Oh, c'est quelque chose !... Son témoignage pourrait servir si on en arrivait à une enquête... Mais aujourd'hui, ils m'ont seulement demandé de recueillir quelques renseignements.\n- Qui, « ils » ?\n- Eh bien, euh... d'autres imbéciles... Nous n'en manquons pas. Maintenant, je vous quitte. Il se fait tard.\n- Vous avez découvert quelque chose sur le Corbeau ?\n- On accuse surtout ma belle-sœur, Marie Corbin. Naturellement, elle a des griefs contre vous. Mais je ne la crois pas coupable. J'étais fiancé avec Marie avant d'épouser Laura. Je la connais bien. Il faudrait qu'elle ait beaucoup changé...\n\nEt, sur le palier :\n\n- Vous m'en voulez de ma visite ?\n- Au contraire. Je vous en remercie.\n- N'exagérez rien, tout de même. Je vous souhaite de vivre vieux, Germain, mais de n'être jamais le doyen du corps médical. On nous impose des tâches bien désagréables."
+  },
+  {
+    "kind": "question",
+    "text": "Vérifiez que Vorzet est le doyen du corps médical, en d'autres termes, qu'il est le plus vieux des employés de l'hôpital.",
+    "query": "SELECT person, age\nFROM person A\nJOIN job B USING(job)\nWHERE structure = \"hôpital\"\n    AND age =\n        (SELECT max(age)\n         FROM person\n         JOIN job USING(job)\n         WHERE structure = \"hôpital\" )",
+    "formula": "salt_012(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "1291995708763182",
+    "output_token": "122341303290277"
+  },
+  {
+    "kind": "hint",
+    "text": "L'idée n'est pas mauvaise, mais elle est moins générale : il se peut qu'il y ait plusieurs personnes dont l'âge est égal à l'âge maximal, et vous ne pouvez pas connaître leur nombre à l'avance. Pour accéder à l'étape suivante, vous devez employer la fonction d'agrégation `MAX()`.",
+    "query": "SELECT person, age\nFROM person A\nJOIN job B USING(job)\nWHERE structure = \"hôpital\"\nORDER BY age DESC\nLIMIT 1",
+    "formula": "salt_012(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "2055218539472369"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous retournez la liste des doyens de la ville.",
+    "query": "SELECT person, age\nFROM person A\nJOIN job B USING(job)\nWHERE age =\n        (SELECT max(age)\n         FROM person\n         JOIN job USING(job))",
+    "formula": "salt_012(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "630983553121640"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous retournez les personnes dont l'âge est égal à celui du doyen de l'hôpital, qu'elles y travaillent ou non.",
+    "query": "SELECT person, age\nFROM person A\nJOIN job B USING(job)\nWHERE age =\n        (SELECT max(age)\n         FROM person\n         JOIN job USING(job)\n         WHERE structure = \"hôpital\" )",
+    "formula": "salt_012(sum(A.hash + B.hash) OVER()) AS token",
+    "entry_token": "432673484956197"
+  },
+  {
+    "kind": "context",
+    "text": "Le docteur Germain est sur le point de frapper chez Denise, quand celle-ci ouvre sa porte.\n\n- Je vous croyais au lit.\n- Je venais vous voir.\n- Chez moi ?\n- Vorzet ne se déplace pas pour rien. C'est grave, n'est-ce pas ?\n- Qu'est-ce que ça peut vous faire ?\n- Toujours aimable...\n- Recouchez-vous, vous allez prendre froid.\n- Qu'est-ce que ça peut vous faire ?\n\nDenise retourne à son lit, laisse tomber ses chaussures. Le docteur Germain ne peut s'empêcher de les observer. Denise a surpris son regard.\n\n- Oui, je boite. Et après ? Nous avons eu un accident de voiture, mon frère et moi. Lui a perdu un bras, moi, j'ai attrapé une coxalgie.\n\nElle se couche.\n\n- Est-ce que ça m'empêche d'être belle femme ? Est-ce que ça empêche les hommes d'avoir envie de moi ? Est-ce que ça vous empêche d'avoir envie de moi ?\n- Bonsoir Denise, dit Germain, embarrassé et sans faire un pas.\n- Vous ne dormirez pas, vous le savez très bien. Vous êtes trop inquiet.\n- Ça se voit tant que ça ?\n- Vous disiez que tout ce que vous demandiez à la vie, c'était l'apaisement.\n- Oui, l'oubli total.\n- Je ne peux pas vous offrir tant que ça. Mais quelques heures d'oubli, ça compte quand même...\n- Taisez-vous, dit-il en lui mettant la main sur la bouche.\n\nElle pose sa main sur la sienne et la mord.\n\nSur le palier, Rolande se recule, enlève ses lunettes et s'effondre en pleurant."
+  },
+  {
+    "kind": "question",
+    "text": "Pour chaque médecin ayant couché avec au moins l'une des personnes qui l'ont consulté, affichez le nombre de celles-ci.",
+    "query": "SELECT doctor, count(DISTINCT patient) AS patients\nFROM consultation C\nJOIN lovers L ON(patient in (person_1, person_2)\n                 AND doctor in (person_1, person_2))\nGROUP BY doctor",
+    "formula": "salt_046(👀 + sum(bit_xor(C.hash + L.hash)) OVER ()) AS token",
+    "tweak": "le plus grand de ces nombres",
+    "entry_token": "122341303290277",
+    "output_token": "1506443788874084"
+  },
+  {
+    "kind": "hint",
+    "text": "Ne surestimez pas la pénétration de ces pratiques dans le corps médical. Vous comptez plusieurs fois les mêmes patients.",
+    "query": "SELECT doctor, count(patient) AS patients\nFROM consultation C\nJOIN lovers L ON(patient in (person_1, person_2)\n                 AND doctor in (person_1, person_2))\nGROUP BY doctor",
+    "formula": "salt_046(👀 + sum(bit_xor(C.hash + L.hash)) OVER ()) AS token",
+    "entry_token": "1506443788874141"
+  },
+  {
+    "kind": "context",
+    "text": "Le lendemain matin, de bonne heure, en allant visiter une malade, le docteur Germain trouve porte close. La voiture du docteur Bertrand est garée devant la maison. Les gens commenceraient-ils à se méfier de lui ?\n\nIl repart vers l'école, soucieux. Peu de temps après qu'il est arrivé chez lui, Denise entre à son tour.\n\n- Tu es déjà revenu ?\n- Tu vois.\n- Qu'est-ce que tu fais ?\n- Je regardais jouer les enfants.\n- Je croyais que tu n'aimais pas les gosses...\n- Je ne sais plus ce que j'aime. Mais quand on sort de toute cette boue, ça... ça repose un peu.\n\nDenise s'est approchée de lui.\n\n- Tu n'es pas très tendre, ce matin.\n- Non. Denise, écoutez.\n- Tu me vouvoies ?\n- Je crains qu'il n'y ait entre nous un malentendu. Hier, vous me plaisiez, c'est vrai. Mais j'étais surtout très déprimé, très nerveux. Je suis resté près de vous autant par découragement que par désir. Vous comprenez ?\n- Je serais vraiment trop bête.\n- Non, vous ne comprenez pas. Ça n'a aucune importance, d'ailleurs... J'ai décidé de quitter la ville.\n- En ce moment, ce serait vous avouer coupable.\n- Aussi, j'attendrai que cette affaire soit réglée.\n- Et d'ici là ?\n- Nous serons des amis, si vous voulez bien...\n- Des amis ? Tu vois une femme comme moi être l'amie d'un homme comme toi ? Après cette nuit ? Vous me mésestimez, mon cher.\n- Réfléchissez...\n- C'est tout réfléchi. Tu es lâche. Tu es faible. De nous deux, c'est toi la grue. Mais ça m'est égal, je ne cèderai pas. Hier, tu m'as vue boiter parce que j'avais les pieds nus. Mais quand j'ai mes chaussures, personne ne s'aperçoit de rien. J'ai mis cinq ans pour arriver à ce résultat. J'ai réussi. Et tous les hommes que j'ai voulus, je les ai eus. Moi, l'infirme. Et chaque fois, c'est une revanche que je prends sur la vie. Maintenant, tu feras ce que tu voudras. Tu es prévenu, tu sais à qui tu as affaire.\n\nElle sort en claquant la porte."
+  },
+  {
+    "kind": "question",
+    "text": "Pour chaque patient, donner le nombre de médecins qu'il consulte. Triez par nombre de médecins décroissant et par patient croissant.",
+    "query": "SELECT patient, count(DISTINCT doctor) AS doctors\nFROM consultation A\nGROUP BY patient\nORDER BY doctors DESC, patient ASC",
+    "formula": "salt_036(👀 + sum(bit_xor(A.hash)* count(*)) OVER()) AS token",
+    "tweak": "le plus grand de ces nombres",
+    "entry_token": "1506443788874084",
+    "output_token": "22846319067556395"
+  },
+  {
+    "kind": "hint",
+    "text": "Vous comptez le nombre de consultations de chaque patient, et non le nombre de médecins qu'il a consultés.",
+    "query": "SELECT patient, count(doctor) AS doctors\nFROM consultation A\nGROUP BY patient\nORDER BY doctors DESC, patient ASC\nLIMIT 5",
+    "formula": "salt_036(👀 + sum(bit_xor(A.hash)* count(*)) OVER()) AS token",
+    "entry_token": "22846319067529663"
+  },
+  {
+    "kind": "epilog",
+    "text": "À suivre…",
+    "entry_token": "22846319067556395"
+  }
+]

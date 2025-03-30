@@ -1,0 +1,45 @@
+%%mocodo
+:
+assistance: date, _#personne > personne > personne
+:
+amants: #personne 1 > personne > personne, _#personne 2 > personne > personne
+:
+:
+:
+emprunt: emprunt, montant, date_emprunt, date_rendu, #personne > personne > personne
+:
+diagnostic: #consultation > consultation > consultation, _trouble
+:
+fragment: fragment, texte
+:
+:
+:
+
+:
+:
+:
+relation: #personne 1 > personne > personne, _#personne 2 > personne > personne, nature
+:
+personne: personne, sexe, âge, complément, numéro, voie, pratiquant, date décès, #id travail > travail > id travail
+:
+consultation: consultation, date, #docteur > personne > personne, #patient > personne > personne
+:
+prescription: #consultation > consultation > consultation, _#spécialité > spécialité > spécialité, durée
+:
+spécialité: spécialité, stock
+:
+:
+:
+
+site: site, numéro, voie
+:
+travail: id travail, nom travail, #site > site > site
+:
+:
+:
+lettre: lettre, date, #destinataire > personne > personne
+:
+hospitalisation: #consultation > consultation > consultation, entrée, sortie, lit
+:
+indication: #spécialité > spécialité > spécialité, _trouble
+:

@@ -1,0 +1,29 @@
+lettre: lettre, date
+fragment: fragment, texte
+date: date
+site: site, numéro, voie
+DF, 11 travail, 0N site
+
+recevoir, 01 lettre, 0N [-destinataire] personne
+relation, 0N personne, 0N personne: nature
+assistance, 0N date, 0N personne
+DF, 01 personne, 0N travail
+travail: id travail, nom travail
+
+amants, 0N personne, 0N personne
+personne: personne, sexe, âge, complément, numéro, voie, pratiquant, date décès
+DF, 11 consultation, 0N [-docteur] personne
+indication: trouble
+DF, _11 indication, 0N spécialité
+
+DF, 11 emprunt, 0N personne
+DF, 11 consultation, 0N [-patient] personne
+consultation: consultation, date
+prescription, 1N consultation, 1N spécialité: durée
+spécialité: spécialité, stock
+
+emprunt: emprunt, montant, date_emprunt, date_rendu
+hospitalisation: _entrée, sortie, lit
+DF, _11 hospitalisation, 01 consultation
+DF, _11 diagnostic, 11 consultation
+diagnostic: trouble

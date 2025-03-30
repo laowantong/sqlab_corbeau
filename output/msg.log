@@ -1,0 +1,156 @@
+  Question 1 (064): "Écrivez une requête SQL renvoyant le nom et l'adresse de ce M. Germain.\n\n_Aide._ Utilisez l'opérateu"
+    Hint (62414460237474): 'Le M. Germain qui nous intéresse a 45 ans.'
+    Hint (63421408847666): 'Restreignez le résultat aux personnes de sexe masculin.'
+    Hint (62627546453838): 'Restreignez le résultat aux personnes de sexe masculin.'
+  Question 2 (63758212138630): 'Écrivez une requête donnant le nom des voisines.\n\n_Aide._ Vous aurez besoin de la table `relation` q'
+    Hint (140112921649348): 'On demande les voisines de Mme Beaugé, pas ses voisins hommes.'
+    Hint (137216484212909): 'On demande les voisines de Mme Beaugé, et non les personnes dont Mme Beaugé est la voisine.'
+  Question 3 (136520204158016): "\nExtrayez de la table `relation` deux lignes comportant, à gauche le nom de l'infirmière et de sa sœ"
+    Hint (270336379250530): "Votre expression booléenne n'est pas correctement parenthésée. Souvenez-vous que le `AND` est priori"
+    Hint (277559945191843): "Votre expression booléenne n'est pas correctement parenthésée. Souvenez-vous que le `AND` est priori"
+    Hint (277154137262673): 'Vous avez trouvé la belle-sœur de M. Vorzet. Il nous faut aussi sa femme.'
+    Hint (277922745876159): "Vous avez trouvé la sœur de Mme Vorzet. Ce n'est pas ce qui est demandé."
+    Hint (277806713095697): 'Vous avez trouvé la femme de M. Vorzet. Il nous faut aussi sa belle-sœur.'
+  Question 4 (277525249483034): 'Donner le nom de ce patient, avec son numéro de lit.\n\n_Aide._ Vous devez deviner le numéro du lit (s'
+    Hint (250939377985679): 'Ce malade a été hospitalisé _au plus tard_ le 21 avril 1933.'
+    Hint (249376441798561): "Le lit n°13 est un lit à une place. Le 21 avril 1933, vous n'y trouverez pas tous les patients qui l"
+    Hint (253901624367080): 'On ne cherche pas les patients ayant passé une consultation le 21 avril 1933, mais ceux qui se trouv'
+    Hint (247791550580095): 'Vous avez trouvé le bon numéro de lit. Cependant, on ne cherche pas les patients qui ont été hospita'
+    Hint (252316965932137): "Plusieurs François ont été hospitalisés. Utilisez les dates d'hospitalisation et le numéro de lit po"
+    Hint (262165309603213): 'Quel numéro porte malheur en France\xa0?'
+    Hint (253367534850715): 'Quel numéro porte malheur en France\xa0?'
+    Hint (271992818650545): "Vous avez trouvé le bon numéro de lit, mais on ne s'intéresse pas à tous les malades qui s'y sont su"
+  Question 5 (253113982671323): "Dressez la liste du personnel de l'hôpital de Saint-Robin avec, pour chaque membre, sa fonction\ndans"
+    Hint (34152973521573): 'Vous calculez la liste de toutes les personnes qui ont un emploi. Restreignez celle-ci à ceux qui tr'
+  Question 6 (109535642974975): 'Donnez la liste des accouchements assurés par le docteur Germain au cours des six dernières semaines'
+    Hint (72406392489046): "On s'intéresse aux accouchements du docteur Germain, et non à ceux de son éminent confrère, le bon d"
+    Hint (81881350538729): 'On veut les accouchements assurés par le docteur Germain.'
+    Hint (81903621830254): 'La fonction `SUBDATE()` renvoie une date, pas un booléen.'
+  Question 7 (76167014014923): "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène\xa0?\n\n_Aide._ On s'intéresse à "
+  Question 7 (76446928229139): "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène\xa0?\n\n_Aide._ On s'intéresse à "
+  Question 7 (75996846005486): "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène\xa0?\n\n_Aide._ On s'intéresse à "
+    Hint (30340994622142): "Vous n'avez pas besoin de la table `personne`."
+    Hint (30731216836669): 'On demande de retrouver le patient, qui est dans la table `consultation`. Les autres tables utiles n'
+    Hint (29955558958299): 'On demande de retrouver le patient, qui est dans la table `consultation`. Les autres tables utiles n'
+    Hint (30770821175447): "Vérifiez que vous restreignez bien le résultat à la date d'hospitalisation du patient. Vérifiez égal"
+    Hint (29904962000621): "C'est le docteur Delorme lui-même qui a fait hospitaliser ce patient."
+    Hint (29250311216752): "Il s'agit d'un cas de gangrène."
+  Question 8 (30286867277324): "Pourquoi François Boulin n'arrive-t-il pas à dormir\xa0? Vous le saurez en listant les spécialités que\n"
+    Hint (7869770718672): "Incluez également les spécialités qui n'ont pas lieu d'être stockées en pharmacie (`NULL`)."
+    Hint (7425625060309): 'Certaines de ces spécialités ne lui ont pas été prescrites par le docteur Germain.'
+    Hint (6678482072359): "Il s'agit là de toutes les spécialités qui ont été prescrites à François Boulin, pas forcément par l"
+    Hint (8020535109002): "Il s'agit là de toutes les spécialités qui ont été prescrites à François Boulin par le docteur Germa"
+    Hint (8136381302648): 'Vous devez utiliser la table `spécialité` dans le calcul du code. Vérifiez également que vous projet'
+  Question 9 (8030012698937): "Pour chaque habitant de l'école, donnez son adresse complète (incluant le complément, qui va donner "
+    Hint (110289336847392): "Vous calculez la liste de toutes les personnes qui ont un emploi. On s'intéresse à celles qui habite"
+    Hint (200039604814994): "Les habitants de l'école ne sont pas les écoliers, mais les personnes qui habitent à l'adresse de l'"
+    Hint (149927540982675): "On peut habiter à l'école sans y travailler."
+    Hint (147465783112152): "Vous n'avez pas pensé aux habitants sans profession. Utilisez `LEFT JOIN`."
+    Hint (149497462313747): "Faites la jointure sur l'adresse complète, donc sur `voie` en plus de `numéro`."
+    Hint (145105034233582): "Faites la jointure sur l'adresse complète, donc sur `numéro` en plus de `voie`."
+  Question 10 (148086545142137): 'Rolande habite en face de son lieu de travail. Dressez la liste de toutes les personnes qui sont dan'
+    Hint (138045532835332): 'La jointure entre `travail` et `site` doit se faire sur leur colonne commune (`site`) pour que le ré'
+    Hint (107213178667464): "N'oubliez pas que le numéro du travail peut être plus petit ou plus grand que celui du domicile."
+    Hint (108909898705137): "N'oubliez pas que le numéro de l'adresse du travail peut être plus petit ou plus grand que celui du "
+  Question 11 (112873126312901): "Quelles consultations (patient, date) du docteur Germain n'ont donné lieu au diagnostic d'aucun trou"
+    Hint (132261761187427): 'Restreignez votre requête aux consultations du docteur Germain.'
+  Question 12 (139733827413451): "Pour la lire à votre tour, extrayez de la table `fragment` toutes les lignes dont l'identifiant est\n"
+    Hint (52735437217172): 'Restreignez le résultat aux lettres reçues ce jour-là, le 21 avril 1933.'
+    Hint (38833696870499): 'Restreignez le résultat aux lettres reçues par le docteur Germain.'
+  Question 13 (48452550811506): "Parmi les couples mariés, quelle est la différence d'âge maximale\xa0?\n\n_Aide._ Vous aurez besoin d'une"
+    Hint (11700942765002): 'La table `relation` est symétrique. Choisissez seulement la relation «\xa0mari\xa0» ou «\xa0femme\xa0» pour évit'
+  Question 14 (21298768906624): "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933)\xa0?"
+  Question 14 (24589489494065): "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933)\xa0?"
+    Hint (449950645205298): "On ne s'intéresse qu'aux lettres reçues jusqu'au 22 avril 1933."
+    Hint (61304851218508): "On s'intéresse aux lettres reçues jusqu'au 22 avril 1933 inclus."
+    Hint (59689908896902): "On s'intéresse aux lettres reçues jusqu'au 22 avril 1933 et non pas à celles reçues seulement ce jou"
+  Question 15 (59494493715131): 'Pour connaître la suite de cette lettre, joignez les tables `fragment` et `consultation` sur leurs i'
+    Hint (14213823763139): "Restreignez le résultat aux consultations qui se sont déroulées jusqu'au 27 avril 1933 maximum."
+    Hint (17390657805078): 'Restreignez le résultat aux consultations du docteur Delorme.'
+    Hint (5186021910633): "Restreignez le résultat aux consultations du docteur Delorme jusqu'à ce jour."
+  Question 16 (17727469371145): 'Pour connaître la suite de cette lettre, convertissez en binaire la somme des identifiants des métie'
+  Question 17 (155334593873678): "Quel pourcentage de la population de Saint-Robin aura été destinataire d'une ou plusieurs lettres du"
+    Hint (3717185854763695): "Vous faites un produit cartésien au lieu d'une jointure sur une colonne commune."
+    Hint (111661355220910): 'La date doit être incluse (inégalité large).'
+    Hint (2129441141048599): 'La date doit être incluse (inégalité large).'
+    Hint (251549824317975): 'Vous ne comptez pas la population totale du village, mais seulement ceux qui ont été destinataires d'
+  Question 18 (3717185854762268): 'Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum\xa0? On suppose'
+  Question 18 (133758539622466): 'Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum\xa0? On suppose'
+    Hint (245164346650727): 'Au contraire de la table `relation`, la table `amants` ne comporte pas de doublons par symétrie. Le '
+    Hint (235718735206107): 'Au contraire de la table `relation`, la table `amants` ne comporte pas de doublons par symétrie. Le '
+  Question 19 (216542043023011): "À cette époque, un enfant dont les parents n'étaient pas mariés ensemble était dit «\xa0naturel\xa0».\n\nDon"
+  Question 20 (246283082308474): "Vérifiez que Vorzet est le doyen du corps médical, en d'autres termes, qu'il est le plus vieux des e"
+    Hint (244265129787714): "L'idée n'est pas mauvaise, mais elle est moins générale\xa0: il se peut qu'il y ait plusieurs personnes"
+    Hint (238237251828505): 'Vous retournez la liste des doyens de la ville.'
+    Hint (237623284694455): "Vous retournez les personnes dont l'âge est égal à celui du doyen de l'hôpital, qu'elles y travaille"
+  Question 21 (237752598059822): "Pour chaque médecin ayant couché avec au moins l'une des personnes qui l'ont consulté, affichez le n"
+    Hint (202700035033274): 'Vous comptez plusieurs fois les mêmes patients. Ne surestimez pas la pénétration de ce genre de prat'
+  Question 22 (202700035033277): "Pour chaque patient, donner le nombre de médecins qu'il consulte. Triez par nombre de médecins décro"
+    Hint (2152176172776): "Vous comptez le nombre de consultations de chaque patient, et non le nombre de médecins qu'il a cons"
+  Question 23 (2152176172787): 'Pour chaque nom de travail exercé par au moins 3 personnes, afficher la fourchette des âges de ces p'
+    Hint (218527169874716): 'Ne tenez pas compte des professions exercées par moins de 3 personnes.'
+    Hint (218920106801586): 'Regroupez par _nom_ de travail. Certains métiers différents ont le même nom, p. ex., «\xa0directeur\xa0» ('
+  Question 24 (217710522097188): "Dressez une liste de toutes les personnes de la ville avec, en face, leur nombre d'amants, trié par\n"
+    Hint (145920273522062): 'Toutes les personnes apparaissent bien, mais celles qui ont 0 amants sont répertoriées comme en ayan'
+    Hint (146472739415074): "Incluez dans cette liste les personnes n'ayant aucun amant."
+    Hint (146109489642854): "Restreignez le résultat aux personnes n'ayant pas atteint l'âge de la majorité sexuelle."
+    Hint (146235981349974): "Le seuil de la majorité sexuelle a été porté à 15 ans par l'ordonnance du 2 juillet 1945 (cf. https:"
+    Hint (146419000371826): 'Vous confondez peut-être majorité sexuelle et majorité civile.'
+  Question 25 (146695421101260): "Pour connaître le contenu de la lettre, restreignez `fragment` aux textes dont l'identifiant est une"
+    Hint (218755597151302): 'Vous avez oublié la date.'
+    Hint (212359971644502): 'Vous avez oublié le destinataire.'
+    Hint (248077393398937): 'Vous avez oublié la date et le destinataire.'
+  Question 26 (216551102692560): "Donner, pour chaque médecin, le nombre de patients décédés qu'il a reçus pour leur ultime consultati"
+    Hint (57258109790022): "On ne s'intéresse qu'à la dernière consultation avant le décès."
+    Hint (60027786731242): 'Ne mettez pas de date-limite sur les consultations.'
+    Hint (59734403758005): 'Ne mettez pas de date-limite sur les décès.'
+    Hint (58976341931186): 'Ne mettez pas de date-limite sur les décès.'
+  Question 27 (56444350319188): "Pour savoir ce qu'ils ont lu, extrayez de la table `fragment` toutes les lignes dont l'identifiant s"
+    Hint (147652391136642): 'Sélectionnez les lettres sans destinataire.'
+    Hint (147473821768763): 'Sélectionnez les lettres du 30 avril 1933.'
+  Question 28 (146354356040596): "Listez par ordre alphabétique les personnes qui, soit ont reçu au moins une lettre du Corbeau jusqu'"
+    Hint (16276607446669): "Vous incluez tous les destinataires, y compris ceux qui ne l'ont pas encore été au 30 avril 1933."
+  Question 29 (147086758520779): 'Afficher la liste des personnes à qui Rolande doit au moins 50 francs au 3 mai 1933, avec le montant'
+    Hint (57920129500707): "C'est le total des dettes à chaque personne qui doit atteindre au moins 50 francs."
+    Hint (59523382361158): "On ne s'intéresse qu'aux personnes à qui Rolande doit au moins 50 francs."
+    Hint (58074299084163): "Quand Rolande n'a pas rendu l'argent, la date de retour est NULL (et non pas non nulle)."
+    Hint (61314802574889): 'Certaines de ces sommes ont été remboursées.'
+    Hint (57652065293014): 'Ne gardez que les emprunts contractés au plus tard le 3 mai 1933.'
+    Hint (58936393336695): 'Ne gardez que les emprunts contractés au plus tard le 3 mai 1933.'
+  Question 30 (60086115509306): 'Pour prendre connaissance de cette nouvelle lettre du Corbeau, extraire de la table `fragment` toute'
+  Question 31 (231782804999116): 'Lister les paroissiens assistant à la messe ce jour-là.\n\n_Aide._ La colonne `pratiquant` de la table'
+    Hint (210693626905971): 'Utilisez un oéprateur `xor` (ou exclusif).'
+    Hint (224715483527681): 'Utilisez un oéprateur `xor` (ou exclusif).'
+    Hint (208959108981304): 'Relisez la définition de la table `assistance`.'
+  Question 32 (225758797168147): 'Avec qui (nom, nom de travail) le directeur de la poste trompe-t-il sa femme\xa0?\n\n_Aide._ À titre exce'
+  Question 33 (198610734269545): 'Donnez la liste des conspirateurs, avec le nom de leur travail, le site où ils sont employés et enfi'
+  Question 34 (90805938243861): "Affichez la liste des femmes qui n'ont aucun amant (comme la femme du médecin-chef) ou n'ont jamais "
+    Hint (158217766468571): 'Seules les femmes pratiquantes peuvent ne jamais manquer la messe.'
+  Question 35 (155975930645834): 'Quel est le nom de cette fillette\xa0?'
+    Hint (262342322471705): "L'âge de la fillette est donné."
+    Hint (254842517462491): "Il s'agit d'une fillette."
+    Hint (251348463037611): 'La mère de la petite a eu au moins un amant.'
+    Hint (250799107635628): 'La mère de cette petite fille est répertoriée dans la base.'
+  Question 36 (251739877315743): 'Vérifiez que Vorzet est le médecin qui prescrit le plus fréquemment une spécialité ne faisant pas pa'
+    Hint (92268597601854): "On ne demande pas toutes les spécialités prescrites par les médecins, mais seulement celles qu'ils o"
+  Question 37 (100323367752641): "Listez les patients qui ont été hospitalisés en même temps que François Boulin, avec leurs dates d'e"
+    Hint (256225590065852): 'Excluez François Boulin du résultat.'
+    Hint (252423961532134): "Lorsqu'un patient sort le jour où un autre arrive, on considère qu'ils n'ont pas été hospitalisés en"
+  Question 38 (258311964244527): 'Lister les personnes qui ont reçu une lettre du Corbeau le jour de leur mort, avec leur nom et la da'
+  Question 39 (63948705644169): 'Quels amants de Denise Saillens sont décédés\xa0?'
+  Question 40 (78824031526341): "Concaténez avec un séparateur vide le premier caractère de toutes les phrases de `fragment` dont l'i"
+  Question 41 (118173955981433): "Quelle est la différence d'âge moyenne au sein des couples dont la femme trompe son mari\xa0?"
+    Hint (211349608166108): "Une même femme peut avoir plusieurs amants. Ce n'est pas une raison pour compter autant de fois la d"
+    Hint (203739616935276): "Dans la table `amants`, la femme infidèle peut se trouver aussi bien à gauche qu'à droite."
+    Hint (209272308347783): "Dans la table `amants`, la femme infidèle peut se trouver aussi bien à gauche qu'à droite."
+    Hint (211349608158160): "Vous moyennez les différences d'âge distinctes et non les différences d'âge des couples distincts."
+  Question 42 (202552683166466): "Listez par dates croissantes les consultations ayant donné lieu au diagnostic d'un seul trouble et à"
+    Hint (132132734171747): 'La plupart de ces consultations ont donné lieu au diagnostic de plusieurs troubles simultanés.'
+    Hint (133316969991232): "La plupart de ces consultations n'ont pas donné lieu à la prescription de sérum névrosthénique."
+  Question 43 (133385354248234): "Qui est le véritable Corbeau, sachant qu'il a pour patient exactement un amant de Denise\xa0?"
+    Hint (53722854606794): "Denise peut se trouver aussi bien à gauche qu'à droite dans la table `amants`."
+    Hint (53613904462046): "Denise peut se trouver aussi bien à gauche qu'à droite dans la table `amants`."
+    Hint (53460227743704): "Denise peut se trouver aussi bien à gauche qu'à droite dans la table `amants`."
+    Hint (53362053949886): "Denise peut se trouver aussi bien à gauche qu'à droite dans la table `amants`."
+    Hint (58201522408105): 'La plupart de ces docteurs ont plusieurs amants de Denise comme patients.'
+  Question 44 (54254940905285): 'Vous avez vaincu le Corbeau\xa0! Vous êtes maintenant prêt à voler de vos propres SQL.'
