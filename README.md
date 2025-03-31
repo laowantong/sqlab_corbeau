@@ -54,7 +54,7 @@ Trois cas peuvent alors se présenter :
 
 ## Récupération de la base `corbeau`
 
-La base de données est actuellement disponible pour MySQL 8 ou supérieur : [téléchargez mysql/dump.sql](https://raw.githubusercontent.com/laowantong/sqlab_corbeau/output/dump.sql) (clic droit / « Télécharger le fichier lien sous… ») et exécutez :
+La base de données est actuellement disponible pour MySQL 8 ou supérieur : [téléchargez dump.sql](https://raw.githubusercontent.com/laowantong/sqlab_corbeau/refs/heads/main/output/dump.sql) (clic droit / « Télécharger le fichier lien sous… ») et exécutez :
 
 ```bash
 mysql -u username -p < dump.sql
@@ -66,7 +66,7 @@ mysql -u username -p corbeau
 Pour accéder au premier épisode de l'aventure, exécutez :
 
 ```sql
-SELECT decrypt(292)
+SELECT decrypt(64)
 ```
 
 L'aventure compte 44 épisodes, à travers lesquels vous progresserez en composant des requêtes de difficulté progressive.
