@@ -211,7 +211,7 @@ qu'une table. De façon générale, pour laisser la possibilité d'écrire les j
             <td>109535642974975</td>
         </tr>
         <tr>
-            <td>Jeannette Bonnevie</td>
+            <td>Georges Massard</td>
             <td>109535642974975</td>
         </tr>
 </table>

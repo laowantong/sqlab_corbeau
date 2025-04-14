@@ -192,13 +192,13 @@
     "solutions": [
       {
         "query": "SELECT personne\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE site = \"hôpital\"",
-        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Jeannette Bonnevie</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
+        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Georges Massard</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
         "token": "109535642974975"
       },
       {
         "solution_preamble": "Variante. En imbriqué.",
         "query": "SELECT personne\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE id_travail IN\n        (SELECT id_travail\n         FROM travail\n         WHERE site = \"hôpital\" )",
-        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Jeannette Bonnevie</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
+        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Georges Massard</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
         "token": "109535642974975"
       }
     ],
@@ -1185,7 +1185,7 @@
       {
         "solution_preamble": "Variante. Sans CTE.",
         "query": "SELECT A.personne\n     , B.nom_travail\n     , C.site\n     , A.voie\nFROM personne A\nJOIN travail B USING (id_travail)\nJOIN site C USING (site, voie)\nWHERE A.personne IN (\n        SELECT personne_1\n        FROM relation\n        WHERE nature = \"mari\"\n    )\n    AND (A.complément, A.numéro, A.voie) IN (\n        SELECT complément, numéro, voie\n        FROM personne\n        GROUP BY complément, numéro, voie\n        HAVING count(*) = 2\n    )",
-        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>nom_travail</th>\n            <th>site</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>directeur</td>\n            <td>hôpital</td>\n            <td>rue du Docteur Larrieu</td>\n            <td>90805938243861</td>\n        </tr>\n        <tr>\n            <td>Gérard Demaquet</td>\n            <td>maire</td>\n            <td>mairie</td>\n            <td>rue de la Mairie</td>\n            <td>90805938243861</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
+        "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>nom_travail</th>\n            <th>site</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>directeur</td>\n            <td>hôpital</td>\n            <td>rue du Docteur Larrieu</td>\n            <td>90805938243861</td>\n        </tr>\n        <tr>\n            <td>Bernard Delorme</td>\n            <td>substitut</td>\n            <td>tribunal</td>\n            <td>rue François Quesnay</td>\n            <td>90805938243861</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "90805938243861"
       }
     ],
