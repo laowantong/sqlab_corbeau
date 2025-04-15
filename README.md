@@ -57,8 +57,9 @@ Trois cas peuvent alors se présenter :
 La base de données est actuellement disponible pour MySQL 8 ou supérieur : [téléchargez dump.sql](https://raw.githubusercontent.com/laowantong/sqlab_corbeau/refs/heads/main/output/dump.sql) (clic droit / « Télécharger le fichier lien sous… ») et exécutez :
 
 ```bash
-mysql -u username -p < dump.sql
-mysql -u username -p corbeau
+read -p "Username: " USERNAME
+mysql -u "$USERNAME" -p < dump.sql
+mysql -u "$USERNAME" -p corbeau
 ```
 
 ## Lancement
