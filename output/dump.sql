@@ -11390,6 +11390,7 @@ INSERT INTO sqlab_msg (msg) VALUES
 
 
 INSERT INTO sqlab_info (name, value) VALUES
+  ('title', 'SQLab Corbeau'),
   ('description', 'Dans une petite ville française, des lettres anonymes sèment la discorde en révélant de sombres secrets.'),
   ('version', '2.0.0'),
   ('repository', 'https://github.com/laowantong/sqlab_corbeau'),
@@ -11414,7 +11415,7 @@ INSERT INTO sqlab_info (name, value) VALUES
   ('dbms', 'MySQL'),
   ('dbms_version', '8.0.31'),
   ('sqlab_version', '0.6.7'),
-  ('created_at', '2025-04-15T16:39:55.905420')
+  ('created_at', '2025-04-22T21:50:57.647225')
 ;
 
 

@@ -26,6 +26,7 @@ config = {
         "lowercase_user_names": (r"\b(SESSION|CLIENT|TYPE)\b", lambda m: m[0].lower()),
     },
     "info": {
+        "title": "SQLab Corbeau",
         "description": "Dans une petite ville française, des lettres anonymes sèment la discorde en révélant de sombres secrets.",
         "version": "2.0.0",
         "repository": "https://github.com/laowantong/sqlab_corbeau",
