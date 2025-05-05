@@ -127,8 +127,6 @@ Total: 2 rows affected.
 </details><br>
 
 
-
-
 — Tenez, vous lirez ça ce soir, dit Laura Vorzet.  
 
 Le malade regarde distraitement la couverture du livre qu'elle lui apporte. Et, à brûle-pourpoint :
@@ -220,15 +218,13 @@ Total: 12 rows affected.
 </details><br>
 
 
-
-
 — Alors ? dit le docteur Bertrand à l'entrée de son confrère.<br>
 — J'ai sauvé la mère.<br>
 — Encore ?  <br>
 — Pourquoi, encore ?  <br>
 — C'est la troisième fois en six semaines.  <br>
 — Si vous ne me faites pas confiance, pourquoi vous décharger sur moi de ces consultations ?  <br>
-— Oh ! rassurez-vous : je ne vous imposerai plus ce dérangement !  
+— Oh ! rassurez-vous : je ne vous imposerai plus ce dérangement !
 
 <details><summary>Énoncé</summary>Donnez la liste des accouchements assurés par le docteur Germain au cours des six dernières semaines
 (avec le numéro et la date de la consultation, le nom et l'âge de la patiente) ordonnée par date croissante.
@@ -351,8 +347,6 @@ l'autre vers la table `spécialité`. Celle-ci répertorie les différentes « 
 Total: 2 rows affected.
 
 </details><br>
-
-
 
 
 — Le 13 ? dit Marie Corbin... Ah ! le cancer du foie ? Bah, il en a pour quinze jours, et encore...<br>
@@ -818,8 +812,6 @@ _Aide._ Utilisez la fonction `CONV(nombre_à_convertir, base_de_départ, base_d'
 Total: 7 rows affected.
 
 </details><br>
-
-
 
 
 — Qu'est-ce que vous pensez de ça ? demande Bonnevie en finissant la lecture.
@@ -1578,8 +1570,6 @@ Total: 17 rows affected.
 </details><br>
 
 
-
-
 — Oh, la petite garce !<br>
 — On dirait qu'elle a voulu voulu faire accuser Germain, remarque le psychiatre...<br>
 — Elle me le payera !<br>
@@ -1641,8 +1631,6 @@ _Note._ Saint Michel est un archange, cité dans l'Apocalypse, qui terrasse un d
 Total: 9 rows affected.
 
 </details><br>
-
-
 
 
 — C'est un blasphème caractérisé ! s'écrie Bonnevie.<br>
@@ -1873,8 +1861,6 @@ Le docteur Delorme lui prend l'épaule et, d'un air grave :
 Total: 67 rows affected.
 
 </details><br>
-
-
 
 
 — Une femme, reprend le docteur Germain sans même attendre que l'étudiant ait validé sa requête SQL. Une vraie femme. Elle attendait un bébé. Je l'ai mise entre les mains du plus célèbre des chirurgiens. L'affaire se présentait mal. Cet imbécile mit son point d'honneur à me donner un fils quand même. C'était un homme de devoir : il a tué à la fois la mère et l'enfant. Par la même occasion, il a tué le docteur Barthélémy Germain. Depuis, le docteur Rémy Germain s'est retiré dans une petite sous-préfecture. Et il met son savoir au service des mères. Et c'est en pleine liberté de conscience, messieurs, qu'il intervient dans les cas douteux !<br>
@@ -2335,8 +2321,6 @@ Germain a terminé de rédiger le certificat d'internement.
 Total: 1 row affected.
 
 </details><br>
-
-
 
 
 En sortant, ils aperçoivent Laura qui écoutait à la porte.
