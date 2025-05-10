@@ -19,6 +19,7 @@ config = {
     "token_table_path": "./output/token_table.tsv",
     "report_path": "./output/report.json",
     "source_path": "./corbeau.ipynb",
+    "relational_schema_dir": "./assets/",
     "storyline_path": "./output/storyline.md",
     "salt_bound": 300,
     "reformat_sql": False,

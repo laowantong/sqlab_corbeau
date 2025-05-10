@@ -3,6 +3,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 1,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Le docteur Germain",
+        ""
+      ]
+    ],
     "context": "L'histoire commence le 21 avril 1933 à Saint-Robin, une petite ville de province, ici ou ailleurs… M. Germain, 45 ans, est notre personnage principal.",
     "statement": "Écrivez une requête SQL renvoyant le nom et l'adresse de ce M. Germain.\n\n_Aide._ Utilisez l'opérateur `LIKE` sur la table `personne`.",
     "salt": "064",
@@ -37,6 +47,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 2,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Une fausse couche",
+        ""
+      ]
+    ],
     "context": "La première scène se déroule dans une cour de ferme. Il y a là une vieille femme vêtue de noir, Mme Henriette Beaugé. Des voisines sont à ses côtés. Elles ne parlent pas. Elles sont à l'écoute de tous les bruits qui viennent de la maison. \n\nEnfin un homme sort de la maison, l'air grave. C'est Germain. Ses mains et ses poignets sont tachés de sang. Il les plonge dans une barrique pleine d'eau et les frotte en silence. La grand-mère s'est levée. Elle vient à lui à petits pas, lui apportant son chapeau et sa redingote.\n\n— La mère est sauvée, lâche-t-il.<br>\n— Et l'enfant ?\n\nIl la regarde dans les yeux, met son chapeau, secoue la tête.\n\n— Non.<br>\n— Mon Dieu, docteur... Vous n'avez pas fait ça ?<br>\n— Je l'ai fait, répond-il. En conscience.  \n\nAprès un moment, il reprend :  \n\n— Si vous tenez à avoir un petit-fils... Dans... dans six ou huit mois — mais pas avant, hein ! — vous demanderez à votre gendre de lui en faire un autre.\n\nLes deux voisines, restées un peu en retrait, commentent à mi-voix :  \n\n— Il a déjà eu du mal la première fois...<br>\n— Il se fera aider par un voisin !",
     "statement": "Écrivez une requête donnant le nom des voisines.\n\n_Aide._ Vous aurez besoin de la table `relation` qui, pour certaines personnes, donne la nature de leur relation avec certaines autres. Cette table est symétrique, c'est-à-dire par exemple que si la personne 1 est répertoriée comme fille des personnes 2 et 3, les personnes 2 et 3 sont également répertoriées comme père et mère de la personne 1.",
     "salt": "002",
@@ -65,6 +85,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 3,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Dans la salle commune de l'hôpital",
+        ""
+      ]
+    ],
     "context": "Le médecin est rentré dans sa voiture. Avant de démarrer, il prend les mains de la vieille femme :  \n\n— Ne pleurez pas, grand-mère. Vous gardez votre fille. C'est l'essentiel.\n\nPendant ce temps, dans la salle commune de l'hôpital de Saint-Robin, une infirmière à l'air revêche vient poser un verre sur la table de chevet d'un jeune homme. Celui-ci tente péniblement de le prendre.\n\n— Quand vous aurez fini de gémir, lui lance-t-elle...<br>\n— Je ne peux pas me relever...<br>\n— Eh bien, restez couché ! dit-elle en quittant la salle.  \n\nUne autre employée se trouve là, les bras chargés de livres qu'elle distribue aux malades. C'est l'épouse du docteur Vorzet, qui dirige le service des aliénés. Elle s'approche et, avec beaucoup de douceur, aide le malade à se redresser. Il la prend à témoin :\n\n— C'est une méchante femme.<br>\n— Allons... Ne parlez pas ainsi. C'est ma sœur.<br>\n— Pardon... c'est une méchante sœur.<br>\n— Non, c'est une malheureuse... Elle l'a toujours été.",
     "statement": "\nExtrayez de la table `relation` deux lignes comportant, à gauche le nom de l'infirmière et de sa sœur, et à droite celui du Dr. Vorzet.\n\n_Aide._ La sœur de ma femme est ma ....-.....",
     "salt": "048",
@@ -117,6 +147,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 4,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Le numéro 13",
+        ""
+      ]
+    ],
     "context": "— Tenez, vous lirez ça ce soir, dit Laura Vorzet.  \n\nLe malade regarde distraitement la couverture du livre qu'elle lui apporte. Et, à brûle-pourpoint :\n\n— Madame... Est-ce que... est-ce que votre mari pourrait me faire changer de lit ?<br>\n— De lit ?<br>\n— Oui, le mien a ce numéro qui porte malheur... Si je reste ici, il m'arrivera quelque chose.\n\n_Rappel._ Nous sommes le 21 avril 1933.",
     "statement": "Donner le nom de ce patient, avec son numéro de lit.\n\n_Aide._ Vous devez deviner le numéro du lit (stocké comme un entier), et rechercher qui est hospitalisé ce jour-là dans ce lit. Chaque ligne de la table `consultation` donne les noms d'un patient et du médecin qui l'a examiné. Si cette consultation a donné lieu à une hospitalisation, celle-ci se trouve dans la table `hospitalisation`, sous le même identifiant, avec les dates d'entrée et de sortie, ainsi que le numéro de lit. L'information étant répartie dans ces deux tables, vous avez besoin d'une jointure.",
     "salt": "073",
@@ -181,6 +221,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 5,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Le personnel hospitalier",
+        ""
+      ]
+    ],
     "context": "— Ne dites pas de sottises, dit Laura avec un sourire... Tenez, voilà votre mère qui vous rend visite. Je vous laisse.\n\nLe visage de l'homme s'est éclairé.\n\n— Bonjour, maman.<br>\n— Bonjour, François.  \n\nElle l'embrasse.  \n\n— Oh ! tu as le visage en sueur. Comment vas-tu ? Tiens, je t'ai apporté un nouveau rasoir.\n\nIl prend l'objet entre ses mains, l'ouvre. Il pose le fil de la lame sur son ongle et entreprend de le tailler.\n\n----\n\nEn sortant de la salle commune, Laura Vorzet est tombée sur sa sœur :\n\n— Marie, pourquoi es-tu si désagréable avec les malades ?  <br>\n— Pourquoi es-tu si aimable avec le docteur Germain ?  <br>\n— Qu'est-ce que tu dis ?  <br>\n— Je dis que depuis quelque temps, on te voit beaucoup trop dans son service. Je le signalerai à Michel quand il rentrera.  <br>\n— Mon mari est au courant et il trouve ça très bien.  <br>\n— D'autres trouvent ça très mal.  <br>\n— Mais enfin, tout de même, c'est mon devoir : je suis assistante sociale !<br>\n— Tu es une traînée !  \n\nÀ ce moment, la porte s'ouvre. Elles se taisent. C'est le docteur Germain. Il les salue, traverse le corridor et entre dans le bureau d'un confrère.",
     "statement": "Dressez la liste du personnel de l'hôpital de Saint-Robin avec, pour chaque membre, sa fonction\ndans l'établissement.\n\n_Aide._ Pour chaque personne de la table `personne`, vous avez une clé étrangère vers la table `travail` qui va\nvous permettre de retrouver le nom de son travail, ainsi que le site qui l'emploie. La formule du token n'utilise\nqu'une table. De façon générale, pour laisser la possibilité d'écrire les jointures en imbriqué, seules les tables dont une colonne est projetée dans le SELECT seront mentionnées dans la formule du token.",
     "salt": "060",
@@ -209,6 +259,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 6,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Le sauveur de mères",
+        ""
+      ]
+    ],
     "context": "— Alors ? dit le docteur Bertrand à l'entrée de son confrère.<br>\n— J'ai sauvé la mère.<br>\n— Encore ?  <br>\n— Pourquoi, encore ?  <br>\n— C'est la troisième fois en six semaines.  <br>\n— Si vous ne me faites pas confiance, pourquoi vous décharger sur moi de ces consultations ?  <br>\n— Oh ! rassurez-vous : je ne vous imposerai plus ce dérangement !",
     "statement": "Donnez la liste des accouchements assurés par le docteur Germain au cours des six dernières semaines\n(avec le numéro et la date de la consultation, le nom et l'âge de la patiente) ordonnée par date croissante.\nLe résultat vous permettra (facultativement) d'en déduire le nom de la fille de Mme Beaugé.\n\n_Aide._ Vous avez besoin d'une jointure triple. Un accouchement est stocké comme une `consultation` dont\nle `diagnostic` inclut « accouchement » dans la colonne `trouble`. Utilisez la fonction `SUBDATE()` pour\ncalculer proprement la date de début de cette période.",
     "salt": "069",
@@ -253,6 +313,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 7,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Un cas de gangrène",
+        ""
+      ]
+    ],
     "context": "À ce moment, le docteur Delorme entre à son tour dans le bureau.\n\n— Encore en train de vous chamailler ?<br>\n— Ah ! M. le Directeur, jugez plutôt... commence le docteur Bertrand.<br>\n— Oh, non, non ! Ne me mêlez pas à vos bisbilles. Tenez. J'ai rentré ce matin un cas de gangrène tout à fait pittoresque... Le tibia est sorti de la jambe de plus de dix centimètres !<br>\n— Dix centimètres ! s'exclame le docteur Bertrand. Vous blaguez ?<br>\n— Si je vous le dis ! Allez, au lieu de vous disputer, venez tous les deux avec moi.<br>\n— Je vous demande pardon, M. le Directeur, répond le docteur Germain, mais je ne suis guère amateur de blagues.<br>\n— Tant pis pour vous. Le docteur Bertrand profitera seul du spectacle. Mais vous le regretterez !<br>\n— J'en suis sûr, fait Germain.<br>\n— Vous allez voir, mon cher Bertrand, c'est tordant !",
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
@@ -269,6 +339,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 7,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Un cas de gangrène",
+        ""
+      ]
+    ],
     "context": "À ce moment, le docteur Delorme entre à son tour dans le bureau.\n\n— Encore en train de vous chamailler ?<br>\n— Ah ! M. le Directeur, jugez plutôt... commence le docteur Bertrand.<br>\n— Oh, non, non ! Ne me mêlez pas à vos bisbilles. Tenez. J'ai rentré ce matin un cas de gangrène tout à fait pittoresque... Le tibia est sorti de la jambe de plus de dix centimètres !<br>\n— Dix centimètres ! s'exclame le docteur Bertrand. Vous blaguez ?<br>\n— Si je vous le dis ! Allez, au lieu de vous disputer, venez tous les deux avec moi.<br>\n— Je vous demande pardon, M. le Directeur, répond le docteur Germain, mais je ne suis guère amateur de blagues.<br>\n— Tant pis pour vous. Le docteur Bertrand profitera seul du spectacle. Mais vous le regretterez !<br>\n— J'en suis sûr, fait Germain.<br>\n— Vous allez voir, mon cher Bertrand, c'est tordant !",
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
@@ -285,6 +365,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 7,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Un cas de gangrène",
+        ""
+      ]
+    ],
     "context": "À ce moment, le docteur Delorme entre à son tour dans le bureau.\n\n— Encore en train de vous chamailler ?<br>\n— Ah ! M. le Directeur, jugez plutôt... commence le docteur Bertrand.<br>\n— Oh, non, non ! Ne me mêlez pas à vos bisbilles. Tenez. J'ai rentré ce matin un cas de gangrène tout à fait pittoresque... Le tibia est sorti de la jambe de plus de dix centimètres !<br>\n— Dix centimètres ! s'exclame le docteur Bertrand. Vous blaguez ?<br>\n— Si je vous le dis ! Allez, au lieu de vous disputer, venez tous les deux avec moi.<br>\n— Je vous demande pardon, M. le Directeur, répond le docteur Germain, mais je ne suis guère amateur de blagues.<br>\n— Tant pis pour vous. Le docteur Bertrand profitera seul du spectacle. Mais vous le regretterez !<br>\n— J'en suis sûr, fait Germain.<br>\n— Vous allez voir, mon cher Bertrand, c'est tordant !",
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
@@ -337,6 +427,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 8,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Dans la buanderie de l'hôpital",
+        ""
+      ]
+    ],
     "context": "En passant devant la buanderie de l'hôpital, le docteur Germain regarde machinalement par le carreau de la porte. Il aperçoit Marie Corbin qui sort une lettre de son enveloppe. Il fait irruption dans la pièce.\n\n— Eh bien, ne vous gênez pas ! Donnez-moi ça.\n\nIl prend la lettre et la déchire.\n\n— Vous laissez tout un tas de paperasse dans vos poches, se défend l'infirmière. Il faut bien que je change votre correspondance de blouse si vous ne voulez pas qu'elle aille à l'étuve.<br>\n— Je ne vous demande pas de la lire.<br>\n— Et moi, je ne vous demande pas pourquoi vous écrivez à ma sœur, répond-elle sans se démonter.<br>\n— Vous êtes chargée de la surveiller ?<br>\n— Ce que j'en dis, c'est pour vous : Laura est une petite vipère.<br>\n— Pas pendant le service, voulez-vous ?\n\nEt, changeant de sujet :\n\n— Le 13 se plaint de ne pas dormir.",
     "statement": "Pourquoi François Boulin n'arrive-t-il pas à dormir ? Vous le saurez en listant les spécialités que\nGermain lui a prescrites, mais qui ne sont pas ou plus disponibles à la pharmacie. Vous projetterez également\nle stock correspondant.\n\n_Aide._ La table `prescription` a pour clé primaire deux clés étrangères, l'une vers la table `consultation`,\nl'autre vers la table `spécialité`. Celle-ci répertorie les différentes « spécialités » (ou médicaments), avec\néventuellement leur stock en pharmacie.",
     "salt": "099",
@@ -383,6 +483,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 9,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Les habitants de l'école",
+        ""
+      ]
+    ],
     "context": "— Le 13 ? dit Marie Corbin... Ah ! le cancer du foie ? Bah, il en a pour quinze jours, et encore...<br>\n— Vous lui donnez bien sa morphine ?<br>\n— À quoi bon ? Je lui en ai donné le premier jour, il ne s'en est même pas aperçu.<br>\n— Je ne vous ai pas dit d'arrêter la série !<br>\n— Je lui mets de l'eau distillée, ça lui fait le même effet.<br>\n— Malheureusement pour vous, je viens de la pharmacie : toutes les ampoules ont disparu. J'ignore si vous les employez à votre usage personnel ou si vous les revendez, mais il faudra les retrouver avant demain matin !<br>\n— Écoutez, docteur...<br>\n— Non ! Demain matin.  \n\nIl sort de l'hôpital pour rentrer chez lui.",
     "statement": "Pour chaque habitant de l'école, donnez son adresse complète (incluant le complément, qui va donner l'appartement) et le nom de son travail (ou la chaîne vide s'il est sans travail).\n\n_Aide._ La table `site` répertorie les établissements employant des gens de Saint-Robin. Vous y trouverez des adresses similaires à celles de `personne` (mais sans complément d'adresse). Pour afficher la chaîne vide, cherchez la documentation de la fonction `coalesce()`.",
     "salt": "013",
@@ -435,6 +545,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 10,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "La petite postière",
+        ""
+      ]
+    ],
     "context": "À la grille, le directeur de l'école, Noël Saillens, accueille les enfants qui reviennent pour les classes de l'après-midi.\n\n— Bonjour M. le directeur, dit un petit en mordant dans une tartine.<br>\n— Bonjour, Philippe. Tu n'as donc pas déjeuné ?<br>\n— Si, monsieur.<br>\n— Alors, qu'est-ce que tu fais ?<br>\n— Je commence à goûter !\n\nLe directeur sourit. Il avise M. Germain qui passe devant la grille.\n\n— Ah ! docteur ! Excusez-moi...<br>\n— Je vous en prie...<br>\n— J'ai quelqu'un de malade chez moi.<br>\n— Rolande ?<br>\n— Non, ma sœur.<br>\n— Ah ?<br>\n— En montant chez vous, vous pourriez peut-être frapper à sa porte. Ça ne vous ennuie pas ?<br>\n— Pas du tout. Je suis médecin.\n\nD'un coup de poing, Germain renvoie un ballon qui a manqué de faire tomber son chapeau.\n\n— Dis donc, toi ! Tu veux que j'aille te tirer les oreilles ?<br>\n— Eh bien, Fernand, fais un peu attention !\n\nEt, à l'intention du docteur :\n\n— Ils sont jeunes...<br>\n— Ouais...<br>\n— Vous n'aimez pas les enfants ?<br>\n— Pas trop.<br>\n— Et vous êtes venu habiter chez un directeur d'école !<br>\n— Le destin !\n\nEn arrivant à la porte, celle-ci s'ouvre devant lui.\n\n— Alors, Rolande, vous jouez la concierge ?\n\nC'est la fille du directeur. L'adolescente baisse les yeux derrière ses grosses lunettes.\n\n— Non, docteur. Je me trouvais là... par hasard, et... je vous ai vu venir.<br>\n— Votre tante est malade ?<br>\n— Denise ? Ouais... Il paraît, répond-elle avec un air plein de sous-entendus.\n\nGermain prend l'escalier.\n\n— Ah ! Docteur, lui crie-t-elle. On a apporté une lettre pour vous ce matin. Je l'ai laissée sur votre bureau. Il n'y a pas de nom d'expéditeur.<br>\n— Merci.",
     "statement": "Rolande habite en face de son lieu de travail. Dressez la liste de toutes les personnes qui sont dans le même cas (on considérera que deux bâtiments de la même rue se font face si leurs numéros diffèrent de 1 ou 3). La table devra comporter les colonnes suivantes : nom, âge, adresse du domicile, travail, site, adresse du travail. Chaque adresse consistera en la concaténation du numéro et de la rue.\n\n_Aide._ Sous MySQL, la concaténation se fait avec une fonction `CONCAT()`.",
     "salt": "093",
@@ -469,6 +589,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 11,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Une simulatrice",
+        ""
+      ]
+    ],
     "context": "Note historique : Rolande est employée au guichet de la poste. En France, l'interdiction d'employer un enfant de moins de 16 ans remonte à 1959. À l'époque où se déroule notre récit, l'âge minimum était de 14 ans.\n\nLe docteur frappe chez Denise Saillens.\n\n— Bonjour, mademoiselle.<br>\n— Bonjour.\n\nLes cris des enfants qui jouent montent de la cour. Il va fermer la fenêtre.\n\n— Vous pouvez la laisser ouverte, dit la jeune femme. L'air me fait du bien.<br>\n— Ce n'est pas pour vous, c'est pour moi. Ces piaillements m'exaspèrent... Vous vous parfumez ?<br>\n— Ça ne vous plaît pas ?<br>\n— J'aurais dû laisser la fenêtre ouverte. Alors ? D'où souffrez-vous ?<br>\n— D'un peu partout. Je tousse, j'ai la fièvre et une espèce de lassitude... Et comme un point dans le dos ! En haut et à gauche.<br>\n— Ici ?<br>\n— Oui.<br>\n— Ou là ?<br>\n— C'est-à-dire...<br>\n— Peut-être entre les deux ?<br>\n— Peut-être...<br>\n— Je vais vous ausculter, déshabillez-vous. Le lainage, seulement. Respirez. Toussez. Encore. Dites 33.<br>\n— 33 ! 33 ! 33 !<br>\n— Moins fort.<br>\n— 33. 33. 33.<br>\n— Bon, étendez-vous. Vous avez un mouchoir ?<br>\n— La chemise ne suffit pas ?<br>\n— Non. Peu importe. Je prendrai le mien.\n\nIl étend le mouchoir sur la poitrine de Denise, puis y colle son oreille.\n\n— Respirez. Encore... Normalement ! Respirez normalement.<br>\n— Vous voyez ce que j'ai ?<br>\n— Parfaitement.\n\nIl se redresse.\n\n— Vous n'avez rien.<br>\n— Je ne suis pas malade, moi ?<br>\n— Vous vouliez juste vous faire ausculter. Mais pour ce genre d'auscultation, ce n'est pas un médecin qu'il faut appeler. Pas moi en tout cas ! Au revoir, mademoiselle.<br>\n— Joseph, va ! lui lance-t-elle au moment où il va sortir.<br>\n— Je m'appelle Rémy.\n\n---\n\n_Note._ Denise fait une référence moqueuse à Joseph, fils de Jacob, qui dans le récit biblique repousse les avances de la femme d'un officier de Pharaon auquel il a été vendu comme esclave.",
     "statement": "Quelles consultations (patient, date) du docteur Germain n'ont donné lieu au diagnostic d'aucun trouble ?",
     "salt": "033",
@@ -491,6 +621,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 12,
+    "section_path": [
+      [
+        "Vendredi 21 avril 1933",
+        ""
+      ],
+      [
+        "Premières lettres",
+        ""
+      ]
+    ],
     "context": "En sortant de l'appartement, il rencontre Laura Vorzet qui monte rapidement l'escalier.\n\n— J'étais venue apporter des journaux de mode à Denise.<br>\n— Vous pouvez y aller.<br>\n— Elle n'a rien de grave au moins ? Je ne vais pas la fatiguer ?<br>\n— Rassurez-vous, vous ne la fatiguerez pas.\n\nElle frappe à la porte.\n\n— C'est toi ? lui crie Denise. Entre !\n\nLa main sur la poignée, la jeune femme semble se raviser.\n\n— Attendez, dit-elle au docteur. Je ne vais pas jouer la comédie. C'est vous que je voulais voir. Les journaux de mode n'étaient qu'un prétexte.<br>\n— Mais... vous n'aviez pas besoin de prétexte.<br>\n— Vous croyez ? Eh bien, vous vous trompez. C'était peut-être vrai hier, ça ne l'est plus aujourd'hui... Et par votre faute !<br>\n— Par ma faute ? Je ne comprends pas.<br>\n— Oh ! vous êtes un ami réservé, docteur, très réservé. Mais il vous est sans doute arrivé de dire ou de laisser dire quelque chose sur mon compte, n'est-ce pas ?<br>\n— Moi ?<br>\n— Il paraît que nous profitons de nos rencontres à l'hôpital pour... pour prendre des rendez-vous secrets. On m'accuse d'être votre maîtresse.<br>\n— Quoi ! Qui vous accuse ?<br>\n— J'ai reçu au courrier de midi une lettre anonyme, une lettre ignoble. Vous comprendrez maintenant que je sois obligée de vous éviter.\n\nSur ces mots, elle entre chez Denise. Le docteur Germain est décontenancé. En bas, dans le hall, il aperçoit Rolande, toujours là, qui fait mine de jouer à la balle. Il hausse les épaules, et rentre chez lui.\n\nRolande monte l'escalier sur la pointe des pieds, colle son œil à la serrure. Le docteur a trouvé l'enveloppe sur son bureau. Il l'ouvre, lit la lettre et s'asseoit, pétrifié.",
     "statement": "Pour la lire à votre tour, extrayez de la table `fragment` toutes les lignes dont l'identifiant est\ndivisible par celui de la lettre reçue ce jour-là par le docteur Germain, et triez-les par identifiant\ndécroissant.\n\n_Aide._ La table `fragment` comporte l'ensemble des phrases des lettres du Corbeau, mais mélangées. Elle\nn'est pas directement liée au reste de la base, et ne peut être exploitée que par des manipulations un peu\n« tordues » comme celle-ci, qui vous seront révélées au fur et à mesure. Ici, vous avez besoin de la fonction\n`MOD()`.",
     "salt": "023",
@@ -519,6 +659,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 13,
+    "section_path": [
+      [
+        "Samedi 22 avril 1933",
+        ""
+      ],
+      [
+        "Le retour du psychiatre",
+        ""
+      ]
+    ],
     "context": "Le lendemain matin, le docteur Michel Vorzet rentre d'un congrès de psychiatrie. La bonne lui ouvre la porte.\n\n— Bonjour, monsieur.<br>\n— Bonjour, Raymonde.\n\nMme Vorzet paraît, une enveloppe à la main.\n\n— Emportez les valises dans la chambre de monsieur.<br>\n— Bien, madame.<br>\n— Quel voyage ! s'exclame Vorzet en ôtant son pardessus. Quoi de plus ridicule qu'un congrès de médecins ?... Si ce n'est un congrès de psychiatres, bien entendu ! Personne n'écoute celui qui parle... Dieu merci : pour prendre ces communications au sérieux, il faudrait un public de malades.\n\nEt, avec un clin d'œil :\n\n— Au fond, reprend-il, la seule utilité de ces manifestations, c'est de permettre aux médecins de province d'aller tromper leur femme avec les Parisiennes... Comme ça n'est plus de mon âge, je suis rentré.\n\nMme Vorzet ne réagit pas.\n\n— Eh bien, Laura, qu'y a-t-il ? Qu'est-ce qui ne va pas ?<br>\n— Michel, je t'ai parlé de la lettre d'hier.<br>\n— Oui, et après ?<br>\n— Il y en a une pour toi aujourd'hui, dit-elle en lui tendant l'enveloppe.<br>\n— Ah.\n\nIl déchire l'enveloppe, en extrait la lettre et la lit en silence.",
     "statement": "Parmi les couples mariés, quelle est la différence d'âge maximale ?\n\n_Aide._ Vous aurez besoin d'une auto-jointure (jointure d'une table avec elle-même), pour mettre sur la même ligne les âges requis pour le calcul des différences.",
     "salt": "091",
@@ -548,6 +698,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 14,
+    "section_path": [
+      [
+        "Samedi 22 avril 1933",
+        ""
+      ],
+      [
+        "Dans le parc",
+        ""
+      ]
+    ],
     "context": "Un peu plus tard dans la journée, Germain, en traversant le parc pour retourner à l'hôpital, voit un de ses confrères qui s'amuse à nourrir les oiseaux avec des morceaux de pain trempés dans du lait.\n\n— Bonjour, Vorzet. Je ne vous savais pas de retour.<br>\n— Mon cher Germain, un vieux mari ne doit pas laisser longtemps seule sa jeune femme, répond le psychiatre d'un air malicieux.<br>\n— C'est pour moi que vous dites ça ?<br>\n— Eh eh ! Pourquoi pour vous ? Je dis ça pour elle et pour moi. Ne vous fâchez pas !\n\nGermain se mord les lèvres.\n\n— Vous aimez les oiseaux ? reprend-il.<br>\n— Ils m'intéressent. Ils sont plus intelligents qu'on ne croit. Je suis un peu ornithologue à mes heures, voyez-vous... Ah, à propos d'oiseaux...<br>\n— Oui ?<br>\n— Figurez-vous que ma femme a reçu hier une lettre signée d'un certain Corbeau.<br>\n— Elle vous l'a dit ?<br>\n— Oui, oh ! elle ne me cache rien. C'est le bénéfice de mon grand âge, eh eh ! Et d'ailleurs, j'ai reçu moi-même ce matin... une seconde lettre.<br>\n— Sur le même sujet ?<br>\n— Oui. Avec des détails supplémentaires... Il paraîtrait que vos relations avec Laura auraient laissé des traces fâcheuses.<br>\n— Quoi ?<br>\n— Ne vous énervez pas !... Et que vous auriez profité de mon absence pour les faire disparaître... chirurgicalement.<br>\n— Oh, le...<br>\n— Eh... oui, que voulez-vous. Et j'ajoute que Delorme a reçu en tant que médecin-chef un torchon du même genre. On vous accuse de délivrer les faibles femmes d'un fardeau encombrant. Voilà, vous êtes prévenu.<br>\n— Si je connaissais le salaud...<br>\n— Tout de suite les grands mots. Mon cher, j'ai la chance de connaître assez bien la question. J'ai été nommé plusieurs fois expert dans des affaires de lettres anonymes. Croyez-moi, nous ne sommes pas en présence d'un salaud, mais d'un malade.<br>\n— Eh bien, je me charge de le soigner !<br>\n— Quand vous l'aurez découvert !\n\nEt, désignant tour à tour quelques visiteurs du parc :\n\n— C'est peut-être M. le substitut qui passe avec un mandat à la main. Ou M. Fayolle qui lit le journal en marchant... N'est-ce pas, M. Fayolle ?<br>\n— Pardon ?<br>\n— Je dis, c'est peut-être vous...<br>\n— Qui fait quoi ?<br>\n— Chut !... C'est un secret !<br>\n— Ah, toujours le mot pour rire, docteur ! dit Fayolle en s'éloignant.<br>\n— Et si ce n'est ni Fayolle, ni le substitut, c'est peut-être le docteur Germain lui-même...<br>\n— Vous me soupçonnez, moi, la victime de ce malade ?<br>\n— Un malade peut fort bien s'accuser lui-même. C'est fréquent chez les anonymographes. Remarquez, je ne vous crois pas coupable... pour le moment.<br>\n— Vous êtes trop bon...<br>\n— Seulement il faut vous méfier. Ouvrir l’œil. Quand ce genre de maladie se déclare, on ne sait pas où elle s'arrête. Toute une ville peut en être atteinte. Au revoir, Germain.<br>\n— Au revoir.\n\nIl s'est à peine éloigné de quelques pas, qu'une idée lui traverse l'esprit.\n\n— Dites donc ! lance-t-il à son confrère... Au fond, le corbeau, c'est peut-être vous !<br>\n— Et pourquoi pas ? répond Vorzet.\n\n_Note._ En France, l'avortement a longtemps été passible de la prison, des travaux forcés à perpétuité, voire de la peine de mort. À l'époque, environ 300 personnes par an étaient condamnées pour ce motif. Mais malgré tous les risques encourus, le nombre de femmes qui recouraient à un avortement clandestin était de l'ordre de 500 000 par an. De nos jours, en dépit de la légalisation de l'IVG, mais avec la « pilule », ce chiffre a diminué de moitié.",
     "statement": "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933) ?",
     "salt": "092",
@@ -565,6 +725,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 14,
+    "section_path": [
+      [
+        "Samedi 22 avril 1933",
+        ""
+      ],
+      [
+        "Dans le parc",
+        ""
+      ]
+    ],
     "context": "Un peu plus tard dans la journée, Germain, en traversant le parc pour retourner à l'hôpital, voit un de ses confrères qui s'amuse à nourrir les oiseaux avec des morceaux de pain trempés dans du lait.\n\n— Bonjour, Vorzet. Je ne vous savais pas de retour.<br>\n— Mon cher Germain, un vieux mari ne doit pas laisser longtemps seule sa jeune femme, répond le psychiatre d'un air malicieux.<br>\n— C'est pour moi que vous dites ça ?<br>\n— Eh eh ! Pourquoi pour vous ? Je dis ça pour elle et pour moi. Ne vous fâchez pas !\n\nGermain se mord les lèvres.\n\n— Vous aimez les oiseaux ? reprend-il.<br>\n— Ils m'intéressent. Ils sont plus intelligents qu'on ne croit. Je suis un peu ornithologue à mes heures, voyez-vous... Ah, à propos d'oiseaux...<br>\n— Oui ?<br>\n— Figurez-vous que ma femme a reçu hier une lettre signée d'un certain Corbeau.<br>\n— Elle vous l'a dit ?<br>\n— Oui, oh ! elle ne me cache rien. C'est le bénéfice de mon grand âge, eh eh ! Et d'ailleurs, j'ai reçu moi-même ce matin... une seconde lettre.<br>\n— Sur le même sujet ?<br>\n— Oui. Avec des détails supplémentaires... Il paraîtrait que vos relations avec Laura auraient laissé des traces fâcheuses.<br>\n— Quoi ?<br>\n— Ne vous énervez pas !... Et que vous auriez profité de mon absence pour les faire disparaître... chirurgicalement.<br>\n— Oh, le...<br>\n— Eh... oui, que voulez-vous. Et j'ajoute que Delorme a reçu en tant que médecin-chef un torchon du même genre. On vous accuse de délivrer les faibles femmes d'un fardeau encombrant. Voilà, vous êtes prévenu.<br>\n— Si je connaissais le salaud...<br>\n— Tout de suite les grands mots. Mon cher, j'ai la chance de connaître assez bien la question. J'ai été nommé plusieurs fois expert dans des affaires de lettres anonymes. Croyez-moi, nous ne sommes pas en présence d'un salaud, mais d'un malade.<br>\n— Eh bien, je me charge de le soigner !<br>\n— Quand vous l'aurez découvert !\n\nEt, désignant tour à tour quelques visiteurs du parc :\n\n— C'est peut-être M. le substitut qui passe avec un mandat à la main. Ou M. Fayolle qui lit le journal en marchant... N'est-ce pas, M. Fayolle ?<br>\n— Pardon ?<br>\n— Je dis, c'est peut-être vous...<br>\n— Qui fait quoi ?<br>\n— Chut !... C'est un secret !<br>\n— Ah, toujours le mot pour rire, docteur ! dit Fayolle en s'éloignant.<br>\n— Et si ce n'est ni Fayolle, ni le substitut, c'est peut-être le docteur Germain lui-même...<br>\n— Vous me soupçonnez, moi, la victime de ce malade ?<br>\n— Un malade peut fort bien s'accuser lui-même. C'est fréquent chez les anonymographes. Remarquez, je ne vous crois pas coupable... pour le moment.<br>\n— Vous êtes trop bon...<br>\n— Seulement il faut vous méfier. Ouvrir l’œil. Quand ce genre de maladie se déclare, on ne sait pas où elle s'arrête. Toute une ville peut en être atteinte. Au revoir, Germain.<br>\n— Au revoir.\n\nIl s'est à peine éloigné de quelques pas, qu'une idée lui traverse l'esprit.\n\n— Dites donc ! lance-t-il à son confrère... Au fond, le corbeau, c'est peut-être vous !<br>\n— Et pourquoi pas ? répond Vorzet.\n\n_Note._ En France, l'avortement a longtemps été passible de la prison, des travaux forcés à perpétuité, voire de la peine de mort. À l'époque, environ 300 personnes par an étaient condamnées pour ce motif. Mais malgré tous les risques encourus, le nombre de femmes qui recouraient à un avortement clandestin était de l'ordre de 500 000 par an. De nos jours, en dépit de la légalisation de l'IVG, mais avec la « pilule », ce chiffre a diminué de moitié.",
     "statement": "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933) ?",
     "salt": "092",
@@ -600,6 +770,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 15,
+    "section_path": [
+      [
+        "Mercredi 26 avril 1933",
+        ""
+      ],
+      [
+        "La barbichette",
+        ""
+      ]
+    ],
     "context": "Quatre jours se sont écoulés. Nous sommes maintenant le 26 avril 1933. Le directeur de l'hôpital, Antoine Delorme, entre dans le bureau du comptable, Henri Bonnevie.\n\n— Ah, M. le médecin-chef !<br>\n— Restez assis...\n\nLui-même reste debout.\n\n— Mon cher Bonnevie, je suis très embêté.<br>\n— Rien de grave, j'espère ?<br>\n— J'ai encore reçu une lettre anonyme.<br>\n— Encore ?<br>\n— Et celle-ci ne met pas seulement Germain en cause. Je vais vous la lire.<br>\n— Je vous en prie. J'en serais très honoré.<br>\n— « 𝕍𝕀𝔼𝕀𝕃 𝕀𝕍ℝ𝕆𝔾ℕ𝔼 », commence le docteur... Hum, c'est une clause de style, naturellement.<br>\n— Naturellement !",
     "statement": "Pour connaître la suite de cette lettre, joignez les tables `fragment` et `consultation` sur leurs identifiants, en ne gardant que les neuf consultations les plus récentes du docteur Delorme.\n\n_Aide._ Utilisez la clause `ORDER BY` pour trier les dates, et `LIMIT` pour n'afficher que le nombre de lignes voulu.",
     "salt": "078",
@@ -634,6 +814,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 16,
+    "section_path": [
+      [
+        "Mercredi 26 avril 1933",
+        ""
+      ],
+      [
+        "La lettre de l'économe",
+        ""
+      ]
+    ],
     "context": "— Qu'en pensez-vous, Bonnevie ?<br>\n— Et vous, M. le médecin-chef ?<br>\n— Eh bien, pour vous dire la vérité, je suis embêté. Très embêté. Ça pose véritablement un cas de conscience ! Vous me comprenez ?<br>\n— Je vous comprends, et d'autant plus que je me trouve moi-même confronté à pareil cas de conscience.<br>\n— Non ? dit Delorme en s'asseyant.<br>\n— J'ai moi aussi reçu une lettre anonyme. Et je vous demande la permission de vous en donner lecture.<br>\n— Mais, je pense bien, allez-y, mon cher.\n\nL'économe se lève, et vient s'appuyer sur le coin de son bureau, juste au-dessus de Delorme.\n\n— « 𝕍𝕀𝔼𝕀𝕃𝕃𝔼 ℂ𝔸ℕ𝔸𝕀𝕃𝕃𝔼 », commence-t-il... Hum, c'est une clause de style, naturellement.<br>\n— Naturellement !",
     "statement": "Pour connaître la suite de cette lettre, convertissez en binaire la somme des identifiants des métiers des filles d'Henri Bonnevie, et extrayez de la table `fragment` toutes les lignes dont l'identifiant en binaire se termine par les mêmes chiffres.\n\n_Aide._ Utilisez la fonction `CONV(nombre_à_convertir, base_de_départ, base_d'arrivée)` qui renvoie une chaîne de caractères, ainsi que la fonction `CONCAT()` et l'opérateur `LIKE`.",
     "salt": "010",
@@ -650,6 +840,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 17,
+    "section_path": [
+      [
+        "Mercredi 26 avril 1933",
+        ""
+      ],
+      [
+        "Une soirée au Cercle",
+        ""
+      ]
+    ],
     "context": "— Qu'est-ce que vous pensez de ça ? demande Bonnevie en finissant la lecture.\n\nLe médecin-chef s'est décomposé.\n\n— Décidément, ces lettres sont un tissu de mensonges et de calomnies. Mon opinion est faite, dit-il en lui serrant la main.<br>\n— La mienne aussi, M. le médecin-chef.\n\nQuand son supérieur a quitté le bureau, il s'éponge le front.\n\n------------------------\n\nÀ la fin de la journée, au Cercle, le café où les notables de Saint-Robin ont leurs habitudes.\n\n— Bonsoir, M. le maire.<br>\n— M. le comte...<br>\n— Bonsoir.<br>\n— Bonsoir, mon ami.<br>\n— Alors, on ne joue pas ?<br>\n— Non, ces messieurs discutent.<br>\n— Fayolle a reçu une lettre.<br>\n— Moi aussi, dit le maire. Et c'est plus grave.<br>\n— Pourquoi plus grave ?<br>\n— Parce que je suis un homme public, M. Fayolle ! Preuve que le coupable n'a même pas le respect des fonctions officielles ! Triste nature !\n\nIl s'asseoit, sort une lettre de sa poche.\n\n— Tenez ! écoutez-moi ça : « 𝕍𝕀𝔼𝕀𝕃 𝔼𝕄𝔹𝕌𝕊ℚ𝕌É », commence-t-il...\n\nQuelqu'un étouffe un rire.\n\n— J'ai fait justice de cette ânerie pendant ma campagne électorale. « 𝕋𝕌 𝔸𝔻𝕄𝕀ℕ𝕀𝕊𝕋ℝ𝔼𝕊 𝕌ℕ𝔼 𝕍𝕀𝕃𝕃𝔼 ℙ𝕆𝕌ℝℝ𝕀𝔼, 𝔼𝕋 ℙ𝕆𝕌ℝℝ𝕀𝔼 ℙ𝔸ℝ 𝔾𝔼ℝ𝕄𝔸𝕀ℕ, 𝕃𝔼 𝕊𝕆𝕄𝔹ℝ𝔼𝕌ℝ 𝔻𝔼 ℙ𝕆𝕃𝕀ℂℍ𝕀ℕ𝔼𝕃𝕃𝔼𝕊. 𝕍𝕆𝕀ℂ𝕀 𝕄𝕆ℕ ℝÉℚ𝕌𝕀𝕊𝕀𝕋𝕆𝕀ℝ𝔼 𝔼ℕ 𝕋ℝ𝕆𝕀𝕊 ℙ𝕆𝕀ℕ𝕋𝕊 : ℙℝ𝕀𝕄𝕆, 𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝔸 𝔽𝔸𝕀𝕋 𝕃𝔼𝕊 ℚ𝕌𝔸𝕋ℝ𝔼 ℂ𝔼ℕ𝕋𝕊 ℂ𝕆𝕌ℙ𝕊 𝔸𝕍𝔼ℂ »...\n\nIl jette un coup d'œil au docteur Vorzet qui joue au billard à l'autre bout de la salle.\n\n— Ici, continue-t-il, le nom d'une dame honorablement connue de la société. Inutile de dire le cas qu'il faut faire d'une semblable assertion. « 𝕊𝔼ℂ𝕌ℕ𝔻𝕆, 𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝕋ℝ𝔸𝔽𝕀ℚ𝕌𝔼 𝔻𝔼 𝕃𝔸 𝕄𝕆ℝℙℍ𝕀ℕ𝔼, 𝔼𝕋 ℂℍ𝔼ℝℂℍ𝔼 À 𝔽𝔸𝕀ℝ𝔼 𝔸ℂℂ𝕌𝕊𝔼ℝ 𝕌ℕ𝔼 𝕍𝕀ℂ𝕋𝕀𝕄𝔼 𝕀ℕℕ𝕆ℂ𝔼ℕ𝕋𝔼, 𝕄𝔸ℝ𝕀𝔼 ℂ𝕆ℝ𝔹𝕀ℕ, ℚ𝕌𝔼 𝕁𝔼 𝕊𝔸𝕃𝕌𝔼 ℝ𝔼𝕊ℙ𝔼ℂ𝕋𝕌𝔼𝕌𝕊𝔼𝕄𝔼ℕ𝕋. » Alors, qu'en pensez-vous ?<br>\n— Et tertio ? demande le docteur Bertrand.<br>\n— Tertio ? Sans importance.<br>\n— Tertio, tu es cocu !\n\nLe maire foudroie le docteur Bertrand du regard.\n\n— Qu'en savez-vous ?<br>\n— J'ai moi aussi reçu une lettre anonyme.<br>\n— Hum ! Ce ne sont que des mensonges, mais c'est bien désagréable.<br>\n— Je ne suis pas de votre avis.<br>\n— Vous trouvez ça agréable ?<br>\n— Non, je parle des mensonges. Il semble que ces lettres contiennent un fond de vérité.<br>\n— Charmant ! s'insurge le pharmacien. Alors je vendrais des médicaments truqués ?<br>\n— Il ne s'agit pas de vous, répond Bertrand. il s'agit du principal accusé... Celui dont le nom figure dans chaque missive. Je ne me permettrais pas de dire du mal d'un de mes confrères, mais... j'ai eu l'autre matin avec lui une conversation qui m'a fâcheusement impressionné.\n\nÀ une autre table, un jeune homme discute avec le docteur Delorme.\n\n— Depuis trois ans que je suis substitut, c'est la première fois qu'une affaire intéressante se présente. Je ne vais pas la rater.<br>\n— On ne va pas arrêter Germain sans preuves.<br>\n— Il ne s'agit pas d'arrêter. Il s'agit de mener une enquête à l'hôpital.<br>\n— Ah non ! Non, jamais de la vie ! je m'y oppose formellement ! Assez d'histoires, hein !<br>\n— Un médecin-chef ne peut entraver l'action du parquet.<br>\n— Non, mais ton père peut te foutre une paire de claques si tu l'emmerdes !<br>\n— Tu le prends comme ça ?<br>\n— Parfaitement !<br>\n— Bien, papa. Mais je sais où est mon devoir...\n\nVourzet a entendu la fin de leur conversation :\n\n— Jeune homme, dit-il, vous n'avez qu'un devoir : la prudence. Notre ville a la fièvre... Et on n'opère pas un malade à chaud !",
     "statement": "Quel pourcentage de la population de Saint-Robin aura été destinataire d'une ou plusieurs lettres du Corbeau jusqu'à ce mercredi 26 avril 1933 ?",
     "salt": "029",
@@ -697,6 +897,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 18,
+    "section_path": [
+      [
+        "Jeudi 27 avril 1933",
+        ""
+      ],
+      [
+        "Le gardien de sa sœur",
+        ""
+      ]
+    ],
     "context": "Le lendemain, en début d'après-midi, le directeur de l'école entre dans la chambre de sa sœur.\n\n— Denise, secoue-toi !<br>\n— Laisse-moi dormir.<br>\n— Ah non, cette fois ça suffit ! s'exclame-t-il en lui arrachant la couverture.<br>\n— Mais, tu es fou ! Je suis malade ! hurle-t-elle.<br>\n— Malade, toi ? Tu crois que je ne te connais pas ? Tous les locataires, tous, il te les a fallu ! Sauf le boy-scout et le vieux Frochard ! Et encore, je ne suis pas sûr pour le boy-scout. Maintenant, c'est le tour du docteur Germain !<br>\n— Germain ? Oh là là ! On peut dire que tu as du goût ! Il a l'air d'un parapluie ! Il doit faire l'amour comme un pion.<br>\n— Alors pourquoi joues-tu la malade ?<br>\n— Je ne joue pas la malade, je SUIS malade ! J'ai une bronchite ! Et une angine !<br>\n— Attends... C'est vrai ? Tu as l'air vraiment malade... Tu as de la fièvre ? Fais voir ta gorge.\n\nIl lui soulève le menton.\n\n— Qu'est-ce que c'est que ça ?<br>\n— Une compresse.<br>\n— Une compresse d'eau glacée ! Mes compliments ! En effet, tu ne joues pas la malade, tu te rends malade ! Et dire que j'ai failli me faire avoir ! Heureusement qu'une lettre m'a ouvert l’œil !<br>\n— Quelle lettre ?<br>\n— Celle-ci ! dit-il en lui flanquant une paire de gifles.",
     "statement": "Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum ? On supposera pour simplifier que tous les anciens amants de Denise résident encore à Saint-Robin.\n\n_Aide._ La table `amants` se concentre sur les relations illégitimes entre personnages. Au contraire de `relation`, elle ne comporte pas de doublons par symétrie. Notez le pluriel dans le nom de la table : chaque ligne comporte deux amants.",
     "salt": "086",
@@ -713,6 +923,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 18,
+    "section_path": [
+      [
+        "Jeudi 27 avril 1933",
+        ""
+      ],
+      [
+        "Le gardien de sa sœur",
+        ""
+      ]
+    ],
     "context": "Le lendemain, en début d'après-midi, le directeur de l'école entre dans la chambre de sa sœur.\n\n— Denise, secoue-toi !<br>\n— Laisse-moi dormir.<br>\n— Ah non, cette fois ça suffit ! s'exclame-t-il en lui arrachant la couverture.<br>\n— Mais, tu es fou ! Je suis malade ! hurle-t-elle.<br>\n— Malade, toi ? Tu crois que je ne te connais pas ? Tous les locataires, tous, il te les a fallu ! Sauf le boy-scout et le vieux Frochard ! Et encore, je ne suis pas sûr pour le boy-scout. Maintenant, c'est le tour du docteur Germain !<br>\n— Germain ? Oh là là ! On peut dire que tu as du goût ! Il a l'air d'un parapluie ! Il doit faire l'amour comme un pion.<br>\n— Alors pourquoi joues-tu la malade ?<br>\n— Je ne joue pas la malade, je SUIS malade ! J'ai une bronchite ! Et une angine !<br>\n— Attends... C'est vrai ? Tu as l'air vraiment malade... Tu as de la fièvre ? Fais voir ta gorge.\n\nIl lui soulève le menton.\n\n— Qu'est-ce que c'est que ça ?<br>\n— Une compresse.<br>\n— Une compresse d'eau glacée ! Mes compliments ! En effet, tu ne joues pas la malade, tu te rends malade ! Et dire que j'ai failli me faire avoir ! Heureusement qu'une lettre m'a ouvert l’œil !<br>\n— Quelle lettre ?<br>\n— Celle-ci ! dit-il en lui flanquant une paire de gifles.",
     "statement": "Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum ? On supposera pour simplifier que tous les anciens amants de Denise résident encore à Saint-Robin.\n\n_Aide._ La table `amants` se concentre sur les relations illégitimes entre personnages. Au contraire de `relation`, elle ne comporte pas de doublons par symétrie. Notez le pluriel dans le nom de la table : chaque ligne comporte deux amants.",
     "salt": "086",
@@ -741,6 +961,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 19,
+    "section_path": [
+      [
+        "Jeudi 27 avril 1933",
+        ""
+      ],
+      [
+        "Les ventouses",
+        ""
+      ]
+    ],
     "context": "Dans la chambre de Denise. La jeune femme est toujours alitée, à plat ventre, dos découvert. Sa nièce Rolande lui applique des ventouses.\n\n— Tu crois que c'est vrai ? dit celle-ci.<br>\n— Quoi ?<br>\n— Les choses qu'on raconte sur M. Picard... Il aurait fait un enfant à...<br>\n— Ça suffit, Rolande ! Ça ne te regarde pas. Ce ne sont pas des histoires pour les gamines.<br>\n— Oh, la barbe ! Tu ne te rappelles plus quand tu avais mon âge...\n\nL'adolescente reprend :\n\n— En tout cas, s'il y en a un qui a mauvaise presse, c'est le docteur Germain. Rien que cet après-midi, les oreilles ont dû lui tinter. Il va en baver !<br>\n— Tant mieux ! Ça lui apprendra.\n\nOn frappe à la porte.\n\n— Va voir, souffle Denise.<br>\n— Oh ! mais c'est le docteur, s'exclame Rolande en ouvrant... Bonsoir, docteur. Justement, nous parlions de vous, docteur...<br>\n— Denise est malade ?<br>\n— Oui, et cette fois, c'est pour de bon. Vous savez poser les ventouses ?<br>\n— À votre avis ?<br>\n— Alors, prenez ma place, elle adore ça.\n\nRolande sort.\n\n— Vous êtes enfin arrivée à tomber malade...<br>\n— Et après ? Si ça m'amuse de me rendre malade pour me faire soigner ?<br>\n— Drôle de fille !<br>\n— Je ne sais pas qui est le plus drôle des deux.<br>\n— Oh ! moi, sûrement. Il faut être drôle pour ne pas se jeter sur la première femme qui s'offre, n'est-ce pas ?<br>\n— Merci pour la première femme...\n\nIl applique une ventouse sur le dos de Denise en disant :\n\n— Vous comprenez fort bien.<br>\n— Je comprends que pour faire ça, il vous faut l'Amour avec une lettre majuscule.<br>\n— Au contraire. Si je croyais aimer une femme, je m'enfuirais d'autant plus vite.<br>\n— Dans ce cas, qu'est-ce qui vous empêche de prendre du plaisir quand il se trouve ?<br>\n— Oh, presque rien... Un fantôme. Ou plutôt, deux fantômes. Vous savez, Denise, je ne demande plus qu'une seule chose à la vie : l'apaisement.",
     "statement": "À cette époque, un enfant dont les parents n'étaient pas mariés ensemble était dit « naturel ».\n\nDonnez la liste des enfants naturels, avec pour chacun son père et sa mère.",
     "salt": "045",
@@ -763,6 +993,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 20,
+    "section_path": [
+      [
+        "Jeudi 27 avril 1933",
+        ""
+      ],
+      [
+        "Une visite du doyen",
+        ""
+      ]
+    ],
     "context": "Rolande rouvre la porte.\n\n— Docteur, on vous demande !<br>\n— Moi ? Je reviens tout de suite, dit-il en ramenant le drap sur le dos de Denise.\n\nLe docteur Vorzet est à sa porte.\n\n— Ah, c'est vous ! Vous me cherchiez ?<br>\n— Oh, je passais... Et je me suis dit : tiens, si nous allions faire une petite visite d'amitié à notre bon docteur Germain ?<br>\n— Entrez. Je passe devant, vous permettez ?\n\nLe psychiatre pénètre dans l'appartement.\n\n— Joli bureau Louis xv, félicitations !<br>\n— Merci. Vous aimez les beaux meubles ?<br>\n— Je les admire... de loin. Ce n'est pas avec les honoraires que nous recevons de nos concitoyens qu'on peut collectionner des pièces de cette importance... Vous devez avoir une belle fortune personnelle...<br>\n— Honnête.<br>\n— Oui, c'est ce que je leur disais.<br>\n— À qui ?<br>\n— Aux gens qui m'interrogeaient, tout à l'heure.<br>\n— Sur ma fortune ?<br>\n— Oui, sur votre fortune. Enfin, plutôt, sur votre passé. Vous comprenez, avec cette malheureuse affaire, la curiosité s'est éveillée...<br>\n— La prochaine fois, envoyez-moi directement les curieux. Je les renseignerai moi-même.<br>\n— À propos... Vous m'aviez dit qu'avant de venir ici vous exerciez à Grenoble ?<br>\n— Oui... Sans doute.<br>\n— Un imbécile s'est avisé de consulter l'annuaire médical...<br>\n— Et alors ?<br>\n— Et alors, il n'a pas trouvé de docteur Germain à Grenoble.<br>\n— Vous direz de ma part à cet imbécile que la publication à l'annuaire n'est pas obligatoire. C'est une simple affaire de publicité.<br>\n— En fait, le seul Germain qui ait habité Grenoble, a quitté cette ville il y a quinze ans pour Paris. Il est devenu un fameux chirurgien du cerveau.<br>\n— Barthélémy Germain ? Je lui ai été présenté.<br>\n— Oh, c'est quelque chose !... Son témoignage pourrait servir si on en arrivait à une enquête... Mais aujourd'hui, ils m'ont seulement demandé de recueillir quelques renseignements.<br>\n— Qui, « ils » ?<br>\n— Eh bien, euh... d'autres imbéciles... Nous n'en manquons pas. Maintenant, je vous quitte. Il se fait tard.<br>\n— Vous avez découvert quelque chose sur le Corbeau ?<br>\n— On accuse surtout ma belle-sœur, Marie Corbin. Naturellement, elle a des griefs contre vous. Mais je ne la crois pas coupable. J'étais fiancé avec Marie avant d'épouser Laura. Je la connais bien. Il faudrait qu'elle ait beaucoup changé...\n\nEt, sur le palier :\n\n— Vous m'en voulez de ma visite ?<br>\n— Au contraire. Je vous en remercie.<br>\n— N'exagérez rien, tout de même. Je vous souhaite de vivre vieux, Germain, mais de n'être jamais le doyen du corps médical. On nous impose des tâches bien désagréables.",
     "statement": "Vérifiez que Vorzet est le doyen du corps médical, en d'autres termes, qu'il est le plus vieux des employés de l'hôpital.",
     "salt": "012",
@@ -797,6 +1037,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 21,
+    "section_path": [
+      [
+        "Jeudi 27 avril 1933",
+        ""
+      ],
+      [
+        "Une nuit d'amour",
+        ""
+      ]
+    ],
     "context": "Le docteur Germain est sur le point de frapper chez Denise, quand celle-ci ouvre sa porte.\n\n— Je vous croyais au lit.<br>\n— Je venais vous voir.<br>\n— Chez moi ?<br>\n— Vorzet ne se déplace pas pour rien. C'est grave, n'est-ce pas ?<br>\n— Qu'est-ce que ça peut vous faire ?<br>\n— Toujours aimable...<br>\n— Recouchez-vous, vous allez prendre froid.<br>\n— Qu'est-ce que ça peut vous faire ?\n\nDenise retourne à son lit, laisse tomber ses chaussures. Le docteur Germain ne peut s'empêcher de les observer. Denise a surpris son regard.\n\n— Oui, je boite. Et après ? Nous avons eu un accident de voiture, mon frère et moi. Lui a perdu un bras, moi, j'ai attrapé une coxalgie.\n\nElle se couche.\n\n— Est-ce que ça m'empêche d'être belle femme ? Est-ce que ça empêche les hommes d'avoir envie de moi ? Est-ce que ça vous empêche d'avoir envie de moi ?<br>\n— Bonsoir Denise, dit Germain, embarrassé et sans faire un pas.<br>\n— Vous ne dormirez pas, vous le savez très bien. Vous êtes trop inquiet.<br>\n— Ça se voit tant que ça ?<br>\n— Vous disiez que tout ce que vous demandiez à la vie, c'était l'apaisement.<br>\n— Oui, l'oubli total.<br>\n— Je ne peux pas vous offrir tant que ça. Mais quelques heures d'oubli, ça compte quand même...<br>\n— Taisez-vous, dit-il en lui mettant la main sur la bouche.\n\nElle pose sa main sur la sienne et la mord.\n\nSur le palier, Rolande recule, enlève ses lunettes et s'effondre en pleurant.",
     "statement": "Pour chaque médecin ayant couché avec au moins l'une des personnes qui l'ont consulté, affichez le nombre de celles-ci.",
     "salt": "046",
@@ -820,6 +1070,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 22,
+    "section_path": [
+      [
+        "Vendredi 28 avril 1933",
+        ""
+      ],
+      [
+        "Première dispute d'un nouveau couple",
+        ""
+      ]
+    ],
     "context": "Le lendemain matin, de bonne heure, en allant visiter une malade, le docteur Germain trouve porte close. La voiture du docteur Bertrand est garée devant la maison. Les gens commenceraient-ils à se méfier de lui ?\n\nIl repart vers l'école, soucieux. Peu de temps après qu'il est arrivé chez lui, Denise entre à son tour.\n\n— Tu es déjà revenu ?<br>\n— Tu vois.<br>\n— Qu'est-ce que tu fais ?<br>\n— Je regardais jouer les enfants.<br>\n— Je croyais que tu n'aimais pas les gosses...<br>\n— Je ne sais plus ce que j'aime. Mais quand on sort de toute cette boue, ça... ça repose un peu.\n\nDenise s'est approchée de lui.\n\n— Tu n'es pas très tendre, ce matin.<br>\n— Non. Denise, écoutez.<br>\n— Tu me vouvoies ?<br>\n— Je crains qu'il n'y ait entre nous un malentendu. Hier, vous me plaisiez, c'est vrai. Mais j'étais surtout très déprimé, très nerveux. Je suis resté près de vous autant par découragement que par désir. Vous comprenez ?<br>\n— Je serais vraiment trop bête.<br>\n— Non, vous ne comprenez pas. Ça n'a aucune importance, d'ailleurs... J'ai décidé de quitter la ville.<br>\n— En ce moment, ce serait vous avouer coupable.<br>\n— Aussi, j'attendrai que cette affaire soit réglée.<br>\n— Et d'ici là ?<br>\n— Nous serons des amis, si vous voulez bien...<br>\n— Des amis ? Tu vois une femme comme moi être l'amie d'un homme comme toi ? Après cette nuit ? Vous me mésestimez, mon cher.<br>\n— Réfléchissez...<br>\n— C'est tout réfléchi. Tu es lâche. Tu es faible. De nous deux, c'est toi la grue. Mais ça m'est égal, je ne cèderai pas. Hier, tu m'as vue boiter parce que j'avais les pieds nus. Mais quand j'ai mes chaussures, personne ne s'aperçoit de rien. J'ai mis cinq ans pour arriver à ce résultat. J'ai réussi. Et tous les hommes que j'ai voulus, je les ai eus. Moi, l'infirme. Et chaque fois, c'est une revanche que je prends sur la vie. Maintenant, tu feras ce que tu voudras. Tu es prévenu, tu sais à qui tu as affaire.\n\nElle sort en claquant la porte.",
     "statement": "Pour chaque patient, donner le nombre de médecins qu'il consulte. Triez par nombre de médecins décroissant et par patient croissant.",
     "salt": "036",
@@ -843,6 +1103,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 23,
+    "section_path": [
+      [
+        "Vendredi 28 avril 1933",
+        ""
+      ],
+      [
+        "La voleuse de la poste",
+        ""
+      ]
+    ],
     "context": "En sortant de chez lui un quart d'heure plus tard, Germain a un mouvement de recul. Quelqu'un a posé devant sa porte un corbeau empaillé, perché sur un socle de bois. Il le ramasse et l'examine avec un mélange de fascination et de dégoût. En relevant la tête, il aperçoit Rolande qui l'observe.\n\n— C'est vous qui avez posé ça là ?<br>\n— Non.<br>\n— Vous connaissez ce volatile ?<br>\n— Non, répond-elle en évitant son regard...<br>\n— Alors, que faites-vous ici ?<br>\n— Eh bien voilà, docteur, commence-t-elle en s'avançant vers lui. J'ai un grand service à vous demander, un immense service. Voulez-vous me prêter 100 francs ?<br>\n— 100 francs ?<br>\n— Pour sauver mon honneur.\n\nIl ne peut s'empêcher de sourire.\n\n— Fichtre !<br>\n— Ne riez pas, c'est très grave. Hier matin, j'ai vu dans une devanture un col en broderie. De la broderie anglaise, de la vraie.<br>\n— Et alors ?<br>\n— Alors, j'ai pris 100 francs dans ma caisse, à la poste. Je pensais les remettre sur mes économies, et puis...<br>\n— Et puis ?<br>\n— Je viens de m'apercevoir que ma grammaire est vide.<br>\n— Votre grammaire ?<br>\n— C'est là que je mets mes sous.<br>\n— Vous n'avez qu'à rendre le col.<br>\n— Je ne peux pas, dit-elle en le fixant effrontément. J'ai fait une tache.<br>\n— Tenez, menteuse !<br>\n— Merci, docteur.\n\nIl lui met le volatile entre les mains.\n\n— Et gardez ça, aussi.",
     "statement": "Pour chaque nom de travail exercé par au moins 3 personnes, afficher la fourchette des âges de ces personnes (âges minimal et maximal, par exemple \"29-44\").",
     "salt": "071",
@@ -871,6 +1141,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 24,
+    "section_path": [
+      [
+        "Vendredi 28 avril 1933",
+        ""
+      ],
+      [
+        "Rendez-vous à l'église",
+        ""
+      ]
+    ],
     "context": "Dans l'église déserte, une femme est agenouillée. C'est Laura Vorzet. Elle se retourne en entendant le pas de Germain.\n\n— Ah, enfin, vous voilà ! chuchote-t-elle. Venez vous mettre à genoux près de moi, qu'on ne nous remarque pas.<br>\n— Impossible de venir plus tôt, votre sœur montait la garde sur la place.<br>\n— Voyez dans quelle situation vous me mettez ! Au lieu de venir, j'aurais dû montrer votre lettre à mon mari.<br>\n— Ma lettre ? Mais je ne vous ai jamais écrit ! Au contraire, c'est votre lettre qui m'a fait venir.<br>\n— Quelle lettre ?<br>\n— Celle-ci.\n\nElle examine un instant le bout de papier qu'il a sorti de sa poche.\n\n— C'est un faux, conclut-elle. Voici celle que j'ai reçue de vous.<br>\n— Oh ! s'exclame-t-il en lisant la lettre. Et vous êtes venue tout de même ?<br>\n— J'ai été blessée, bien sûr. Pourtant, je vous ai excusé. Une femme est toujours prête à pardonner quand... quand elle est amoureuse...\n\nElle cherche son regard.\n\n— Je vous déçois ? murmure-t-elle.<br>\n— Moi qui vous imaginais tellement au-dessus de tout ça, tellement lointaine...<br>\n— Nous sommes pourtant sans doute assez près l'un de l'autre.\n\nCe disant, elle pose la main sur son bras. Il se dégage :\n\n— Malheureusement, je ne suis pas libre.<br>\n— Vous aimez une autre femme ?<br>\n— Non, je... Je traîne après moi... Enfin, je vous expliquerai peut-être tout ça un jour...<br>\n— Je ne vous demande rien. Je ne me jette à la tête de personne.<br>\n— Ce qui m'inquiète, c'est de savoir pourquoi on nous a aménagé cette rencontre.<br>\n— Je l'ignore mais je n'ai aucune intention de la prolonger. Adieu, Germain.\n\nCette fois, c'est lui qui lui prend la main. Il continue :\n\n— Laura. Il ne faut surtout pas m'en vouloir. Si jamais vous avez besoin de moi, je serai là.\n\nUne ombre vient de se glisser entre eux.\n\n— Denise !<br>\n— Vous ne m'attendiez pas, hein ?<br>\n— Qu'est-ce que vous faites ici ? demande Germain.<br>\n— Vos scrupules vous obligent à me quitter, mais ne vous empêchent pas de courir après une femme mariée. Une petite sainte Nitouche vicieuse et sournoise. Mes compliments.<br>\n— Ce rendez-vous est une ruse ! se défend Germain. Un piège dans lequel vous tombez avec nous ! Qui vous a donné l'idée de venir ici ?<br>\n— Quelqu'un qui vous connaît bien et qui a vu juste du premier coup ! J'ai reçu une lettre tout à l'heure.<br>\n— Du Corbeau, sans doute, intervient Laura.<br>\n— Toi, d'abord, je t'interdis de m'adresser la parole ! Tu m'as volé mon amant, laisse-moi tranquille...<br>\n— Denise ! proteste Germain.<br>\n— Michel le saura ! Tout le monde le saura !<br>\n— Taisez-vous.<br>\n— Le Corbeau a raison !<br>\n— Allez-vous vous taire ?<br>\n— Je crierai, je crierai si je veux ! Sale type ! sale type !",
     "statement": "Dressez une liste de toutes les personnes de la ville avec, en face, leur nombre d'amants, trié par\nnombre croissant, puis nom croissant. Vous inclurez les personnes n'ayant aucun amant, mais exclurez celles qui n'ont pas atteint l'âge de la majorité sexuelle.",
     "salt": "018",
@@ -918,6 +1198,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 25,
+    "section_path": [
+      [
+        "Vendredi 28 avril 1933",
+        ""
+      ],
+      [
+        "Le suicide de François Boulin",
+        ""
+      ]
+    ],
     "context": "Une voix de femme les interrompt :\n\n— Ne parlez pas si fort dans la maison du Seigneur.\n\nC'est Marie Corbin qui, pendant qu'ils se disputaient, est entrée à son tour dans l'église.\n\n— Je vous cherchais, docteur.<br>\n— Vous saviez que j'étais ici ?<br>\n— Je vous ai vu entrer. Il y a eu un accident dans votre service. Le 13 vient de se suicider.<br>\n— Mon Dieu...<br>\n— Il ignorait qu'il était perdu. Une lettre anonyme lui a révélé la gravité de son état. Il s'est coupé la gorge avec son rasoir.",
     "statement": "Pour connaître le contenu de la lettre, restreignez `fragment` aux textes dont l'identifiant est une sous-chaîne du cube de l'identifiant de la lettre reçue par François Boulin le 28 avril 1933.\n\n_Aide._ Utilisez à nouveau la fonction `CAST()` pour convertir un type en un autre.",
     "salt": "051",
@@ -952,6 +1242,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 26,
+    "section_path": [
+      [
+        "Vendredi 28 avril 1933",
+        ""
+      ],
+      [
+        "Conseil de guerre à l'hôpital",
+        ""
+      ]
+    ],
     "context": "Conseil de guerre dans le bureau du docteur Delorme.\n\n— Alors ? demande-t-il. Votre opinion ?<br>\n— Pour moi, répond Bonnevie, c'est Marie Corbin qui a écrit ces saletés. Elle ne pouvait pas souffrir le 13 depuis l'histoire des ampoules.<br>\n— C'est l'avis de tout l'hôpital, confirme le docteur Bertrand.<br>\n— N'importe ! s'exclame le médecin-chef. Quel imbécile, ce 13 ! Comme si je n'avais pas assez d'ennuis ! Que faire ?<br>\n— Un bel enterrement, suggère Bertrand. Des funérailles officielles. Nous sommes aujourd'hui vendredi. Mettons ça à dimanche : toute la ville pourra assister aux obsèques.<br>\n— Le curé ne laissera pas entrer un suicidé à l'église !\n\nBertrand se tourne vers le psychiatre.\n\n— Dr Vorzet, vous nous signerez un certificat d'aliénation mentale. Le 13 était fou, n'est-ce pas ?<br>\n— Mais bien entendu, il était fou... Comme tout le monde, comme moi, comme vous !<br>\n— Je vous en prie, pas de plaisanteries !<br>\n— Naturellement, reprend Bertrand, tout l'hôpital suivra le cortège.<br>\n— Pas moi ! intervient le docteur Germain.<br>\n— Pourquoi, pas vous ?<br>\n— Parce que je n'aime pas les enterrements.\n\n_Note._ « La seule possibilité d’obtenir des funérailles religieuses pour un suicidé restait donc pour la famille, comme sous l’Ancien Régime, de prouver que l’acte avait été commis dans un état de folie, et cet état mental pouvait être attesté par un certificat de médecin ou d’officier de santé. Les médecins aliénistes ont témoigné de cette activité consistant à accorder des certificats de complaisance [...]. En déclarant le suicidé atteint d’une aliénation passagère au moment du geste fatal, le médecin de famille sauvait l’honneur des proches survivants et, incidemment, celui de sa clientèle. »  \n– Marc Renneville, _Le suicide est-il une folie ? Les lectures médicales du suicide en France au XIXe siècle_, Criminocorpus Online, La pathologie du suicide, 14 mai 2018 : http://journals.openedition.org/criminocorpus/3797.",
     "statement": "Donner, pour chaque médecin, le nombre de patients décédés qu'il a reçus pour leur ultime consultation, avec la liste de ceux-ci, le tout classé par nombres de patients décédés décroissants.\n\n_Aide._ La table `personne` donne, pour chaque habitant de Saint-Robin, la date de son décès lorsqu'elle est connue. Utilisez `GROUP_CONCAT()` avec une virgule comme séparateur.",
     "salt": "004",
@@ -999,6 +1299,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 27,
+    "section_path": [
+      [
+        "Dimanche 30 avril 1933",
+        ""
+      ],
+      [
+        "Une lettre tombe de la couronne",
+        ""
+      ]
+    ],
     "context": "Le jour de l'enterrement. À la sortie de l'église, Marie Corbin rabroue un employé des pompes funèbres.\n\n— Vous ne comprenez donc pas ? Je vous avais dit que cette couronne devait être placée à l'arrière du corbillard.\n\nElle lui prend des mains une couronne mortuaire qui porte un bandeau où se lit « LE PERSONNEL DE L'HÔPITAL ». Le médecin-chef s'approche d'elle.\n\n— Une seconde, Mlle Corbin. Puis-je vous parler ?<br>\n— Tenez-moi ça un instant, dit-elle en confiant la couronne à Denise.\n\nDelorme la prend à part :\n\n— Vous devriez rentrer chez vous, ce serait plus prudent.<br>\n— Et si je ne veux pas être prudente ? répond-elle sèchement.<br>\n— Presque tout le monde ici vous croit coupable. On parlera de provocation.<br>\n— Inutile d'insister, docteur, je reste. Et j'irai jusqu'au bout.\n\nElle le plante là, va reprendre la couronne des mains de Denise, et la place à l'arrière du corbillard.\n\nBientôt le cortège s'ébranle, avec en tête la mère du trépassé et sa famille, suivie des notables de Saint-Robin, le maire, le sous-préfet, le substitut, etc. Le recueillement règne. Au passage du corbillard, les hommes se découvrent et chacun fait un signe de croix avant de prendre la suite du cortège.\n\nTout à coup, à la faveur d'un cahot, la couronne de l'hôpital laisse échapper une enveloppe. Elle atterrit au milieu du pavé. Mme Boulin marche dessus sans la voir. Mais, à mesure où le cortège s'avance, tout le monde s'en écarte avec un mélange d'horreur et de curiosité. Enfin, un jeune garçon la ramasse. Il ne l'a pas plus tôt ouverte que d'autres s'attroupent autour de lui, regardant par-dessus son épaule.",
     "statement": "Pour savoir ce qu'ils ont lu, extrayez de la table `fragment` toutes les lignes dont l'identifiant se termine par l'identifiant de cette lettre dans `lettre`, sachant que celle-ci est découverte le 30 avril 1933 et n'a pas de destinataire.",
     "salt": "019",
@@ -1027,6 +1337,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 28,
+    "section_path": [
+      [
+        "Dimanche 30 avril 1933",
+        ""
+      ],
+      [
+        "Marie Corbin accusée",
+        ""
+      ]
+    ],
     "context": "Au cimetière, tandis que la lettre passe de main en main, le sous-préfet est en train de prononcer l'oraison funèbre du malheureux.\n\n— Car ce n'était pas assez des bonheurs brisés ! Ce n'était pas assez des foyers détruits ! À l'assassin anonyme, il fallait du sang ! Ces petits carrés de papier blanc qui pleuvaient sur la ville, ils ont fait rire quelques-uns d'entre vous. Auriez-vous ri si vous aviez su qu'ils feraient pleurer une mère ?\n\nIl marque une pause, et chacun peut entendre les sanglots de Mme Boulin.\n\n— Mais notre ville entière partage sa douleur. Et s'il n'était pas déplacé d'invoquer la justice des hommes auprès de cette tombe qui nous rapproche de la justice divine, je dirais que la ville entière partage son désir de vengeance.\n\nUn murmure d'approbation parcourt la foule. Il reprend :\n\n— Et comme, autrefois, la chouette était fixée sur la porte des granges, tu seras cloué sur la porte du cimetière, oiseau de sang ! Oiseau noir, corbeau !\n\nAutour de Marie Corbin, les gens commencent à vociférer.\n\n— Au nom de la foule émue qui m'entoure, continue le sous-préfet avec grandiloquence, au nom des pouvoirs que je représente, je le proclame : malheureuse victime innocente d'un assassin sans nom, tu seras vengée !\n\nUn homme montre au doigt l'infirmière :\n\n— C'est elle le corbeau !<br>\n— C'est faux ! proteste-t-elle. Vous êtes ignoble.<br>\n— La lettre est tombée de la couronne que tu as apportée !<br>\n— Et alors ? Je ne l'ai pas toujours tenue entre les mains, se défend-elle en regardant Denise.<br>\n— Qu'est-ce que vous dites ? s'insurge la jeune femme.<br>\n— C'est vous qui avez mis la lettre !<br>\n— Moi ?\n\nElle se jette sur Marie Corbin, toutes griffes dehors. Des gens essaient de les séparer. S'ensuit une indescriptible cohue. Bientôt des agents s'interposent et, au moment où Marie Corbin va se faire lyncher, se saisissent d'elle. Un fourgon de police arrive, qui la conduit en prison sous les huées de la populace.\n\n\n**Note philologique.** « CORBIN, substantif. Anciennement, petit corbeau. »\n– Dictionnaire de l’Académie française, huitième édition, 1932-1935 : https://www.cnrtl.fr/definition/academie8/corbin",
     "statement": "Listez par ordre alphabétique les personnes qui, soit ont reçu au moins une lettre du Corbeau jusqu'au dimanche 30 avril 1933, soit sont officiellement en relation avec au moins une telle personne. Vous exploiterez le fait que la table `relation` est symétrique, et ne tiendrez pas compte des relations (illégitimes !) de la table `amants`.\n\n_Aide._ Passez par deux CTE, l'une pour les destinataires, l'autre pour leurs connaissances.",
     "salt": "035",
@@ -1049,6 +1369,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 29,
+    "section_path": [
+      [
+        "Mardi 2 mai 1933",
+        ""
+      ],
+      [
+        "Une fausse piste de Rolande",
+        ""
+      ]
+    ],
     "context": "Deux jours après l'arrestation de Marie Corbin, Noël Saillens demande à voir Michel Vorzet pour, dit-il, « une affaire de la plus haute importance ». Le psychiatre le reçoit chez lui, en présence de Laura.\n\n— Calme plat, commence le psychiatre. Plus une lettre à Saint-Robin ! C'est rassurant. Ou inquiétant, comme vous voudrez...<br>\n— Vous savez que personne ne croit votre sœur coupable, dit Saillens.<br>\n— Au contraire, tout le monde la croit coupable, c'est ce qui me rassure.<br>\n— Je sais qu'elle est innocente. J'en ai la preuve.<br>\n— Ah ! là, vous commencez à m'inquiéter...<br>\n— Vous savez quelque chose ? intervient Laura.<br>\n— Oui. Rolande m'a fait une révélation épouvantable. J'aurais voulu l'amener, mais elle pleure depuis deux jours.<br>\n— Oh ! cette accusation de vol est ignoble, dit Laura. Tout le monde est indigné.<br>\n— Malheureusement, le Corbeau a dit juste. Rolande a bien pris l'argent dans la caisse. Mais ce qui est plus grave, c'est qu'une seule personne l'a su. Et ce n'est pas Marie Corbin.<br>\n— Mais alors qui ?<br>\n— Le docteur Germain.<br>\n— Oh !<br>\n— Un instant ! dit le psychiatre. Germain aurait-il prêté de l'argent à votre fille pour le remettre dans la caisse ?<br>\n— Ça alors ! Comment le savez-vous ?<br>\n— Si c'est votre seul motif pour soupçonner Germain, je peux aussi bien être le coupable. Rolande m'a emprunté 200 francs le mois dernier, et 50 francs à Laura, il y a quinze jours. Sous le même prétexte. Eh ! c'est un truc à elle.",
     "statement": "Afficher la liste des personnes à qui Rolande doit au moins 50 francs au 3 mai 1933, avec le montant de la dette correspondante, le tout trié par dette décroissante.\n\n_Aide._ La table `emprunt` répertorie l'ensemble des dettes contractées par Rolande : à qui, quand et combien elle a emprunté, et éventuellement quand elle a rendu l'argent.",
     "salt": "015",
@@ -1102,6 +1432,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 30,
+    "section_path": [
+      [
+        "Dimanche 7 mai 1933",
+        ""
+      ],
+      [
+        "À la messe",
+        ""
+      ]
+    ],
     "context": "— Oh, la petite garce !<br>\n— On dirait qu'elle a voulu voulu faire accuser Germain, remarque le psychiatre...<br>\n— Elle me le payera !<br>\n— Oh, non, il faut être indulgent avec les jeunes filles nerveuses. Quel âge a Rolande ?<br>\n— Quatorze ans et demi.<br>\n— Ah ! c'est un peu tôt pour la marier... Mais il faudra faire vite !\n\n---\n\nLe dimanche suivant, sur le chemin de la messe, Michel et Laura Vorzet croisent le docteur Germain.\n\n— Tiens, Germain ! s'exclame le psychiatre. Vous ne nous accompagnez pas à l'église ?<br>\n— Non, je regrette : je ne suis pas croyant.<br>\n— J'aurais dû m'en douter. Vous avez la sécurité de l'athée !<br>\n— Et vous, vous êtes croyant ?<br>\n— Prudent, répond Vorzet d'un air malicieux. Dans l'incertitude, je prends une assurance. Ça coûte si peu...\n\n------\n\nQuelques minutes plus tard, à l'église, le prêtre monte en chaire et commence par une courte litanie :\n\n— Saint Michel à la lance de flammes...<br>\n— Priez pour nous, répond l'assemblée.<br>\n— Saint Côme et saint Damien...<br>\n— Priez pour nous.<br>\n— Agneau de Dieu qui effacez les péchés du monde...<br>\n— Priez pour nous.<br>\n— Amen.<br>\n— Amen.<br>\n— Seigneur, préservez-moi de la main du pécheur, et délivrez-moi des hommes injustes. Au nom du Père, du Fils et du Saint-Esprit, ainsi soit-il.\n\nPuis il entame ainsi son homélie :\n\n— Mes chers frères, l'esprit du mal s'était abattu sur votre ville, à cause de vos péchés. Le bruit des discordes submergeait la cité. Et le fils menaçait le père, et la mère maudissait la fille, et l'époux levait la main sur l'épouse. Mais le Seigneur, dans son ineffable miséricorde, a écarté de vous ce fléau. Il faut que vos cœurs, délivrés de la crainte, s'élèvent vers le cœur de Jésus, pour le remercier de cette grâce tout spéciale.\n\nEt levant lui-même les yeux vers le ciel, il s'arrête, pétrifié. Un carré de papier est en train de descendre, comme une feuille morte, des voûtes de la cathédrale. Un murmure d'horreur et d'incrédulité monte de l'assemblée.\n\n_Note._ Saint Michel est un archange, cité dans l'Apocalypse, qui terrasse un dragon assimilé à Satan. Saint Côme et Saint Damien sont deux frères jumeaux qui pratiquaient la médecine dans le port d'Égée, et sont devenus les patrons des chirurgiens et des pharmaciens. Ce n'est vraisemblablement pas par hasard que le prêtre invoque ces saints.",
     "statement": "Pour prendre connaissance de cette nouvelle lettre du Corbeau, extraire de la table `fragment` toutes les phrases apparaissant exactement deux fois.",
     "salt": "089",
@@ -1118,6 +1458,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 31,
+    "section_path": [
+      [
+        "Dimanche 7 mai 1933",
+        ""
+      ],
+      [
+        "Les paroissiens",
+        ""
+      ]
+    ],
     "context": "— C'est un blasphème caractérisé ! s'écrie Bonnevie.<br>\n— Il ne respecte même pas la religion ! s'indigne la mercière.\n\nLes notables de Saint-Robin, suivis de quelques paroissiens, se sont retirés dans la sacristie où le substitut vient de leur faire lecture de la dernière missive du Corbeau.\n\n— L'écriture de cette lettre, ajoute le substitut, strictement identique à celle des précédentes, doit innocenter Marie Corbin. N'est-ce pas, docteur Vorzet ?<br>\n— C'est indubitable.<br>\n— Alors, tout est à recommencer, dit le docteur Bertrand, accablé.<br>\n— Oui, mais nous repartons en pleine certitude. L'enveloppe est tombée de la galerie. Pour accéder à la galerie, il faut passer par la tribune. Or, dans la tribune, il y avait dix-huit personnes. Les dix-huit personnes que j'ai priées de venir ici.<br>\n— Vous nous accusez ?<br>\n— C'est monstrueux !<br>\n— Et pourquoi pas nous arrêter en bloc, tant que vous y êtes !<br>\n— M. le substitut, nous protestons hautement !<br>\n— Je n'y étais pas, dit un homme.<br>\n— Et Coulaudon y était !<br>\n— Et Ballandieu aussi !<br>\n— Quelqu'un pouvait être caché dans la galerie !<br>\n— Quelqu'un de la nef a pu envoyer le papier avec une sarbacane !\n\nLe bedeau ouvre la porte :\n\n— Silence, messieurs-dames ! L'office n'est pas terminé !",
     "statement": "Lister les paroissiens assistant à la messe ce jour-là.\n\n_Aide._ La colonne `pratiquant` de la table `personne` indique si un paroissien est pratiquant, c'est-à-dire s'il va normalement à l'église tous les dimanches. Pour optimiser le stockage et vous donner un peu de fil à retordre, la table `assistance` ne liste que les exceptions à la pratique religieuse, à savoir, les dates auxquelles soit tel pratiquant était absent, soit tel non-pratiquant était présent.",
     "salt": "061",
@@ -1152,6 +1502,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 32,
+    "section_path": [
+      [
+        "Vendredi 12 mai 1933",
+        ""
+      ],
+      [
+        "Cas de conscience postale",
+        ""
+      ]
+    ],
     "context": "Vendredi 12 mai. Tri du courier au bureau de poste.\n\n— Encore une !<br>\n— Et celle-ci !<br>\n— C'est ma dix-septième !<br>\n— Une carte postale anonyme.<br>\n— Il y en a même pour la poste restante !<br>\n— Oui, maintenant, tout le monde en écrit !<br>\n— J'ai pincé la concierge qui en écrivait une à ma femme, qu'est-ce que je lui ai filé comme tarte !<br>\n— À la concierge ?<br>\n— Non, à ma femme !<br>\n— Est-ce qu'on va continuer à les distribuer, oui ou non ?<br>\n— Ben, naturellement... Tant qu'on n'aura pas d'ordres ! Qu'est-ce que tu veux faire d'autre ?<br>\n— On devient complices, alors !\n\nLe directeur paraît dans la salle de tri.\n\n— Lerminet ! Vous ne semblez pas avoir conscience de notre mission. Quelles que soient les circonstances, une lettre qui nous est confiée doit être remise à son destinataire. Grandeur et servitude postales !\n\nIl avise une enveloppe au-dessus d'un paquet.\n\n— Celle-ci est pour moi, je la prends, dit-il en s'éclipsant.<br>\n— C'était pour lui ?<br>\n— Non, pour sa femme... Il doit préférer qu'elle ne la lise pas.<br>\n— Grandeur et décadence postales ! ironise Lerminet.",
     "statement": "Avec qui (nom, nom de travail) le directeur de la poste trompe-t-il sa femme ?\n\n_Aide._ À titre exceptionnel et pour vous aider, toutes les tables de la jointure figurent dans la formule du token.",
     "salt": "088",
@@ -1168,6 +1528,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 33,
+    "section_path": [
+      [
+        "Mardi 27 juin 1933",
+        ""
+      ],
+      [
+        "Le piège du polichinelle",
+        ""
+      ]
+    ],
     "context": "Quelques jours ce sont écoulés. C'est l'heure des consultations chez le docteur Germain. Il vient de faire entrer dans son cabinet une femme élégante, le visage dissimulé sous un capeline noire d'où tombe une voilette en dentelle. \n\n— Asseyez-vous, madame. Je vous écoute.<br>\n— Voilà, docteur, commence-t-elle en hésitant. Mon mari... Mon mari est tuberculeux... Le moindre choc sentimental pourrait aggraver son état. Je dois lui éviter toute émotion inutile, n'est-ce pas ?<br>\n— Ça me paraît prudent, en effet, mais...<br>\n— Eh bien voilà. Je... Je n'ai pas partagé la couche de mon mari depuis un an et...\n\nElle hésite.\n\n— Et ?<br>\n— Je suis enceinte.<br>\n— Non ! s'écrie Germain en tapant du poing sur son bureau.<br>\n— Comment, docteur ?<br>\n— Je dis non, madame ! Vous avez peut-être entendu raconter que j'avais pour habitude d'effacer ce genre de souvenirs, mais c'est faux ! Au revoir, madame.\n\nÀ ce moment, la femme soulève sa voilette.\n\n— C'est vous ! dit-elle d'un air extasié.<br>\n— Quoi ?<br>\n— C'est vous. C'est bien vous. Oh ! vous ne vous souvenez pas de moi ? Vous m'avez sauvé la vie, il y a cinq ans. Une fracture du crâne, un accident d'auto.<br>\n— Vous vous trompez.<br>\n— Ah non, je ne me trompe pas.\n\nSon sourire laisse place à la perplexité.\n\n— Mais qu'est-ce qu'un chirurgien comme vous fait dans une ville comme celle-ci ? Vous ne dites rien. Oh ! soyez tranquille, je ne vous trahirai plus maintenant.<br>\n— En somme, vous m'avez tendu un piège.<br>\n— Je gagne ma vie comme je peux, docteur. On m'avait offert 10.000 francs... Si vous aviez marché, on vous prenait à la gorge.<br>\n— Et... qui a monté cette jolie combinaison ?<br>\n— Non, docteur. Je ne suis pas une casserole. Tout ce que je peux dire, c'est que ceux qui m'envoient sont des hommes mariés. Et que tous habitent dans la rue même où ils exercent leur métier. Et que chacun de leurs foyers compte exactement deux personnes.<br>\n— J'aurais dû m'en douter, dit le docteur Germain après un moment de réflexion.",
     "statement": "Donnez la liste des conspirateurs, avec le nom de leur travail, le site où ils sont employés et enfin leur voie. Seule la table `personne` sera utilisée dans la formule du token.",
     "salt": "030",
@@ -1190,6 +1560,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 34,
+    "section_path": [
+      [
+        "Mardi 27 juin 1933",
+        ""
+      ],
+      [
+        "Le retour de Barthélémy Germain",
+        ""
+      ]
+    ],
     "context": "Ce même jour, les notables sont à nouveau réunis, cette fois dans le bureau du sous-préfet.\n\n— La situation était grave, elle devient tragique, commence le maire. Je crains le pire.<br>\n— Quoi ?<br>\n— D'abord, je serai mis en minorité samedi, au conseil municipal...<br>\n— C'est regrettable pour vous, dit le sous-préfet. Mais votre point de vue me paraît bien étroit... L'intérêt général d'abord, permettez-moi de vous le dire. Nous sommes face à une épidémie, la contagion gagne de jour en jour !\n\nUn domestique apporte les journaux de Paris.\n\n— Donnez-moi ça, dit Vorzet. Je vais vous lire les manchettes. Ça vous distraira.<br>\n— Nous allons encore nous faire assassiner...<br>\n— On devrait interdire la presse.<br>\n— Alors ? demande le sous-préfet.<br>\n— Alors, dit Vorzet... Rien de nouveau.<br>\n— Vous permettez ? dit-il en lui prenant le journal des mains. Nom de Dieu !<br>\n— Qu'est-ce qu'il y a ?<br>\n— Déplacé ! Ils m'ont déplacé. Et j'apprends ça par le journal ! Oh ! oh ! Tout ça pour donner satisfaction à l'opinion publique !<br>\n— C'est regrettable pour vous, dit le maire. Mais si cette nouvelle est de nature à ramener le calme dans les esprits, votre sacrifice n'aura pas été inutile. L'intérêt général d'abord, permettez-moi de vous le dire.<br>\n— Ah vous, foutez-moi la paix, hein !\n\nLe docteur Delorme lui prend l'épaule et, d'un air grave :\n\n— Croyez bien, mon cher, que nous sommes tout à fait désolés pour vous.<br>\n— Oh ! mais vous avez tort. Au fond, je suis ravi. Me voilà débarrassé de Saint-Robin et de ses habitants ! Après tout, j'ai de quoi vivre, n'est-ce pas ? Je ne sais pas pourquoi j'étais venu m'enterrer dans ce trou ! ajoute-t-il à l'adresse du maire.<br>\n— Parce que c'était un trou... dans un fromage ! répond celui-ci.<br>\n— Ce qui signifie ?<br>\n— Ce qui signifie que le Corbeau m'a fourni de singulières précisions sur votre façon d'administrer !<br>\n— Répétez ce que vous venez de dire ! Répétez-le !\n\nÀ ce moment la porte s'ouvre avec fracas. Germain fait irruption dans la pièce.\n\n— J'espère que je ne vous dérange pas. Excusez-moi d'avoir forcé votre porte, mais je n'en ai que pour un instant. M. le substitut, mes compliments. Au lieu d'agir contre l'auteur des lettres, vous essayez de vous débarrasser de sa principale victime ! C'est ingénieux. Plus de docteur Germain, plus de lettres, n'est-ce pas ?<br>\n— Euh... vous le prenez sur un ton...<br>\n— Qui ne convient pas, je le sais. Mais voici qui vous conviendra sans doute davantage : ma confession. Je ne suis pas gynécologue. Il y a trois ans, je n'avais jamais fait un accouchement. Êtes-vous contents ? Et je ne suis pas non plus le docteur Rémy Germain. Êtes-vous satisfaits ? Vous vouliez me chasser, je suis prêt à partir ! Est-ce suffisant ?<br>\n— Ah mais non ! s'écrie le substitut. Si vous croyez vous en tirer comme ça...<br>\n— J'ajoute ! l'interrompt Germain, j'ajoute qu'il y a trois ans, je dirigeais un service à l'hôpital Turgot à Paris. J'étais spécialisé dans la chirurgie du cerveau.<br>\n— Dans la chirurgie du cerveau ? répète le sous-préfet.<br>\n— Vous êtes... Barthélémy Germain ? demande Delorme. Le fameux docteur Barthélémy Germain ?<br>\n— Oui. La moitié de mon nom était vraie.<br>\n— Mais... pourquoi ?<br>\n— Le docteur Barthélémy Germain avait une femme. Pas une virago comme la vôtre, monsieur le médecin-chef. Ni une bigote desséchée comme la vôtre, monsieur le maire.",
     "statement": "Affichez la liste des femmes qui n'ont aucun amant (comme la femme du médecin-chef) ou n'ont jamais manqué la messe (comme la femme du maire).",
     "salt": "081",
@@ -1212,6 +1592,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 35,
+    "section_path": [
+      [
+        "Mardi 27 juin 1933",
+        ""
+      ],
+      [
+        "Le suicide d'Annette",
+        ""
+      ]
+    ],
     "context": "— Une femme, reprend le docteur Germain sans même attendre que l'étudiant ait validé sa requête SQL. Une vraie femme. Elle attendait un bébé. Je l'ai mise entre les mains du plus célèbre des chirurgiens. L'affaire se présentait mal. Cet imbécile mit son point d'honneur à me donner un fils quand même. C'était un homme de devoir : il a tué à la fois la mère et l'enfant. Par la même occasion, il a tué le docteur Barthélémy Germain. Depuis, le docteur Rémy Germain s'est retiré dans une petite sous-préfecture. Et il met son savoir au service des mères. Et c'est en pleine liberté de conscience, messieurs, qu'il intervient dans les cas douteux !<br>\n— Mais, mon cher, ça change tout...<br>\n— En effet ! Vous soupçonniez Rémy Germain, et c'est Barthélémy Germain qui vous accuse de sottise ! Et d'incompétence ! Au revoir, messieurs !\n\nIl sort, laissant les notables sidérés. Enfin, le docteur Delorme rompt le silence et, s'adressant à son fils :\n\n— Eh bien, tu as gagné, petit imbécile !\n\nIl se tourne vers le psychiatre :\n\n— Docteur Vorzet, vous savez y faire avec Germain. Rattrapez-le, présentez-lui nos excuses, essayez de le retenir...\n\n---\n\nEn passant devant le lavoir, Germain remarque un attroupement.\n\n— Ah docteur, venez vite !<br>\n— Que se passe-t-il ?<br>\n— Une gosse est tombée dans le lavoir.<br>\n— Un accident ?<br>\n— Malheureusement, non.\n\nIl entre. Un homme est en train de gronder une petite fille :\n\n— Si tu étais à moi, je te flanquerais une claque ! Tu n'es pas folle ?<br>\n— Laissez-moi mourir ! répond la petite en hoquetant.<br>\n— On n'a pas idée de ça, se lamente une femme... À sept ans ! Il faut faire quelque chose !<br>\n— Qu'y a-t-il, ma petite ? dit Germain en l'entourant de ses bras.<br>\n— Laissez-moi mourir. Je veux mourir !<br>\n— Pourquoi, mourir ?<br>\n— Parce que papa n'est pas papa.<br>\n— Qui a dit ça ?<br>\n— Papa a reçu une lettre et maman est partie.<br>\n— Bon, eh bien, tu vas rentrer bien gentiment chez toi. Tout ça, ce sont des mensonges. Demain, j'irai voir ton père et je lui expliquerai. Et celui qui a écrit ces lettres sera puni, je te le promets ! Tenez. Ramenez-la chez elle.",
     "statement": "Quel est le nom de cette fillette ?",
     "salt": "009",
@@ -1252,6 +1642,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 36,
+    "section_path": [
+      [
+        "Mardi 27 juin 1933",
+        ""
+      ],
+      [
+        "Discours de Michel Vorzet",
+        ""
+      ]
+    ],
     "context": "— Eh bien, Germain, vous vous lancez sur le sentier de la guerre ?\n\nC'est Vorzet, qui est apparu à l'entrée du lavoir. Les deux hommes se mettent en route vers l'école.\n\n— Je suis complètement écœuré, finit par lâcher Germain. Si j'avais la moindre chance de trouver le coupable, je n'hésiterais pas. Mais là où la police a échoué...<br>\n— Elle ne pouvait pas réussir. Ces messieurs cherchent un coupable qui aurait, pour agir, des motifs logiques. C'est imbécile ! Un anonymographe obéit à des mobiles infiniment plus mystérieux, incompréhensibles à la moyenne des hommes. À plus forte raison, à la moyenne des policiers ! Dans toutes les affaires que j'ai étudiées, les coupables présentaient les mêmes tares psychologiques. Toujours des refoulés, plus ou moins détraqués sexuellement.<br>\n— Des vieilles filles ?<br>\n— Souvent. C'est ce qui m'a gêné pour défendre ma belle-sœur. Et puis des veuves, des impuissants, des vieillards disgraciés, des infirmes. Une infirmité, même dissimulée, laisse dans l'âme des blessures secrètes, et qui peuvent s'envenimer.\n\nEn arrivant devant la porte de la résidence de Germain, ils rencontrent Denise. En les voyant, elle réprime un léger boitement.\n\n— Bonjour, M. Vorzet.<br>\n— Bonjour, Mlle Saillens.\n\nQuand elle s'est éloignée, ils continuent leur conversation.\n\n— Eh bien, mon cher ? dit Vorzet. Vous avez l'air songeur.<br>\n— Pardon. Vous disiez que le Corbeau...<br>\n— Oh non ! L'affaire du Corbeau est bien plus compliquée. Allons ! En deux mois, le coupable a écrit au moins huit cent cinquante lettres tracées en majuscules. Je doute qu'une seule personne, même disposant de loisirs importants, ait pu en venir à bout.\n\nPar la fenêtre du bureau de la direction, ils aperçoivent Noël Saillens occupé, semble-t-il, à corriger des travaux d'élèves.\n\n— Il y a de curieux cas de contagion familiale, reprend Vorzet. On voit un mari et une femme, un frère et une sœur, se pencher chaque soir sous la lampe, pour rédiger des missives au vitriol. À quoi pensez-vous ?<br>\n— Moi ?<br>\n— Je sais... Moi aussi, j'y ai pensé, mais il ne faut pas conclure trop vite.<br>\n— À votre avis, c'est Denise ?<br>\n— Eh bien... J'avoue que j'ai demandé à Laura de me procurer les lettres qu'elle lui avait écrites. Tout à l'heure encore, j'examinais son écriture. Il y a des coïncidences troublantes. Gênantes, même. Mais, rien de concluant.\n\nIl lance à Germain un regard inquisiteur.\n\n— Franchement, vous aimez Denise ?<br>\n— Non... je ne pense pas. Je l'ai désirée. Je la désire encore certaines nuits, quand je me retourne dans mon lit. Mais si je la savais coupable... je la dénoncerais !<br>\n— C'est cornélien. Vous avez tout du vieil Horace. Moins la barbe. Mais vous avez une barbe virtuelle, c'est peut-être plus beau.<br>\n— Mais enfin, quand vous rencontrez un démon ?<br>\n— J'en rencontre un chaque matin, dans ma glace, doublé d'un ange. Vous êtes extraordinaire... Vous croyez que les gens sont tout bons, ou tout mauvais ? Vous croyez que le bien, c'est la lumière, et que l'ombre, c'est le mal? Mais où est l'ombre ? Où est la lumière ? Où est la frontière du mal ? Savez-vous si vous êtes du bon ou du mauvais côté ?<br>\n— Quelle littérature !\n\nPendant qu'ils devisaient, des petits oiseaux se sont regroupés autour d'eux.\n\n— Eh eh ! se réjouit Vorzet. Reconnaîtraient-ils l'ange qui les nourrit ? Malheureusement, je n'ai rien pour eux aujourd'hui. Allez, mes petits !\n\nLes oiseaux pépient et, comme s'ils avaient compris, prennent subitement leur envol.\n\n— Tenez, Germain, je vous aime bien, c'est à mon tour de vous faire ma confession. Je me drogue. Je me pique. C'est pour moi que Marie Corbin subtilisait à la pharmacie les ampoules de morphine. Car elle a une vieille passion pour son ex-fiancé. Et pour autant je ne me considère pas comme un monstre.\n\nGermain reste silencieux.\n\n— Méditez là-dessus et faites votre examen de conscience, conclut Vorzet. Vous serez peut-être étonné du résultat.<br>\n— Je me connais !<br>\n— Orgueilleux ! Depuis qu'un tourbillon de haine et de délation souffle sur la ville, toutes les valeurs morales sont plus ou moins corrompues. Vous êtes atteint comme les autres et vous tomberez comme eux. Je ne dis pas que vous étranglerez votre maîtresse, non. Mais vous fouillerez ma serviette si je l'oublie sur ce banc. Vous donnerez à ma femme des rendez-vous secrets. Et vous coucherez avec Rolande si elle se jette dans vos bras. Vous n'avez que l'embarras du choix.<br>\n— On voit que vous avez l'habitude de soigner les fous !<br>\n— À votre service, dit Vorzet en tirant son chapeau.\n\nAvant de partir, il lui lance encore :\n\n— Bonne nuit, quand même !",
     "statement": "Vérifiez que Vorzet est le médecin qui prescrit le plus fréquemment une spécialité ne faisant pas partie des indications d'un trouble qu'il a diagnostiqué, et que cette spécialité est la morphine. Pour cela, vous listerez par ordre décroissant, pour chaque prescripteur et chaque spécialité prescrite mais non indiquée, le nombre de prescriptions concernées.\n\n_Aide._ La table `indication` liste des couples de troubles et de spécialités : elle note que telle et telle spécialité est _indiquée_ pour traiter tel ou tel trouble.",
     "salt": "057",
@@ -1280,6 +1680,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 37,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Mater dolorasoir",
+        ""
+      ]
+    ],
     "context": "Germain dort très mal cette nuit-là. Quand il sort de chez lui, du haut de l'escalier obscur il voit monter une forme noire, comme celle d'une sorcière avec un balai.\n\n— Qu'est-ce que c'est ? s'écrie-t-il. Qui êtes-vous ?<br>\n— Vous ne me reconnaissez pas, docteur ? Je suis Mme Boulin.<br>\n— Ah, c'est vous ! Que venez-vous faire ici ?<br>\n— La poussière. Depuis la mort de mon fils, je me suis remise femme de ménage. Je balaye l'école tous les matins. Vous ne le saviez pas ?<br>\n— Pardon, j'ai eu peur. J'ai passé une nuit affreuse.<br>\n— Je connais ça. Voilà deux mois que je ne dors pas. Mais quand François sera vengé, je dormirai.<br>\n— Vous savez qui est responsable de sa mort ?<br>\n— Je crois le savoir. J'ai interrogé tous les malades hospitalisés en même temps que lui.<br>\n— Qui soupçonnez-vous ?<br>\n— Vous le saurez toujours assez tôt. Vous connaissez ça ? reprend-elle en sortant un grand rasoir à main. Il n'a servi qu'une fois : François est mort avec sa barbe. Mais il va resservir.\n\nGermain ne peut réprimer un frisson.\n\n— Vous n'avez pas le droit de faire ça.<br>\n— Vous croyez ?<br>\n— J'en suis sûr.<br>\n— Eh bien, je le ferai sans droit.",
     "statement": "Listez les patients qui ont été hospitalisés en même temps que François Boulin, avec leurs dates d'entrée et de sortie.",
     "salt": "042",
@@ -1308,6 +1718,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 38,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Denise prise en flagrant délit",
+        ""
+      ]
+    ],
     "context": "Germain frappe chez Denise. Comme personne ne répond, il entre. Sur le secrétaire, il avise une enveloppe cachetée, sans adresse. Il prend un coupe-papier et, sans hésitation, ouvre l'enveloppe.\n\n            ℂℍ𝕀ℝ𝕌ℝ𝔾𝕀𝔼ℕ 𝔻𝔼 𝕄𝕆ℕ ℂŒ𝕌ℝ\n           𝔹𝔼𝕃𝕃𝔼 𝕆ℂℂ𝔸𝕊𝕀𝕆ℕ 𝔻'𝕆ℙÉℝ𝔼ℝ\n          𝔻𝔼ℕ𝕀𝕊𝔼 𝔼𝕊𝕋 𝔼ℕℂ𝔼𝕀ℕ𝕋𝔼 𝔻𝔼 𝕋𝕆𝕀\n                𝕃𝔼 𝕊𝔸𝕍𝔸𝕀𝕊⌁𝕋𝕌 ?\n                 𝕃𝔼 ℂ𝕆ℝ𝔹𝔼𝔸𝕌\n\nIl replie la lettre et la glisse dans une nouvelle enveloppe, qu'il ferme et replace au même endroit. En entendant un bruit de pas, il va se dissimuler derrière une tenture. Denise entre, va s'asseoir à son secrétaire, prend sa plume et écrit sur l'enveloppe :\n\n               𝔻𝕆ℂ𝕋𝔼𝕌ℝ 𝔾𝔼ℝ𝕄𝔸𝕀ℕ\n\n— 18 rue de la Mairie.\n\nDenise sursaute. Germain est devant elle.\n\n— Donnez-moi ça ! Vous économiserez un timbre, dit-il, sardonique.<br>\n— Vous êtes là ? Vous m'espionnez, maintenant?<br>\n— Donnez-moi ça !<br>\n— Jamais !<br>\n— Vous m'écrivez une lettre, c'est pour que je la lise !<br>\n— Je ne le veux plus !\n\nElle la jette dans la cheminée.\n\n— Chirurgien de mon cœur, récite Germain. Belle occasion d'opérer : Denise est enceinte de toi...<br>\n— Vous avez lu ?<br>\n— Ouais. Ainsi, c'est vous. La détraquée qui nous empoisonne depuis des mois, c'est vous !<br>\n— Non, ce n'est pas moi.<br>\n— Et je vais avoir un enfant de cette demi-folle ! Non !\n\nIl la prend par les épaules, la secoue.\n\n— Je ne veux pas d'un fils taré ! Le Corbeau a raison. Je vous promets que celui-là n'est pas prêt de voir le jour !<br>\n— Rémi !\n\nIl la repousse, elle s'effondre sur le lit et se met à sangloter.\n\n— Tout de même, reprend-il, ça fait un drôle d'effet. Je vous soupçonnais depuis trois jours, mais de là à vous pincer en flagrant délit !<br>\n— Je ne suis pas le Corbeau. Je te le jure sur l'enfant que je porte !<br>\n— Ah non, Denise, pas ça, je vous en prie. Un peu de pudeur ! Je vous ai vue écrire.<br>\n— C'est la première fois... Je n'osais pas vous dire la vérité en face. Alors, j'ai voulu vous envoyer une lettre. Et c'est devant le papier que l'idée m'est venue d'imiter l'écriture du Corbeau. Voilà tout.<br>\n— J'étais sûr que vous trouveriez un truc. Vorzet m'avait bien dit que les auteurs de lettres anonymes n'avouent jamais. Tu as bien trouvé ton excuse. Seulement votre obstination même à nier prouve que vous êtes coupable.<br>\n— Alors, je n'ai qu'à avouer pour que tu me crois innocente ? Tu raisonnes trop, Rémi, tu as la cervelle pleine de raisonnements. Tu ne peux plus rien sentir. Si tu veux savoir la vérité, regarde-moi dans les yeux.<br>\n— C'est inutile, je sais.<br>\n— Tais-toi. Regarde-moi.\n\nIl la regarde. De longues secondes s'écoulent. Enfin, il détourne la tête.\n\n— Je ne sais pas, reconnaît-il. Je ne sais plus.<br>\n— Tu vois. Écoute, Rémi. Je ne suis pas intelligente comme toi, mais je sens les choses. Tout se précipite. J'ai peur. Tu devrais aller voir Laura, tout de suite.<br>\n— Laura ? pourquoi, Laura ?<br>\n— Elle a reçu ce matin une lettre plus grave que les autres. Une lettre de menaces. Des menaces de mort.<br>\n— Tu as vu Laura, ce matin ?<br>\n— Non. Elle vient de me téléphoner. Va, je t'en prie...",
     "statement": "Lister les personnes qui ont reçu une lettre du Corbeau le jour de leur mort, avec leur nom et la date.",
     "salt": "054",
@@ -1330,6 +1750,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 39,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Une lettre accompagnée d'une balle",
+        ""
+      ]
+    ],
     "context": "Laura Vorzet ouvre sa porte.\n\n— Germain ? Vous êtes bien matinal ! Je me lève à l'instant. Entrez. Que vous arrive-t-il ?<br>\n— Je vous ai dit que si vous couriez un danger, je serais là, j'y suis.<br>\n— Un danger ? De quoi s'agit-il ?<br>\n— Vous n'avez pas reçu ce matin une lettre de menaces ?<br>\n— Moi ?<br>\n— Vous n'avez téléphoné à personne ?<br>\n— À personne. Enfin, qu'est-ce que signifie cette histoire ?<br>\n— Que je me suis laissé manœuvrer comme un gamin... Au revoir, Laura, dit-il en lui serrant la main. J'ai été ridicule.<br>\n— Ah non, non ! Vous n'allez pas partir comme ça sans donner d'explications.<br>\n— Plus tard, il faut que je rentre tout de suite.<br>\n— Avouez tout de même que vous faites de drôles de visites.<br>\n— J'avoue.<br>\n— Attendez...\n\nLaura désigne la boîte de l'entrée. Elle contient une enveloppe. C'est l'écriture du Corbeau. Il la lui prend des mains.\n\n— Vous permettez ?<br>\n— Je vous en prie.\n\nEn ouvrant l'enveloppe, une balle de fusil lui roule dans la paume. Il déplie la lettre et lit à voix haute :\n\n                𝔻𝔼ℝℕ𝕀𝔼ℝ 𝔸𝕍𝔼ℝ𝕋𝕀𝕊𝕊𝔼𝕄𝔼ℕ𝕋\n                 𝕊𝕀 𝕋𝕌 ℕ𝔼 ℂ𝔼𝕊𝕊𝔼𝕊 ℙ𝔸𝕊\n         𝕋𝕆𝕌𝕋𝔼 ℝ𝔼𝕃𝔸𝕋𝕀𝕆ℕ 𝔸𝔻𝕌𝕃𝕋Èℝ𝔼 𝔸𝕍𝔼ℂ 𝔾𝔼ℝ𝕄𝔸𝕀ℕ\n                     𝔾𝔸ℝ𝔼 À 𝕋𝕆𝕀\n              𝕍𝕆𝕀ℂ𝕀 𝕃𝔸 𝕊Œ𝕌ℝ 𝔻𝔼 𝕃𝔸 𝔹𝔸𝕃𝕃𝔼\n               ℚ𝕌𝕀 𝕋𝔼 𝕋ℝ𝕆𝕌𝔼ℝ𝔸 𝕃𝔸 ℙ𝔼𝔸𝕌\n                    𝕃𝔼 ℂ𝕆ℝ𝔹𝔼𝔸𝕌\n\n— Eh bien, maintenant, tout est clair. Pour m'envoyer ici, il fallait connaître cette lettre. Et pour la connaître, il fallait l'avoir écrite.<br>\n— Qui vous a envoyé ici ?<br>\n— Denise.<br>\n— Ce n'est pas possible... C'est une erreur... Un horrible malentendu !<br>\n— Il n'y a ni erreur, ni malentendu possibles.<br>\n— Denise n'est pas capable de ça.<br>\n— Vous avez une autre explication ?<br>\n— Mon pauvre ami...<br>\n— C'était bien combiné, si la lettre était arrivée à temps, le tour était joué.",
     "statement": "Quels amants de Denise Saillens sont décédés ?",
     "salt": "047",
@@ -1346,6 +1776,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 40,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "L'internement de Laura",
+        ""
+      ]
+    ],
     "context": "Il se laisse tomber sur une chaise, accablé.\n\n— Je ne sais pas quoi vous dire, souffle-t-elle.<br>\n— Oui. C'est effrayant.\n\nElle s'agenouille à ses côtés, pose sa main sur les siennes.\n\n— Mon chéri...\n\nIl la dévisage, soulève lentement sa main, y dépose un baiser, et soudain :\n\n— Vous écrivez au lit ?<br>\n— Quoi ?<br>\n— Vous vous levez à l'instant et vous avez déjà les doigts tachés d'encre...<br>\n— Je... j'ai rempli des papiers pour Michel, hier soir.<br>\n— Vous allez me trouver odieux mais l'encre est encore bien fraîche, dit Germain en se redressant. Et puis on ne se vernit pas les ongles avant de se laver les mains... Oh, Laura, si vous avez fait ça...<br>\n— Rémy, mon amour, qu'est-ce qui vous prend ?<br>\n— Si vous l'aviez écrite vous-même, cette lettre... Si vous l'aviez glissée vous-même dans la boîte... Si vous aviez vraiment donné ce coup de téléphone... Alors, vous perdiez Denise.<br>\n— Oh ! Rémy, comment pouvez-vous imaginer une chose pareille ? Je vous plains...\n\nPris d'une idée subite, il va au secrétaire, soulève le maroquin. \n\n— C'est vous qui êtes à plaindre, Laura ! Très à plaindre !<br>\n— Qu'est-ce que c'est ?\n\nSans répondre, il prend la feuille de buvard et la brandit devant le miroir de la cheminée : dans le reflet dansent les caractères de l'écriture maléfique du Corbeau.\n\n— C'est affreux ! Je ne comprends pas, s'écrie Laura... C'est un piège, c'est une machination !<br>\n— Plus la peine de jouer la comédie ! Cette fois vous êtes prise, et j'en emporte la preuve ! dit-il en pliant le buvard.<br>\n— Non, ne partez pas ! Non, j'ai trouvé : Denise vient faire sa correspondance ici !\n\nIl la repousse, sort, claque la porte derrière lui.\n\n— Rémi ! hurle-t-elle. Rémi ! Rémi !",
     "statement": "Concaténez avec un séparateur vide le premier caractère de toutes les phrases de `fragment` dont l'identifiant coïncide avec celui d'une lettre reçue par Laura Vorzet.",
     "salt": "014",
@@ -1362,6 +1802,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 41,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Le buvard",
+        ""
+      ]
+    ],
     "context": "Comme il entre dans le vestibule, le psychiatre arrive également.\n\n— Que faites-vous là ?<br>\n— Tenez. Voilà le buvard de votre femme.\n\nVorzet l'examine avec accablement.\n\n— Je le savais... Laura est folle. Je l'ai surprise hier soir, et depuis je n'ai pas encore trouvé le courage de téléphoner au parquet. Venez avec moi.\n\nGermain le suit dans son bureau. Le vieil homme s'asseoit, baisse la tête.\n\n— Une très jeune femme, un très vieux mari... Voilà tout le drame. Au fond, je suis le grand responsable... Je n'aurais jamais dû épouser Laura. Au début de notre mariage, sa jeunesse m'a réchauffé. J'ai jeté, dans ses dernières flambées, tout ce qui me restait de désir et d'amour. Et puis, peu à peu, je suis devenu l'ami de ma femme. Je ne lui suffisais plus. Mais on lui avait appris la vertu : elle me restait fidèle.\n\nIl regarde Germain.\n\n— Là-dessus, vous êtes arrivé. Vous lui avez plu. Et pour attirer votre attention, elle a écrit la première lettre. Et comme ça ne répondait pas assez, la rage l'a prise. Elle s'est acharnée… Sur vous, qui ne répondiez pas à ses avances… Sur Denise, dont vous étiez l'amant. Elle a compromis sa sœur qui la surveillait ! La rage a tourné au délire, le délire à l'hystérie.\n\nIl replie le buvard et le rend à Germain.\n\n— Maintenant, soyez gentil, portez ce papier buvard au parquet. Je n'en aurai pas la force.<br>\n— Moi non plus. Et puis, un procès n'arrangerait rien. Si Laura est malade, soignez-la.<br>\n— C'est vous qui dites ça, l'homme aux principes ?<br>\n— J'ai beaucoup changé en quelques jours, j'ai compris pas mal de choses. Voyez-vous, Vorzet, ce genre de crise n'est pas inutile. On en sort comme le convalescent émerge de la maladie, plus fort, et plus conscient. C'est terrible à dire mais le mal est nécessaire. Allez ! allez soigner Laura.<br>\n— Non... il est trop tard !<br>\n— Vous êtes psychiatre, vous dirigez l'asile...<br>\n— Même si je le voulais, je ne peux pas signer un certificat d'internement pour ma propre femme !<br>\n— Donnez-moi du papier.<br>\n— Comment ? Vous le feriez ?<br>\n— Oui, dit Germain en commençant à écrire.\n\nLe téléphone sonne, Vorzet décroche.\n\n— Allô ? Oui. C'est moi. Hein ? Oh oui... Oui, oui... Bien. Je vous l'envoie tout de suite.\n\nGermain a terminé de rédiger le certificat d'internement.\n\n— Il ne vous reste plus qu'à demander une ambulance.<br>\n— Merci. Pour elle et pour moi. Maintenant, il faut que vous partiez. Denise est tombée en descendant ses escaliers. Elle a fait une mauvaise chute.<br>\n— Est-ce que ça a provoqué...<br>\n— Allez-y, mon vieux, tout de suite, allez-y !",
     "statement": "Quelle est la différence d'âge moyenne au sein des couples dont la femme trompe son mari ?",
     "salt": "017",
@@ -1415,6 +1865,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 42,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Le sérum névrosthénique",
+        ""
+      ]
+    ],
     "context": "En sortant, ils aperçoivent Laura qui écoutait à la porte.\n\n— Ah non ! ce serait trop facile, s'écrie-t-elle. Vous croyez que je vais me laisser faire comme ça ? C'est lui, le Corbeau ! C'est lui, le fou qu'il faut interner, vous m'entendez Rémy ! Les deux premières lettres, c'est vrai, je les ai écrites. Mais les autres, toutes les autres, il les a combinées ! Il me les a dictées une à une ! Tenez, regardez-le, comme il jubile !<br>\n— Voyons, Laura...<br>\n— Non ! Je vais parler, enfin ! Ne vous êtes-vous jamais demandé comment il connaissait tous les secrets de la ville ? Il a des espions, des dizaines, des centaines d'espions ! Ils sont partout, partout ! On ne s'en méfie pas mais ils savent tout de nous : les oiseaux ! les oiseaux !<br>\n— Laura, dit Vorzet, tu délires, calme-toi.<br>\n— Écoutez, Rémy ! Mon mari est chimiste. Il a mis au point sur ses patients un composé à base de morphine et de sérum névrosthénique. Quand il en donne aux oiseaux, leur intelligence peut se développer dans des proportions effroyables, jusqu'à les rendre capables de comprendre le langage des hommes, et de communiquer avec eux. Mon mari les attire, il les nourrit, ils ne peuvent plus se passer de lui. Ils vont, ils viennent, et pour avoir une nouvelle dose, ils lui raconteront tout, tout !<br>\n— Allez, Germain, vous devez partir... Partez ! On vous attend !<br>\n— Écoutez-moi, Rémy, supplie Laura. Je vous en prie ! Emmenez-moi !\n\nGermain se dégage et sort en courant.\n\n— Calme-toi, dit Vorzet...<br>\n— Rémy ! Rémy !<br>\n— Tais-toi ! tais-toi !<br>\n— Non !<br>\n— Tais-toi !<br>\n— Menteur !<br>\n— Allô ? Donnez-moi le 13 !<br>\n— Rémi !<br>\n— L'hôpital !<br>\n— Rémy ! Rémy !",
     "statement": "Listez par dates croissantes les consultations ayant donné lieu au diagnostic d'un seul trouble et à la prescription de sérum névrosthénique. Colonnes attendues : date, patient, médecin, troubles (concaténation des troubles, pour permettre de vérifier qu'il y en a un seul).",
     "salt": "067",
@@ -1444,6 +1904,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 43,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "Denise soupçonne Michel Vorzet",
+        ""
+      ]
+    ],
     "context": "Germain est au chevet de Denise.\n\n— Alors, docteur ?<br>\n— Tout va bien. J'ai eu terriblement peur !<br>\n— Pour moi ?<br>\n— Pour vous deux.<br>\n— Tu as envie de cet enfant?<br>\n— J'en ai besoin.<br>\n— Nous avons bien failli le perdre. Je descendais les escaliers, quand quelque chose m'a frôlée, une chouette ou un autre oiseau. J'ai perdu l'équilibre, je suis tombée tête la première.<br>\n— Tout va bien, Denise. En revenant, je ne pensais qu'à toi. Et pourtant je me disais que l'accoucheur qui a tué ma femme n'était pas aussi coupable que je l'avais jugé.\n\nGermain va à la fenêtre, l'ouvre à deux battants. Les cris des enfants qui jouent remplissent la chambre.\n\n— On ne peut pas sacrifier l'avenir au présent, conclut-il.<br>\n— Maintenant, pour avoir un enfant, tu me tuerais à ton tour !<br>\n— Peut-être bien, dit-il en l'embrassant...<br>\n— Et Laura ? s'inquiète soudain Denise. J'oubliais Laura...<br>\n— Oublie-la. Laura et le Corbeau ne font qu'un.<br>\n— Tu es fou ? Qu'est ce que tu es allé te mettre dans la tête ? Laura connaissait le Corbeau, ça oui, je l'ai deviné depuis longtemps. Mais ce n'est pas elle. Elle a peur de lui.<br>\n— Elle t'a joué la comédie.<br>\n— Écoute, Rémi, je ne suis pas si sotte. Laura avait peur pour de bon. Elle était terrorisée.<br>\n— Alors, dit lentement Germain, ce serait...",
     "statement": "Qui est le véritable Corbeau, sachant qu'il a pour patient exactement un amant de Denise ?",
     "salt": "087",
@@ -1493,6 +1963,16 @@
     "part_number": 1,
     "kind": "episode",
     "task_number": 44,
+    "section_path": [
+      [
+        "Mercredi 28 juin 1933",
+        ""
+      ],
+      [
+        "L'assassinat de Vorzet",
+        ""
+      ]
+    ],
     "context": "Le docteur Germain court chez les Vorzet. Sur la route, il croise le fourgon d'une ambulance. Les gémissements de Laura lui parviennent au passage : « Laissez-moi, c'est lui, c'est lui ! ».\n\nArrivé devant la porte, il appelle : « Vorzet ! ».\n\nPas de réponse. Il entre, traverse le vestibule, court au bureau. Là, il stoppe net, pétrifié. Le psychiatre est à son secrétaire, la gorge tranchée. Sous sa tête, le grand buvard du Corbeau est déjà saturé de sang. À côté, le rasoir de François Boulin, grand ouvert.\n\n— Ainsi, murmure-t-il, c'était bien Vorzet...\n\nIl entend la porte du vestibule qui se referme, un bruit de pas devant la maison. Il court à la fenêtre, l'ouvre en grand.\n\nDans la rue déserte, une femme toute vêtue de noir s'éloigne d'un pas tranquille.\n\nIl porte la main à son front.\n\nSoudain, un moineau entre par la fenêtre, immédiatement suivi d'un autre, puis d'un troisième.\n\nBientôt, toute la pièce est envahie d'oiseaux.",
     "statement": "Vous avez vaincu le Corbeau ! Vous êtes maintenant prêt à voler de vos propres SQL.",
     "salt": "084",
