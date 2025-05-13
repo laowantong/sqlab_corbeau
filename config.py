@@ -26,7 +26,7 @@ config = {
     "sqlparse_subs": {
         "lowercase_user_names": (r"\b(SESSION|CLIENT|TYPE)\b", lambda m: m[0].lower()),
     },
-    "info": {
+    "metadata": {
         "title": "SQLab Corbeau",
         "description": "Dans une petite ville française, des lettres anonymes sèment la discorde en révélant de sombres secrets.",
         "version": "2.0.0",

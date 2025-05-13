@@ -1,6 +1,6 @@
 {
   "064": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 1,
     "section_path": [
@@ -44,7 +44,7 @@
     "query": "SELECT personne\n     , complément\n     , numéro\n     , voie\n     , salt_064(sum(nn(A.hash)) OVER()) AS token\nFROM personne A\nWHERE personne LIKE \"% Germain\""
   },
   "63758212138630": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 2,
     "section_path": [
@@ -82,7 +82,7 @@
     "query": "SELECT personne_2\n     , salt_002(sum(nn(A.hash)) OVER()) AS token\nFROM relation A\nWHERE personne_1 = \"Henriette Beaugé\"\n    AND nature = \"voisine\""
   },
   "136520204158016": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 3,
     "section_path": [
@@ -144,7 +144,7 @@
     "query": "SELECT personne_1\n     , salt_048(sum(nn(A.hash)) OVER ()) AS token\nFROM relation A\nWHERE personne_2 LIKE \"%Vorzet\"\n    AND nature = \"femme\""
   },
   "277525249483034": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 4,
     "section_path": [
@@ -218,7 +218,7 @@
     "query": "SELECT patient\n     , lit\n     , salt_073(sum(nn(A.hash) + nn(B.hash)) OVER ()) AS token\nFROM consultation A\nJOIN hospitalisation B USING (consultation)\nWHERE lit = 13"
   },
   "253113982671323": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 5,
     "section_path": [
@@ -256,7 +256,7 @@
     "query": "SELECT personne\n     , nom_travail\n     , site\n     , salt_060(sum(nn(A.hash)) OVER()) AS token\nFROM personne A\nJOIN travail B USING (id_travail)\nLIMIT 1"
   },
   "109535642974975": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 6,
     "section_path": [
@@ -310,7 +310,7 @@
     "query": "SELECT A.consultation\n     , A.date\n     , A.patient\n     , B.âge\n     , salt_069(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token\nFROM consultation A\nJOIN personne B ON patient = personne\nJOIN diagnostic C USING (consultation)\nWHERE docteur = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND subdate(\"1933-04-21\", 6 * 7)\nORDER BY date"
   },
   "76167014014923": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 7,
     "section_path": [
@@ -336,7 +336,7 @@
     ]
   },
   "76446928229139": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 7,
     "section_path": [
@@ -362,7 +362,7 @@
     ]
   },
   "75996846005486": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 7,
     "section_path": [
@@ -424,7 +424,7 @@
     "query": "SELECT A.patient\n     , salt_090(sum(nn(A.hash)) OVER()) AS token\nFROM consultation A\nJOIN hospitalisation H USING (consultation)\nWHERE H.entrée = \"1933-04-21\"\n    AND A.docteur LIKE \"% Delorme\""
   },
   "30286867277324": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 8,
     "section_path": [
@@ -480,7 +480,7 @@
     "query": "SELECT P.spécialité\n     , salt_099(sum(nn(P.hash)) OVER()) AS token\nFROM consultation C\nJOIN prescription P USING (consultation)\nJOIN spécialité S USING (spécialité)\nWHERE C.patient = \"François Boulin\"\n    AND C.docteur = \"Rémy Germain\"\n    AND (S.stock = 0\n         OR S.stock IS NULL)"
   },
   "8030012698937": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 9,
     "section_path": [
@@ -542,7 +542,7 @@
     "query": "SELECT personne\n     , nom_travail\n     , complément\n     , A.numéro\n     , voie\n     , salt_013(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token\nFROM personne A\nLEFT JOIN travail B USING (id_travail)\nJOIN site C USING (voie)\nWHERE C.site = \"école\""
   },
   "148086545142137": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 10,
     "section_path": [
@@ -586,7 +586,7 @@
     "query": "SELECT personne\n     , âge\n     , concat(P.numéro, \" \", P.voie) AS \"adresse domicile\"\n     , J.nom_travail AS travail\n     , S.site\n     , concat(S.numéro, \" \", S.voie) AS \"adresse travail\"\n     , salt_093(sum(nn(P.hash) + nn(J.hash) + nn(S.hash)) OVER()) AS token\nFROM personne P\nJOIN travail J USING (id_travail)\nJOIN site S USING (site)\nWHERE P.voie = S.voie\n    AND S.numéro - P.numéro IN (1\n                              , 3)"
   },
   "112873126312901": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 11,
     "section_path": [
@@ -618,7 +618,7 @@
     "query": "SELECT A.patient\n     , A.date\n     , salt_033(sum(nn(A.hash)) OVER()) AS token\nFROM consultation A\nLEFT JOIN diagnostic B USING (consultation)\nWHERE B.consultation IS NULL"
   },
   "139733827413451": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 12,
     "section_path": [
@@ -656,7 +656,7 @@
     "query": "SELECT A.texte\n     , salt_023(sum(nn(A.hash)) OVER()) AS token\nFROM fragment A\nJOIN lettre B ON mod(A.fragment, B.lettre) = 0\nWHERE date = \"1933-04-21\"\nORDER BY fragment DESC"
   },
   "48452550811506": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 13,
     "section_path": [
@@ -695,7 +695,7 @@
     "query": "SELECT max(abs(A.âge - B.âge)) AS \"maximum\"\n     , salt_091({{x}} + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM personne A\nJOIN relation C ON A.personne = personne_1\nJOIN personne B ON personne_2 = B.personne\nWHERE nature IN ('mari', 'femme')"
   },
   "21298768906624": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 14,
     "section_path": [
@@ -722,7 +722,7 @@
     ]
   },
   "24589489494065": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 14,
     "section_path": [
@@ -767,7 +767,7 @@
     "query": "SELECT count(*) AS letters\n     , salt_092({{x}} + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM lettre A\nWHERE date = \"1933-04-22\""
   },
   "59494493715131": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 15,
     "section_path": [
@@ -811,7 +811,7 @@
     "query": "SELECT A.texte\n     , salt_078(sum(nn(A.hash)) OVER()) AS token\nFROM fragment A\nJOIN consultation ON consultation = fragment\nORDER BY date DESC\nLIMIT 9"
   },
   "17727469371145": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 16,
     "section_path": [
@@ -837,7 +837,7 @@
     ]
   },
   "155334593873678": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 17,
     "section_path": [
@@ -894,7 +894,7 @@
     "query": "SELECT concat(100 * count(DISTINCT B.destinataire) / count(DISTINCT A.personne), \" %\") AS pourcentage\n     , salt_029({{x}} + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token\nFROM personne A\nLEFT JOIN lettre B ON A.personne = B.destinataire\nWHERE date <= \"1933-04-26\""
   },
   "3717185854762268": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 18,
     "section_path": [
@@ -920,7 +920,7 @@
     ]
   },
   "133758539622466": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 18,
     "section_path": [
@@ -958,7 +958,7 @@
     "query": "SELECT count(*) AS locataires\n     , salt_086(sum(nn(A.hash)) + count(*) OVER()) AS token\nFROM amants A\nWHERE \"Denise Saillens\" = personne_2"
   },
   "216542043023011": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 19,
     "section_path": [
@@ -990,7 +990,7 @@
     ]
   },
   "246283082308474": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 20,
     "section_path": [
@@ -1034,7 +1034,7 @@
     "query": "SELECT personne\n     , âge\n     , salt_012(sum(nn(A.hash)) OVER()) AS token\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE âge =\n        (SELECT max(âge)\n         FROM personne\n         JOIN travail USING (id_travail)\n         WHERE site = \"hôpital\" )"
   },
   "237752598059822": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 21,
     "section_path": [
@@ -1067,7 +1067,7 @@
     "query": "SELECT A.docteur\n     , count(A.patient) AS patients\n     , salt_046({{x}} + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM consultation A\nJOIN amants ON patient IN (personne_1, personne_2)\n                 AND docteur IN (personne_1, personne_2)\nGROUP BY docteur"
   },
   "202700035033277": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 22,
     "section_path": [
@@ -1100,7 +1100,7 @@
     "query": "SELECT patient\n     , count(docteur) AS doctors\n     , salt_036({{x}} + bit_xor(sum(nn(A.hash)) * count(*)) OVER()) AS token\nFROM consultation A\nGROUP BY patient\nORDER BY doctors DESC\n       , patient ASC\nLIMIT 5"
   },
   "2152176172787": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 23,
     "section_path": [
@@ -1138,7 +1138,7 @@
     "query": "SELECT nom_travail\n     , concat(min(âge), \"-\", max(âge)) AS fourchette\n     , salt_071(bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token\nFROM personne A\nJOIN travail B USING (id_travail)\nGROUP BY id_travail\nHAVING count(*) >= 3\nORDER BY nom_travail\nLIMIT 5"
   },
   "217710522097188": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 24,
     "section_path": [
@@ -1195,7 +1195,7 @@
     "query": "SELECT A.personne\n     , count(B.personne_1) AS amants\n     , salt_018(string_hash('{{x}}') + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token\nFROM personne A\nLEFT JOIN amants B ON personne IN (personne_1, personne_2)\nWHERE âge >= 18\nGROUP BY personne\nORDER BY amants, personne"
   },
   "146695421101260": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 25,
     "section_path": [
@@ -1239,7 +1239,7 @@
     "query": "SELECT texte\n     , salt_051(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token\nFROM lettre A\nJOIN fragment B ON cast(lettre * lettre * lettre AS char) LIKE concat(\"%\", cast(fragment AS char), \"%\")"
   },
   "216551102692560": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 26,
     "section_path": [
@@ -1296,7 +1296,7 @@
     "query": "SELECT docteur\n     , count(*) AS total\n     , group_concat(DISTINCT patient SEPARATOR \", \") AS patients\n     , salt_004({{x}} + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM personne A\nJOIN consultation B ON patient = personne\nWHERE B.date =\n        (SELECT max(date)\n         FROM consultation\n         WHERE patient = B.patient)\n      AND date_décès <= \"1933-04-28\"\nGROUP BY docteur\nORDER BY total DESC"
   },
   "56444350319188": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 27,
     "section_path": [
@@ -1334,7 +1334,7 @@
     "query": "SELECT texte\n     , salt_019(sum(nn(A.hash)) OVER()) AS token\nFROM fragment A\nWHERE cast(fragment AS char) LIKE concat(\"%\",\n                                             (SELECT max(cast(lettre AS char))\n                                              FROM lettre A\n                                              WHERE destinataire IS NULL))"
   },
   "146354356040596": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 28,
     "section_path": [
@@ -1366,7 +1366,7 @@
     "query": "WITH destinataires AS\n    (SELECT destinataire\n     FROM lettre)\n   , connaissances AS\n    (SELECT personne_1\n     FROM relation\n     JOIN destinataires ON personne_2 = destinataire)\nSELECT personne\n     , salt_035(sum(nn(A.hash)) OVER()) AS token\nFROM personne A\nWHERE personne IN\n        (SELECT destinataire\n         FROM destinataires)\n    OR personne IN\n        (SELECT personne_1\n         FROM connaissances)\nLIMIT 5"
   },
   "147086758520779": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 29,
     "section_path": [
@@ -1429,7 +1429,7 @@
     "query": "SELECT A.personne\n     , sum(A.montant) AS dette\n     , salt_015({{x}} + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM emprunt A\nWHERE date_rendu IS NULL\nGROUP BY personne having(dette) >= 50\nORDER BY dette DESC"
   },
   "60086115509306": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 30,
     "section_path": [
@@ -1455,7 +1455,7 @@
     ]
   },
   "231782804999116": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 31,
     "section_path": [
@@ -1499,7 +1499,7 @@
     "query": "SELECT personne\n     , salt_061(sum(nn(A.hash)) OVER()) AS token\nFROM personne A\nWHERE personne IN\n        (SELECT personne\n         FROM assistance A\n         WHERE date = \"1933-05-07\" )"
   },
   "225758797168147": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 32,
     "section_path": [
@@ -1525,7 +1525,7 @@
     ]
   },
   "198610734269545": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 33,
     "section_path": [
@@ -1557,7 +1557,7 @@
     ]
   },
   "90805938243861": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 34,
     "section_path": [
@@ -1589,7 +1589,7 @@
     "query": "SELECT personne\n     , salt_081(sum(nn(A.hash)) OVER ()) AS token\nFROM personne A\nLEFT JOIN assistance B USING (personne)\nWHERE sexe = \"F\"\n    AND ((B.personne IS NULL)\n         OR (personne NOT IN\n                 (SELECT personne_1\n                  FROM amants)\n             AND personne NOT IN\n                 (SELECT personne_2\n                  FROM amants)))"
   },
   "155975930645834": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 35,
     "section_path": [
@@ -1639,7 +1639,7 @@
     "query": "SELECT personne\n     , âge\n     , salt_009(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token\nFROM personne A\nJOIN relation B ON personne = personne_2\nWHERE (personne_1 IN\n           (SELECT personne_1\n            FROM amants)\n       OR personne_1 IN\n           (SELECT personne_2\n            FROM amants))\n    AND âge = 7\n    AND sexe = \"F\""
   },
   "251739877315743": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 36,
     "section_path": [
@@ -1677,7 +1677,7 @@
     "query": "SELECT B.docteur\n     , A.spécialité\n     , count(*) AS prescriptions\n     , salt_057(bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token\nFROM prescription A\nJOIN consultation B USING (consultation)\nGROUP BY docteur, spécialité\nORDER BY prescriptions DESC"
   },
   "100323367752641": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 37,
     "section_path": [
@@ -1715,7 +1715,7 @@
     "query": "SELECT A.patient\n     , B.entrée\n     , B.sortie\n     , salt_042(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token\nFROM consultation A\nJOIN hospitalisation B ON A.consultation = B.consultation\nJOIN hospitalisation C ON B.entrée <= C.sortie AND B.sortie >= C.entrée\nJOIN consultation D ON C.consultation = D.consultation\nWHERE D.patient = 'François Boulin' AND A.patient != 'François Boulin'\nORDER BY A.patient"
   },
   "258311964244527": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 38,
     "section_path": [
@@ -1747,7 +1747,7 @@
     ]
   },
   "63948705644169": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 39,
     "section_path": [
@@ -1773,7 +1773,7 @@
     ]
   },
   "78824031526341": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 40,
     "section_path": [
@@ -1799,7 +1799,7 @@
     ]
   },
   "118173955981433": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 41,
     "section_path": [
@@ -1862,7 +1862,7 @@
     "query": "SELECT avg(DISTINCT P1.âge - P2.âge) AS différence\n     , salt_017({{x}} + bit_xor(sum(nn(P1.hash) + nn(P2.hash))) OVER()) AS token       \nFROM relation R\nJOIN amants L ON R.personne_1 IN (L.personne_1, L.personne_2)\nJOIN personne P1 ON P1.personne = R.personne_1\nJOIN personne P2 ON P2.personne = R.personne_2\nWHERE R.nature = \"femme\""
   },
   "202552683166466": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 42,
     "section_path": [
@@ -1901,7 +1901,7 @@
     "query": "SELECT B.date\n     , B.patient\n     , B.docteur\n     , group_concat(A.trouble) AS troubles\n     , salt_067(string_hash('{{x}}') + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token\nFROM diagnostic A\nJOIN consultation B USING (consultation)\nJOIN prescription USING (consultation)\nGROUP BY B.date, B.patient, B.docteur\nHAVING count(*) = 1\nORDER BY B.date\nLIMIT 5"
   },
   "133385354248234": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 43,
     "section_path": [
@@ -1960,7 +1960,7 @@
     "query": "WITH\n    amants_denise AS (\n        SELECT personne_1 AS amant FROM amants WHERE personne_2 = \"Denise Saillens\"\n        UNION ALL\n        SELECT personne_2 AS amant FROM amants WHERE personne_1 = \"Denise Saillens\"\n    )\nSELECT docteur\n     , salt_087(string_hash('{{x}}') + bit_xor(sum(nn(A.hash))) OVER ()) AS token\nFROM consultation A\nJOIN amants_denise on patient = amant\nGROUP BY docteur"
   },
   "54254940905285": {
-    "part_number": 1,
+    "activity_number": 1,
     "kind": "episode",
     "task_number": 44,
     "section_path": [
