@@ -11390,14 +11390,13 @@ INSERT INTO sqlab_msg (msg) VALUES
 
 
 INSERT INTO sqlab_metadata (name, value) VALUES
-  ('activities', '{"1": {"kind": "adventure", "label": "Aventure ", "activity_number": 1, "title": "Vendredi 21 avril 1933", "intro": "", "tasks": [{"access": "064", "task_number": 1, "task_title": "Le docteur Germain"}, {"access": false, "task_number": 2, "task_title": "Une fausse couche"}, {"access": false, "task_number": 3, "task_title": "Dans la salle commune de l''hôpital"}, {"access": false, "task_number": 4, "task_title": "Le numéro 13"}, {"access": false, "task_number": 5, "task_title": "Le personnel hospitalier"}, {"access": false, "task_number": 6, "task_title": "Le sauveur de mères"}, {"access": false, "task_number": 7, "task_title": "Un cas de gangrène"}, {"access": false, "task_number": 8, "task_title": "Dans la buanderie de l''hôpital"}, {"access": false, "task_number": 9, "task_title": "Les habitants de l''école"}, {"access": false, "task_number": 10, "task_title": "La petite postière"}, {"access": false, "task_number": 11, "task_title": "Une simulatrice"}, {"access": false, "task_number": 12, "task_title": "Premières lettres"}, {"access": false, "task_number": 13, "task_title": "Le retour du psychiatre"}, {"access": false, "task_number": 14, "task_title": "Dans le parc"}, {"access": false, "task_number": 15, "task_title": "La barbichette"}, {"access": false, "task_number": 16, "task_title": "La lettre de l''économe"}, {"access": false, "task_number": 17, "task_title": "Une soirée au Cercle"}, {"access": false, "task_number": 18, "task_title": "Le gardien de sa sœur"}, {"access": false, "task_number": 19, "task_title": "Les ventouses"}, {"access": false, "task_number": 20, "task_title": "Une visite du doyen"}, {"access": false, "task_number": 21, "task_title": "Une nuit d''amour"}, {"access": false, "task_number": 22, "task_title": "Première dispute d''un nouveau couple"}, {"access": false, "task_number": 23, "task_title": "La voleuse de la poste"}, {"access": false, "task_number": 24, "task_title": "Rendez-vous à l''église"}, {"access": false, "task_number": 25, "task_title": "Le suicide de François Boulin"}, {"access": false, "task_number": 26, "task_title": "Conseil de guerre à l''hôpital"}, {"access": false, "task_number": 27, "task_title": "Une lettre tombe de la couronne"}, {"access": false, "task_number": 28, "task_title": "Marie Corbin accusée"}, {"access": false, "task_number": 29, "task_title": "Une fausse piste de Rolande"}, {"access": false, "task_number": 30, "task_title": "À la messe"}, {"access": false, "task_number": 31, "task_title": "Les paroissiens"}, {"access": false, "task_number": 32, "task_title": "Cas de conscience postale"}, {"access": false, "task_number": 33, "task_title": "Le piège du polichinelle"}, {"access": false, "task_number": 34, "task_title": "Le retour de Barthélémy Germain"}, {"access": false, "task_number": 35, "task_title": "Le suicide d''Annette"}, {"access": false, "task_number": 36, "task_title": "Discours de Michel Vorzet"}, {"access": false, "task_number": 37, "task_title": "Mater dolorasoir"}, {"access": false, "task_number": 38, "task_title": "Denise prise en flagrant délit"}, {"access": false, "task_number": 39, "task_title": "Une lettre accompagnée d''une balle"}, {"access": false, "task_number": 40, "task_title": "L''internement de Laura"}, {"access": false, "task_number": 41, "task_title": "Le buvard"}, {"access": false, "task_number": 42, "task_title": "Le sérum névrosthénique"}, {"access": false, "task_number": 43, "task_title": "Denise soupçonne Michel Vorzet"}, {"access": false, "task_number": 44, "task_title": "L''assassinat de Vorzet"}], "task_count": 44}}'),
   ('author_affiliation', '"LCOMS, Université de Lorraine, France"'),
   ('author_contact', '"first_name.last_name at univ-lorraine.fr"'),
   ('author_name', '"Aristide Grange"'),
   ('author_role', '"Adaptation for SQLab"'),
-  ('created_at', '"2025-05-13T17:04:57.395142"'),
+  ('created_at', '"2025-05-29T18:58:17.839485"'),
   ('dbms', '"MySQL"'),
-  ('dbms_version', '"8.4.4"'),
+  ('dbms_version', '"8.0.31"'),
   ('description', '"Dans une petite ville française, des lettres anonymes sèment la discorde en révélant de sombres secrets."'),
   ('license_name', '"CC BY-SA 4.0"'),
   ('license_url', '"https://creativecommons.org/licenses/by-sa/4.0/"'),
@@ -11413,12 +11412,11 @@ INSERT INTO sqlab_metadata (name, value) VALUES
   ('repository', '"https://github.com/laowantong/sqlab_corbeau"'),
   ('row_count', '10414'),
   ('sqlab_database_language', '"fr"'),
-  ('sqlab_version', '"0.7.7"'),
+  ('sqlab_version', '"0.7.11"'),
   ('table_count', '15'),
   ('table_structures', '{"amants": ["personne_1", "personne_2"], "assistance": ["date", "personne"], "consultation": ["consultation", "patient", "docteur", "date"], "diagnostic": ["consultation", "trouble"], "emprunt": ["emprunt", "personne", "montant", "date_emprunt", "date_rendu"], "fragment": ["fragment", "texte"], "hospitalisation": ["consultation", "entrée", "sortie", "lit"], "indication": ["trouble", "spécialité"], "lettre": ["lettre", "destinataire", "date"], "personne": ["personne", "sexe", "âge", "id_travail", "complément", "numéro", "voie", "pratiquant", "date_décès"], "prescription": ["consultation", "spécialité", "durée"], "relation": ["personne_1", "nature", "personne_2"], "site": ["site", "numéro", "voie"], "spécialité": ["spécialité", "stock"], "travail": ["id_travail", "nom_travail", "site"]}'),
   ('title', '"SQLab Corbeau"'),
-  ('version', '"2.0.0"'),
-  ('web_toc', '["<div class=''activity''><h2>Aventure : Vendredi 21 avril 1933</h2><div class=''section''><h3>Le docteur Germain</h3><ul><li><div class=''number''>1</div></li></ul>\\n</div></div>"]')
+  ('version', '"2.0.0"')
 ;
 
 

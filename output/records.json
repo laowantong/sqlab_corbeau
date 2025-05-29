@@ -17,9 +17,16 @@
     "statement": "Écrivez une requête SQL renvoyant le nom et l'adresse de ce M. Germain.\n\n_Aide._ Utilisez l'opérateur `LIKE` sur la table `personne`.",
     "salt": "064",
     "formula": "salt_064(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 1000,
     "solutions": [
       {
         "query": "SELECT personne\n     , complément\n     , numéro\n     , voie\nFROM personne A\nWHERE personne LIKE \"% Germain\"\n    AND sexe = \"M\"\n    AND âge = 45",
+        "columns": [
+          "personne",
+          "complément",
+          "numéro",
+          "voie"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>complément</th>\n            <th>numéro</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Rémy Germain</td>\n            <td>app. 5</td>\n            <td>18</td>\n            <td>rue de la Mairie</td>\n            <td>63758212138630</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "63758212138630"
       }
@@ -61,9 +68,13 @@
     "statement": "Écrivez une requête donnant le nom des voisines.\n\n_Aide._ Vous aurez besoin de la table `relation` qui, pour certaines personnes, donne la nature de leur relation avec certaines autres. Cette table est symétrique, c'est-à-dire par exemple que si la personne 1 est répertoriée comme fille des personnes 2 et 3, les personnes 2 et 3 sont également répertoriées comme père et mère de la personne 1.",
     "salt": "002",
     "formula": "salt_002(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 3000,
     "solutions": [
       {
         "query": "SELECT personne_1\nFROM relation A\nWHERE personne_2 = \"Henriette Beaugé\"\n    AND nature = \"voisine\"",
+        "columns": [
+          "personne_1"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne_1</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Félicie François</td>\n            <td>136520204158016</td>\n        </tr>\n        <tr>\n            <td>Liliane Touraine</td>\n            <td>136520204158016</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "136520204158016"
       }
@@ -99,15 +110,26 @@
     "statement": "\nExtrayez de la table `relation` deux lignes comportant, à gauche le nom de l'infirmière et de sa sœur, et à droite celui du Dr. Vorzet.\n\n_Aide._ La sœur de ma femme est ma ....-.....",
     "salt": "048",
     "formula": "salt_048(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 6000,
     "solutions": [
       {
         "query": "SELECT personne_1\n     , nature\n     , personne_2\nFROM relation A\nWHERE (nature = \"femme\"\n       OR nature = \"belle-soeur\")\n    AND personne_2 LIKE \"% Vorzet\"",
+        "columns": [
+          "personne_1",
+          "nature",
+          "personne_2"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne_1</th>\n            <th>nature</th>\n            <th>personne_2</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Laura Vorzet</td>\n            <td>femme</td>\n            <td>Michel Vorzet</td>\n            <td>277525249483034</td>\n        </tr>\n        <tr>\n            <td>Marie Corbin</td>\n            <td>belle-sœur</td>\n            <td>Michel Vorzet</td>\n            <td>277525249483034</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "277525249483034"
       },
       {
         "intro": "Variante. Avec l'opérateur d'appartenance `IN`.",
         "query": "SELECT personne_1\n     , nature\n     , personne_2\nFROM relation A\nWHERE nature IN (\"femme\"\n               , \"belle-sœur\")\n    AND personne_2 LIKE \"% Vorzet\"",
+        "columns": [
+          "personne_1",
+          "nature",
+          "personne_2"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne_1</th>\n            <th>nature</th>\n            <th>personne_2</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Laura Vorzet</td>\n            <td>femme</td>\n            <td>Michel Vorzet</td>\n            <td>277525249483034</td>\n        </tr>\n        <tr>\n            <td>Marie Corbin</td>\n            <td>belle-sœur</td>\n            <td>Michel Vorzet</td>\n            <td>277525249483034</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "277525249483034"
       }
@@ -161,9 +183,14 @@
     "statement": "Donner le nom de ce patient, avec son numéro de lit.\n\n_Aide._ Vous devez deviner le numéro du lit (stocké comme un entier), et rechercher qui est hospitalisé ce jour-là dans ce lit. Chaque ligne de la table `consultation` donne les noms d'un patient et du médecin qui l'a examiné. Si cette consultation a donné lieu à une hospitalisation, celle-ci se trouve dans la table `hospitalisation`, sous le même identifiant, avec les dates d'entrée et de sortie, ainsi que le numéro de lit. L'information étant répartie dans ces deux tables, vous avez besoin d'une jointure.",
     "salt": "073",
     "formula": "salt_073(sum(nn(A.hash) + nn(B.hash)) OVER ()) AS token",
+    "reward": 10000,
     "solutions": [
       {
         "query": "SELECT patient\n     , lit\nFROM consultation A\nJOIN hospitalisation B USING (consultation)\nWHERE lit = 13\n    AND '1933-04-21' BETWEEN entrée AND sortie",
+        "columns": [
+          "patient",
+          "lit"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>lit</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>François Boulin</td>\n            <td>13</td>\n            <td>253113982671323</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "253113982671323"
       }
@@ -235,15 +262,22 @@
     "statement": "Dressez la liste du personnel de l'hôpital de Saint-Robin avec, pour chaque membre, sa fonction\ndans l'établissement.\n\n_Aide._ Pour chaque personne de la table `personne`, vous avez une clé étrangère vers la table `travail` qui va\nvous permettre de retrouver le nom de son travail, ainsi que le site qui l'emploie. La formule du token n'utilise\nqu'une table. De façon générale, pour laisser la possibilité d'écrire les jointures en imbriqué, seules les tables dont une colonne est projetée dans le SELECT seront mentionnées dans la formule du token.",
     "salt": "060",
     "formula": "salt_060(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 15000,
     "solutions": [
       {
         "query": "SELECT personne\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE site = \"hôpital\"",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Georges Massard</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
         "token": "109535642974975"
       },
       {
         "intro": "Variante. En imbriqué.",
         "query": "SELECT personne\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE id_travail IN\n        (SELECT id_travail\n         FROM travail\n         WHERE site = \"hôpital\" )",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>109535642974975</td>\n        </tr>\n        <tr>\n            <td>Georges Massard</td>\n            <td>109535642974975</td>\n        </tr>\n</table>\nTotal: 12 rows affected.",
         "token": "109535642974975"
       }
@@ -273,19 +307,38 @@
     "statement": "Donnez la liste des accouchements assurés par le docteur Germain au cours des six dernières semaines\n(avec le numéro et la date de la consultation, le nom et l'âge de la patiente) ordonnée par date croissante.\nLe résultat vous permettra (facultativement) d'en déduire le nom de la fille de Mme Beaugé.\n\n_Aide._ Vous avez besoin d'une jointure triple. Un accouchement est stocké comme une `consultation` dont\nle `diagnostic` inclut « accouchement » dans la colonne `trouble`. Utilisez la fonction `SUBDATE()` pour\ncalculer proprement la date de début de cette période.",
     "salt": "069",
     "formula": "salt_069(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "reward": 21000,
     "solutions": [
       {
         "query": "SELECT A.consultation\n     , A.date\n     , A.patient\n     , B.âge\nFROM consultation A\nJOIN personne B ON patient = personne\nJOIN diagnostic C USING (consultation)\nWHERE docteur = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND DATE BETWEEN subdate(\"1933-04-21\", INTERVAL 6 WEEK) AND \"1933-04-21\"\nORDER BY date",
+        "columns": [
+          "consultation",
+          "date",
+          "patient",
+          "âge"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>consultation</th>\n            <th>date</th>\n            <th>patient</th>\n            <th>âge</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>41528</td>\n            <td>1933-03-20</td>\n            <td>Fanny Molyneux</td>\n            <td>40</td>\n            <td>75996846005486</td>\n        </tr>\n        <tr>\n            <td>34299</td>\n            <td>1933-04-01</td>\n            <td>Juliette Yvain</td>\n            <td>26</td>\n            <td>75996846005486</td>\n        </tr>\n</table>\nTotal: 5 rows affected.",
         "token": "75996846005486"
       },
       {
         "query": "SELECT A.consultation\n     , A.date\n     , A.patient\n     , B.âge\nFROM consultation A\nJOIN personne B ON patient = personne\nJOIN diagnostic C USING (consultation)\nWHERE docteur = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND DATE BETWEEN subdate(\"1933-04-21\", INTERVAL 6 WEEK) AND \"1933-04-21\"\nORDER BY date",
+        "columns": [
+          "consultation",
+          "date",
+          "patient",
+          "âge"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>consultation</th>\n            <th>date</th>\n            <th>patient</th>\n            <th>âge</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>41528</td>\n            <td>1933-03-20</td>\n            <td>Fanny Molyneux</td>\n            <td>40</td>\n            <td>76167014014923</td>\n        </tr>\n        <tr>\n            <td>34299</td>\n            <td>1933-04-01</td>\n            <td>Juliette Yvain</td>\n            <td>26</td>\n            <td>76167014014923</td>\n        </tr>\n</table>\nTotal: 5 rows affected.",
         "token": "76167014014923"
       },
       {
         "query": "SELECT A.consultation\n     , A.date\n     , A.patient\n     , B.âge\nFROM consultation A\nJOIN personne B ON patient = personne\nJOIN diagnostic C USING (consultation)\nWHERE docteur = \"Rémy Germain\"\n    AND trouble = \"accouchement\"\n    AND DATE BETWEEN subdate(\"1933-04-21\", INTERVAL 6 WEEK) AND \"1933-04-21\"\nORDER BY date",
+        "columns": [
+          "consultation",
+          "date",
+          "patient",
+          "âge"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>consultation</th>\n            <th>date</th>\n            <th>patient</th>\n            <th>âge</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>41528</td>\n            <td>1933-03-20</td>\n            <td>Fanny Molyneux</td>\n            <td>40</td>\n            <td>76446928229139</td>\n        </tr>\n        <tr>\n            <td>34299</td>\n            <td>1933-04-01</td>\n            <td>Juliette Yvain</td>\n            <td>26</td>\n            <td>76446928229139</td>\n        </tr>\n</table>\nTotal: 5 rows affected.",
         "token": "76446928229139"
       }
@@ -327,9 +380,13 @@
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
     "formula": "salt_090(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 28000,
     "solutions": [
       {
         "query": "SELECT A.patient\nFROM consultation A\nJOIN hospitalisation H USING (consultation)\nJOIN diagnostic D USING (consultation)\nWHERE H.entrée = \"1933-04-21\"\n    AND A.docteur LIKE \"% Delorme\"\n    AND D.trouble = \"gangrène\"",
+        "columns": [
+          "patient"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Henriette Lagarde</td>\n            <td>30286867277324</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "30286867277324"
       }
@@ -353,9 +410,13 @@
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
     "formula": "salt_090(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 28000,
     "solutions": [
       {
         "query": "SELECT A.patient\nFROM consultation A\nJOIN hospitalisation H USING (consultation)\nJOIN diagnostic D USING (consultation)\nWHERE H.entrée = \"1933-04-21\"\n    AND A.docteur LIKE \"% Delorme\"\n    AND D.trouble = \"gangrène\"",
+        "columns": [
+          "patient"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Henriette Lagarde</td>\n            <td>30286867277324</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "30286867277324"
       }
@@ -379,9 +440,13 @@
     "statement": "Quel patient du docteur Delorme présente ce pittoresque cas de gangrène ?\n\n_Aide._ On s'intéresse à la date d'hospitalisation de ce patient, non à sa date de consultation.",
     "salt": "090",
     "formula": "salt_090(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 28000,
     "solutions": [
       {
         "query": "SELECT A.patient\nFROM consultation A\nJOIN hospitalisation H USING (consultation)\nJOIN diagnostic D USING (consultation)\nWHERE H.entrée = \"1933-04-21\"\n    AND A.docteur LIKE \"% Delorme\"\n    AND D.trouble = \"gangrène\"",
+        "columns": [
+          "patient"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Henriette Lagarde</td>\n            <td>30286867277324</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "30286867277324"
       }
@@ -441,9 +506,14 @@
     "statement": "Pourquoi François Boulin n'arrive-t-il pas à dormir ? Vous le saurez en listant les spécialités que\nGermain lui a prescrites, mais qui ne sont pas ou plus disponibles à la pharmacie. Vous projetterez également\nle stock correspondant.\n\n_Aide._ La table `prescription` a pour clé primaire deux clés étrangères, l'une vers la table `consultation`,\nl'autre vers la table `spécialité`. Celle-ci répertorie les différentes « spécialités » (ou médicaments), avec\néventuellement leur stock en pharmacie.",
     "salt": "099",
     "formula": "salt_099(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 36000,
     "solutions": [
       {
         "query": "SELECT A.spécialité\n     , A.stock\nFROM consultation B\nJOIN prescription C USING (consultation)\nJOIN spécialité A USING (spécialité)\nWHERE B.patient = \"François Boulin\"\n    AND B.docteur = \"Rémy Germain\"\n    AND (A.stock = 0\n         OR A.stock IS NULL)",
+        "columns": [
+          "spécialité",
+          "stock"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>spécialité</th>\n            <th>stock</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Morphine</td>\n            <td>0</td>\n            <td>8030012698937</td>\n        </tr>\n        <tr>\n            <td>Rayons X</td>\n            <td>None</td>\n            <td>8030012698937</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "8030012698937"
       }
@@ -497,9 +567,17 @@
     "statement": "Pour chaque habitant de l'école, donnez son adresse complète (incluant le complément, qui va donner l'appartement) et le nom de son travail (ou la chaîne vide s'il est sans travail).\n\n_Aide._ La table `site` répertorie les établissements employant des gens de Saint-Robin. Vous y trouverez des adresses similaires à celles de `personne` (mais sans complément d'adresse). Pour afficher la chaîne vide, cherchez la documentation de la fonction `coalesce()`.",
     "salt": "013",
     "formula": "salt_013(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "reward": 45000,
     "solutions": [
       {
         "query": "SELECT A.personne\n     , coalesce(B.nom_travail, '') as travail\n     , A.complément\n     , A.numéro\n     , A.voie\nFROM personne A\nLEFT JOIN travail B USING (id_travail)\nJOIN site C USING (numéro , voie)\nWHERE C.site = \"école\"",
+        "columns": [
+          "personne",
+          "travail",
+          "complément",
+          "numéro",
+          "voie"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>travail</th>\n            <th>complément</th>\n            <th>numéro</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Denise Saillens</td>\n            <td></td>\n            <td>app. 6</td>\n            <td>18</td>\n            <td>rue de la Mairie</td>\n            <td>148086545142137</td>\n        </tr>\n        <tr>\n            <td>Françoise Mespoulhé</td>\n            <td>institutrice</td>\n            <td>app. 3</td>\n            <td>18</td>\n            <td>rue de la Mairie</td>\n            <td>148086545142137</td>\n        </tr>\n</table>\nTotal: 9 rows affected.",
         "token": "148086545142137"
       }
@@ -559,9 +637,18 @@
     "statement": "Rolande habite en face de son lieu de travail. Dressez la liste de toutes les personnes qui sont dans le même cas (on considérera que deux bâtiments de la même rue se font face si leurs numéros diffèrent de 1 ou 3). La table devra comporter les colonnes suivantes : nom, âge, adresse du domicile, travail, site, adresse du travail. Chaque adresse consistera en la concaténation du numéro et de la rue.\n\n_Aide._ Sous MySQL, la concaténation se fait avec une fonction `CONCAT()`.",
     "salt": "093",
     "formula": "salt_093(sum(nn(A.hash) + nn(B.hash) + nn(C.hash)) OVER()) AS token",
+    "reward": 55000,
     "solutions": [
       {
         "query": "SELECT personne\n     , âge\n     , concat(A.numéro, \" \", A.voie) AS \"adresse domicile\"\n     , B.nom_travail AS travail\n     , C.site\n     , concat(C.numéro, \" \", C.voie) AS \"adresse travail\"\nFROM personne A\nJOIN travail B USING (id_travail)\nJOIN site C USING (site)\nWHERE A.voie = C.voie\n    AND A.numéro - C.numéro IN (-3, -1, 1, 3)",
+        "columns": [
+          "personne",
+          "âge",
+          "adresse domicile",
+          "travail",
+          "site",
+          "adresse travail"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>âge</th>\n            <th>adresse domicile</th>\n            <th>travail</th>\n            <th>site</th>\n            <th>adresse travail</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Elisabeth Chromo</td>\n            <td>55</td>\n            <td>35 allée des Ormes</td>\n            <td>photographe</td>\n            <td>L'Écho des Robinais</td>\n            <td>34 allée des Ormes</td>\n            <td>112873126312901</td>\n        </tr>\n        <tr>\n            <td>Raymond Cogoluègnes</td>\n            <td>31</td>\n            <td>20 rue de la Mairie</td>\n            <td>postier</td>\n            <td>poste</td>\n            <td>19 rue de la Mairie</td>\n            <td>112873126312901</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "112873126312901"
       }
@@ -603,9 +690,14 @@
     "statement": "Quelles consultations (patient, date) du docteur Germain n'ont donné lieu au diagnostic d'aucun trouble ?",
     "salt": "033",
     "formula": "salt_033(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 66000,
     "solutions": [
       {
         "query": "SELECT A.patient\n     , A.date\nFROM consultation A\nLEFT JOIN diagnostic B USING (consultation)\nWHERE A.docteur = \"Rémy Germain\"\n    AND B.consultation IS NULL",
+        "columns": [
+          "patient",
+          "date"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>date</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Juliette Yvain</td>\n            <td>1932-07-25</td>\n            <td>139733827413451</td>\n        </tr>\n        <tr>\n            <td>Denise Saillens</td>\n            <td>1933-04-21</td>\n            <td>139733827413451</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "139733827413451"
       }
@@ -635,9 +727,13 @@
     "statement": "Pour la lire à votre tour, extrayez de la table `fragment` toutes les lignes dont l'identifiant est\ndivisible par celui de la lettre reçue ce jour-là par le docteur Germain, et triez-les par identifiant\ndécroissant.\n\n_Aide._ La table `fragment` comporte l'ensemble des phrases des lettres du Corbeau, mais mélangées. Elle\nn'est pas directement liée au reste de la base, et ne peut être exploitée que par des manipulations un peu\n« tordues » comme celle-ci, qui vous seront révélées au fur et à mesure. Ici, vous avez besoin de la fonction\n`MOD()`.",
     "salt": "023",
     "formula": "salt_023(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 78000,
     "solutions": [
       {
         "query": "SELECT A.texte\nFROM fragment A\nJOIN lettre B ON mod(A.fragment, B.lettre) = 0\nWHERE destinataire = \"Rémy Germain\"\n    AND date = \"1933-04-21\"\nORDER BY fragment DESC",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>ℙ𝔼𝕋𝕀𝕋 𝔻É𝔹𝔸𝕌ℂℍÉ</td>\n            <td>48452550811506</td>\n        </tr>\n        <tr>\n            <td>𝕋𝕌 𝔽𝔸𝕀𝕊 𝕁𝕆𝕌𝕁𝕆𝕌</td>\n            <td>48452550811506</td>\n        </tr>\n</table>\nTotal: 7 rows affected.",
         "token": "48452550811506"
       }
@@ -673,16 +769,23 @@
     "statement": "Parmi les couples mariés, quelle est la différence d'âge maximale ?\n\n_Aide._ Vous aurez besoin d'une auto-jointure (jointure d'une table avec elle-même), pour mettre sur la même ligne les âges requis pour le calcul des différences.",
     "salt": "091",
     "formula": "salt_091((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 91000,
     "tweak": "cette valeur",
     "solutions": [
       {
         "query": "SELECT max(A.âge - B.âge) AS \"maximum\"\nFROM personne A\nJOIN relation C ON A.personne = personne_1\nJOIN personne B ON personne_2 = B.personne\nWHERE nature = \"mari\"",
+        "columns": [
+          "maximum"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>maximum</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>41</td>\n            <td>24589489494065</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "24589489494065"
       },
       {
         "intro": "Variante. Symétriquement.",
         "query": "SELECT max(abs(A.âge - B.âge)) AS \"maximum\"\nFROM personne A\nJOIN relation C ON A.personne = personne_1\nJOIN personne B ON personne_2 = B.personne\nWHERE nature = \"femme\"",
+        "columns": [
+          "maximum"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>maximum</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>41</td>\n            <td>21298768906624</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "21298768906624"
       }
@@ -712,10 +815,14 @@
     "statement": "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933) ?",
     "salt": "092",
     "formula": "salt_092((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 105000,
     "tweak": "ce nombre",
     "solutions": [
       {
         "query": "SELECT count(*) AS letters\nFROM lettre A\nWHERE date <= \"1933-04-22\"",
+        "columns": [
+          "letters"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>letters</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>5</td>\n            <td>59494493715131</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "59494493715131"
       }
@@ -739,10 +846,14 @@
     "statement": "Combien de lettres anonymes ont été reçues jusqu'à ce jour (22 avril 1933) ?",
     "salt": "092",
     "formula": "salt_092((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 105000,
     "tweak": "ce nombre",
     "solutions": [
       {
         "query": "SELECT count(*) AS letters\nFROM lettre A\nWHERE date <= \"1933-04-22\"",
+        "columns": [
+          "letters"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>letters</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>5</td>\n            <td>59494493715131</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "59494493715131"
       }
@@ -784,9 +895,13 @@
     "statement": "Pour connaître la suite de cette lettre, joignez les tables `fragment` et `consultation` sur leurs identifiants, en ne gardant que les neuf consultations les plus récentes du docteur Delorme.\n\n_Aide._ Utilisez la clause `ORDER BY` pour trier les dates, et `LIMIT` pour n'afficher que le nombre de lignes voulu.",
     "salt": "078",
     "formula": "salt_078(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 120000,
     "solutions": [
       {
         "query": "SELECT A.texte\nFROM fragment A\nJOIN consultation ON consultation = fragment\nWHERE docteur = \"Antoine Delorme\"\n    AND date <= \"1933-04-27\"\nORDER BY date DESC\nLIMIT 9",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝕍𝕀𝔼𝕀𝕃 𝕀𝕍ℝ𝕆𝔾ℕ𝔼</td>\n            <td>17727469371145</td>\n        </tr>\n        <tr>\n            <td>𝕃'𝔸𝕃ℂ𝕆𝕆𝕃 𝕋𝔼 𝕋ℝ𝕆𝕌𝔹𝕃𝔼 𝕃𝔸 𝕍𝕌𝔼</td>\n            <td>17727469371145</td>\n        </tr>\n</table>\nTotal: 9 rows affected.",
         "token": "17727469371145"
       }
@@ -828,9 +943,13 @@
     "statement": "Pour connaître la suite de cette lettre, convertissez en binaire la somme des identifiants des métiers des filles d'Henri Bonnevie, et extrayez de la table `fragment` toutes les lignes dont l'identifiant en binaire se termine par les mêmes chiffres.\n\n_Aide._ Utilisez la fonction `CONV(nombre_à_convertir, base_de_départ, base_d'arrivée)` qui renvoie une chaîne de caractères, ainsi que la fonction `CONCAT()` et l'opérateur `LIKE`.",
     "salt": "010",
     "formula": "salt_010(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 136000,
     "solutions": [
       {
         "query": "SELECT texte\nFROM fragment A\nWHERE conv(fragment, 10, 2) LIKE\n        (SELECT concat(\"%\", conv(sum(id_travail), 10, 2))\n         FROM relation R\n         JOIN personne P ON personne_1 = personne\n         WHERE nature = \"fille\"\n             AND personne_2 = \"Henri Bonnevie\" )",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝕍𝕀𝔼𝕀𝕃𝕃𝔼 ℂ𝔸ℕ𝔸𝕀𝕃𝕃𝔼</td>\n            <td>155334593873678</td>\n        </tr>\n        <tr>\n            <td>𝕋𝕌 𝔼𝕊 𝔸𝕌 𝕄𝕀𝔼𝕌𝕏 𝔸𝕍𝔼ℂ 𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝕃'𝔸𝕍𝕆ℝ𝕋𝔼𝕌ℝ</td>\n            <td>155334593873678</td>\n        </tr>\n</table>\nTotal: 7 rows affected.",
         "token": "155334593873678"
       }
@@ -854,16 +973,23 @@
     "statement": "Quel pourcentage de la population de Saint-Robin aura été destinataire d'une ou plusieurs lettres du Corbeau jusqu'à ce mercredi 26 avril 1933 ?",
     "salt": "029",
     "formula": "salt_029((0) + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "reward": 153000,
     "tweak": "la partie décimale de ce pourcentage (p. ex., 1415 pour 3.1415 %)",
     "solutions": [
       {
         "query": "SELECT concat(100 * count(DISTINCT B.destinataire) / count(DISTINCT A.personne), \" %\") AS pourcentage\nFROM personne A\nLEFT JOIN lettre B ON A.personne = B.destinataire AND date <= '1933-04-26'",
+        "columns": [
+          "pourcentage"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>pourcentage</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>4.0441 %</td>\n            <td>133758539622466</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "133758539622466"
       },
       {
         "intro": "Variante. Avec produit cartésien (potentiellement moins efficace).",
         "query": "SELECT concat(100 * count(DISTINCT B.destinataire) / count(DISTINCT A.personne), \" %\") AS pourcentage\nFROM personne A, lettre B\nWHERE date <= \"1933-04-26\"",
+        "columns": [
+          "pourcentage"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>pourcentage</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>4.0441 %</td>\n            <td>3717185854762268</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "3717185854762268"
       }
@@ -911,9 +1037,13 @@
     "statement": "Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum ? On supposera pour simplifier que tous les anciens amants de Denise résident encore à Saint-Robin.\n\n_Aide._ La table `amants` se concentre sur les relations illégitimes entre personnages. Au contraire de `relation`, elle ne comporte pas de doublons par symétrie. Notez le pluriel dans le nom de la table : chaque ligne comporte deux amants.",
     "salt": "086",
     "formula": "salt_086(bit_xor(sum(nn(A.hash))) OVER()) AS token",
+    "reward": 171000,
     "solutions": [
       {
         "query": "SELECT count(*) AS locataires\nFROM amants A\nWHERE \"Denise Saillens\" IN (personne_1, personne_2)",
+        "columns": [
+          "locataires"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>locataires</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>38</td>\n            <td>216542043023011</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "216542043023011"
       }
@@ -937,9 +1067,13 @@
     "statement": "Combien le 18 rue de la mairie a-t-il compté de locataires de sexe masculin, au maximum ? On supposera pour simplifier que tous les anciens amants de Denise résident encore à Saint-Robin.\n\n_Aide._ La table `amants` se concentre sur les relations illégitimes entre personnages. Au contraire de `relation`, elle ne comporte pas de doublons par symétrie. Notez le pluriel dans le nom de la table : chaque ligne comporte deux amants.",
     "salt": "086",
     "formula": "salt_086(bit_xor(sum(nn(A.hash))) OVER()) AS token",
+    "reward": 171000,
     "solutions": [
       {
         "query": "SELECT count(*) AS locataires\nFROM amants A\nWHERE \"Denise Saillens\" IN (personne_1, personne_2)",
+        "columns": [
+          "locataires"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>locataires</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>38</td>\n            <td>216542043023011</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "216542043023011"
       }
@@ -975,15 +1109,26 @@
     "statement": "À cette époque, un enfant dont les parents n'étaient pas mariés ensemble était dit « naturel ».\n\nDonnez la liste des enfants naturels, avec pour chacun son père et sa mère.",
     "salt": "045",
     "formula": "salt_045(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "reward": 190000,
     "solutions": [
       {
         "query": "SELECT A.personne_1 AS mère\n     , A.personne_2 AS enfant\n     , B.personne_1 AS père\nFROM relation A\nJOIN relation B USING (personne_2)\nWHERE A.nature = 'mère'\n    AND B.nature = 'père'\n    AND (A.personne_1, 'femme', B.personne_1) NOT IN\n        (SELECT personne_1, nature, personne_2\n         FROM relation)",
+        "columns": [
+          "mère",
+          "enfant",
+          "père"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>mère</th>\n            <th>enfant</th>\n            <th>père</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Fanny Molyneux</td>\n            <td>Guillaume Turpin</td>\n            <td>Wenceslas Vorobeïtchik</td>\n            <td>246283082308474</td>\n        </tr>\n        <tr>\n            <td>Fanny Molyneux</td>\n            <td>Susanne Lopes</td>\n            <td>Wenceslas Vorobeïtchik</td>\n            <td>246283082308474</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "246283082308474"
       },
       {
         "intro": "Variante. Avec `LEFT JOIN`.",
         "query": "SELECT A.personne_1 AS mère\n     , A.personne_2 AS enfant\n     , B.personne_1 AS père\nFROM relation A\nJOIN relation B USING (personne_2)\nLEFT JOIN relation C ON A.personne_1 = C.personne_1 AND B.personne_1 = C.personne_2\nWHERE A.nature = 'mère'\n    AND B.nature = 'père'\n    AND C.nature IS NULL",
+        "columns": [
+          "mère",
+          "enfant",
+          "père"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>mère</th>\n            <th>enfant</th>\n            <th>père</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Fanny Molyneux</td>\n            <td>Guillaume Turpin</td>\n            <td>Wenceslas Vorobeïtchik</td>\n            <td>246283082308474</td>\n        </tr>\n        <tr>\n            <td>Fanny Molyneux</td>\n            <td>Susanne Lopes</td>\n            <td>Wenceslas Vorobeïtchik</td>\n            <td>246283082308474</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "246283082308474"
       }
@@ -1007,9 +1152,14 @@
     "statement": "Vérifiez que Vorzet est le doyen du corps médical, en d'autres termes, qu'il est le plus vieux des employés de l'hôpital.",
     "salt": "012",
     "formula": "salt_012(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 210000,
     "solutions": [
       {
         "query": "SELECT A.personne\n     , A.âge\nFROM personne A\nJOIN travail B USING (id_travail)\nWHERE site = \"hôpital\"\n    AND âge =\n        (SELECT max(âge)\n         FROM personne\n         JOIN travail USING (id_travail)\n         WHERE site = \"hôpital\" )",
+        "columns": [
+          "personne",
+          "âge"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>âge</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Michel Vorzet</td>\n            <td>75</td>\n            <td>237752598059822</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "237752598059822"
       }
@@ -1051,10 +1201,15 @@
     "statement": "Pour chaque médecin ayant couché avec au moins l'une des personnes qui l'ont consulté, affichez le nombre de celles-ci.",
     "salt": "046",
     "formula": "salt_046((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 231000,
     "tweak": "le plus grand de ces nombres",
     "solutions": [
       {
         "query": "SELECT A.docteur\n     , count(DISTINCT A.patient) AS patients\nFROM consultation A\nJOIN amants ON patient IN (personne_1, personne_2)\n                 AND docteur IN (personne_1, personne_2)\nGROUP BY docteur",
+        "columns": [
+          "docteur",
+          "patients"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>patients</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Georges Massard</td>\n            <td>2</td>\n            <td>202700035033277</td>\n        </tr>\n        <tr>\n            <td>Louis Bertrand</td>\n            <td>1</td>\n            <td>202700035033277</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "202700035033277"
       }
@@ -1084,10 +1239,15 @@
     "statement": "Pour chaque patient, donner le nombre de médecins qu'il consulte. Triez par nombre de médecins décroissant et par patient croissant.",
     "salt": "036",
     "formula": "salt_036((0) + bit_xor(sum(nn(A.hash)) * count(*)) OVER()) AS token",
+    "reward": 253000,
     "tweak": "le plus grand de ces nombres",
     "solutions": [
       {
         "query": "SELECT patient\n     , count(DISTINCT docteur) AS doctors\nFROM consultation A\nGROUP BY patient\nORDER BY doctors DESC, patient ASC",
+        "columns": [
+          "patient",
+          "doctors"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>doctors</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Joseph-Alfred Durand</td>\n            <td>6</td>\n            <td>2152176172787</td>\n        </tr>\n        <tr>\n            <td>Adrienne Picard</td>\n            <td>5</td>\n            <td>2152176172787</td>\n        </tr>\n</table>\nTotal: 172 rows affected.",
         "token": "2152176172787"
       }
@@ -1117,9 +1277,14 @@
     "statement": "Pour chaque nom de travail exercé par au moins 3 personnes, afficher la fourchette des âges de ces personnes (âges minimal et maximal, par exemple \"29-44\").",
     "salt": "071",
     "formula": "salt_071(bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "reward": 276000,
     "solutions": [
       {
         "query": "SELECT B.nom_travail\n     , concat(min(A.âge), \"-\", max(A.âge)) AS fourchette\nFROM personne A\nJOIN travail B USING (id_travail)\nGROUP BY nom_travail\nHAVING count(*) >= 3\nORDER BY nom_travail",
+        "columns": [
+          "nom_travail",
+          "fourchette"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>nom_travail</th>\n            <th>fourchette</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>administrateur</td>\n            <td>29-44</td>\n            <td>217710522097188</td>\n        </tr>\n        <tr>\n            <td>bonne</td>\n            <td>28-52</td>\n            <td>217710522097188</td>\n        </tr>\n</table>\nTotal: 28 rows affected.",
         "token": "217710522097188"
       }
@@ -1155,10 +1320,15 @@
     "statement": "Dressez une liste de toutes les personnes de la ville avec, en face, leur nombre d'amants, trié par\nnombre croissant, puis nom croissant. Vous inclurez les personnes n'ayant aucun amant, mais exclurez celles qui n'ont pas atteint l'âge de la majorité sexuelle.",
     "salt": "018",
     "formula": "salt_018(string_hash('(0)') + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "reward": 300000,
     "tweak": "la première personne ayant exactement un(e) amant(e)",
     "solutions": [
       {
         "query": "SELECT A.personne\n     , count(B.personne_1) AS amants\nFROM personne A\nLEFT JOIN amants B ON personne IN (personne_1, personne_2)\nWHERE âge >= 13\nGROUP BY personne\nORDER BY amants, personne",
+        "columns": [
+          "personne",
+          "amants"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>amants</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Alfred Durry</td>\n            <td>0</td>\n            <td>146695421101260</td>\n        </tr>\n        <tr>\n            <td>Ambroise Auger</td>\n            <td>0</td>\n            <td>146695421101260</td>\n        </tr>\n</table>\nTotal: 217 rows affected.",
         "token": "146695421101260"
       }
@@ -1212,9 +1382,13 @@
     "statement": "Pour connaître le contenu de la lettre, restreignez `fragment` aux textes dont l'identifiant est une sous-chaîne du cube de l'identifiant de la lettre reçue par François Boulin le 28 avril 1933.\n\n_Aide._ Utilisez à nouveau la fonction `CAST()` pour convertir un type en un autre.",
     "salt": "051",
     "formula": "salt_051(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 325000,
     "solutions": [
       {
         "query": "SELECT A.texte\nFROM fragment A\nJOIN lettre B ON cast(lettre * lettre * lettre AS char) LIKE concat(\"%\", cast(fragment AS char), \"%\")\nWHERE destinataire = \"François Boulin\"\n    AND date = \"1933-04-28\"",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝕍𝕀𝔼𝕌𝕏 ℂ𝔸𝔻𝔸𝕍ℝ𝔼</td>\n            <td>216551102692560</td>\n        </tr>\n        <tr>\n            <td>𝔾𝔼ℝ𝕄𝔸𝕀ℕ 𝕊𝔼 ℙ𝔸𝕐𝔼 𝕋𝔸 ℙ𝔸𝕌𝕍ℝ𝔼 𝔹𝕆𝔹𝕀ℕ𝔼 𝔻𝔼 ℂℝ𝔼𝕍𝔸ℝ𝔻</td>\n            <td>216551102692560</td>\n        </tr>\n</table>\nTotal: 6 rows affected.",
         "token": "216551102692560"
       }
@@ -1256,16 +1430,27 @@
     "statement": "Donner, pour chaque médecin, le nombre de patients décédés qu'il a reçus pour leur ultime consultation, avec la liste de ceux-ci, le tout classé par nombres de patients décédés décroissants.\n\n_Aide._ La table `personne` donne, pour chaque habitant de Saint-Robin, la date de son décès lorsqu'elle est connue. Utilisez `GROUP_CONCAT()` avec une virgule comme séparateur.",
     "salt": "004",
     "formula": "salt_004((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 351000,
     "tweak": "le nombre de patients décédés sur la première ligne.",
     "solutions": [
       {
         "query": "SELECT A.docteur\n     , count(*) AS total\n     , group_concat(DISTINCT A.patient SEPARATOR \", \") AS patients\nFROM consultation A\nJOIN personne B ON patient = personne\nWHERE A.date = (\n        SELECT max(date)\n        FROM consultation\n        WHERE patient = A.patient\n      )\n      AND date_décès IS NOT NULL\nGROUP BY docteur\nORDER BY total DESC",
+        "columns": [
+          "docteur",
+          "total",
+          "patients"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>total</th>\n            <th>patients</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Louis Bertrand</td>\n            <td>9</td>\n            <td>Alphonse Jacques, Baptiste Deburau, Géraldine Monet, Gloria Grand, Joseph-Alfred Durand, Juliette Gauthier, Maurice Verneuil, Modeste Manosque, Roger Drapeau</td>\n            <td>56444350319188</td>\n        </tr>\n        <tr>\n            <td>Rémy Germain</td>\n            <td>7</td>\n            <td>Édouard de Montray, François Boulin, Henri Noblet, Horace Édouard, Madeleine Chevalier, Michel Krauss, Sidonie Rose</td>\n            <td>56444350319188</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "56444350319188"
       },
       {
         "intro": "Variante. Les sous-requêtes corrélées peuvent souffrir de mauvaises performances. Utilisez plutôt une CTE.",
         "query": "WITH dernière_consultation AS (\n    SELECT patient, MAX(date) AS dernière_date\n    FROM consultation\n    GROUP BY patient\n)\nSELECT A.docteur\n     , COUNT(*) AS total\n     , GROUP_CONCAT(DISTINCT A.patient SEPARATOR \", \") AS patients\nFROM consultation A\nJOIN personne B ON A.patient = B.personne\nJOIN dernière_consultation C ON A.patient = C.patient AND A.date = C.dernière_date\nWHERE B.date_décès IS NOT NULL\nGROUP BY A.docteur\nORDER BY total DESC;",
+        "columns": [
+          "docteur",
+          "total",
+          "patients"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>total</th>\n            <th>patients</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Louis Bertrand</td>\n            <td>9</td>\n            <td>Alphonse Jacques, Baptiste Deburau, Géraldine Monet, Gloria Grand, Joseph-Alfred Durand, Juliette Gauthier, Maurice Verneuil, Modeste Manosque, Roger Drapeau</td>\n            <td>56444350319188</td>\n        </tr>\n        <tr>\n            <td>Rémy Germain</td>\n            <td>7</td>\n            <td>Édouard de Montray, François Boulin, Henri Noblet, Horace Édouard, Madeleine Chevalier, Michel Krauss, Sidonie Rose</td>\n            <td>56444350319188</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "56444350319188"
       }
@@ -1313,9 +1498,13 @@
     "statement": "Pour savoir ce qu'ils ont lu, extrayez de la table `fragment` toutes les lignes dont l'identifiant se termine par l'identifiant de cette lettre dans `lettre`, sachant que celle-ci est découverte le 30 avril 1933 et n'a pas de destinataire.",
     "salt": "019",
     "formula": "salt_019(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 378000,
     "solutions": [
       {
         "query": "SELECT texte\nFROM fragment A\nWHERE fragment LIKE (\n    SELECT concat(\"%\", lettre)\n    FROM lettre A\n    WHERE destinataire IS NULL\n      AND date = \"1933-04-30\"\n)",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝕃𝔼 𝟙𝟛 ℕ'𝔸 ℙ𝔸𝕊 𝕍𝕆𝕃É 𝕊𝕆ℕ 𝕊𝕆ℝ𝕋</td>\n            <td>146354356040596</td>\n        </tr>\n        <tr>\n            <td>𝕀𝕃 𝔼𝕋𝔸𝕀𝕋 𝔻𝔼𝕁𝔸 ℝ𝔼𝔽ℝ𝕆𝕀𝔻𝕀</td>\n            <td>146354356040596</td>\n        </tr>\n</table>\nTotal: 7 rows affected.",
         "token": "146354356040596"
       }
@@ -1351,9 +1540,13 @@
     "statement": "Listez par ordre alphabétique les personnes qui, soit ont reçu au moins une lettre du Corbeau jusqu'au dimanche 30 avril 1933, soit sont officiellement en relation avec au moins une telle personne. Vous exploiterez le fait que la table `relation` est symétrique, et ne tiendrez pas compte des relations (illégitimes !) de la table `amants`.\n\n_Aide._ Passez par deux CTE, l'une pour les destinataires, l'autre pour leurs connaissances.",
     "salt": "035",
     "formula": "salt_035(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 406000,
     "solutions": [
       {
         "query": "WITH destinataires AS\n    (SELECT destinataire\n     FROM lettre\n     WHERE date <= \"1933-04-30\" )\n   , connaissances AS\n    (SELECT personne_1\n     FROM relation\n     JOIN destinataires ON personne_2 = destinataire)\nSELECT personne\nFROM personne A\nWHERE personne IN\n        (SELECT destinataire\n         FROM destinataires)\n    OR personne IN\n        (SELECT personne_1\n         FROM connaissances)",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Albert Boulin</td>\n            <td>147086758520779</td>\n        </tr>\n        <tr>\n            <td>Anastasie Delorme</td>\n            <td>147086758520779</td>\n        </tr>\n</table>\nTotal: 31 rows affected.",
         "token": "147086758520779"
       }
@@ -1383,10 +1576,15 @@
     "statement": "Afficher la liste des personnes à qui Rolande doit au moins 50 francs au 3 mai 1933, avec le montant de la dette correspondante, le tout trié par dette décroissante.\n\n_Aide._ La table `emprunt` répertorie l'ensemble des dettes contractées par Rolande : à qui, quand et combien elle a emprunté, et éventuellement quand elle a rendu l'argent.",
     "salt": "015",
     "formula": "salt_015((0) + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 435000,
     "tweak": "la dette de la première ligne, plus le nombre de lignes",
     "solutions": [
       {
         "query": "SELECT A.personne\n     , sum(A.montant) AS dette\nFROM emprunt A\nWHERE date_emprunt <= '1933-05-03'\n    AND (date_rendu > '1933-05-03'\n         OR date_rendu IS NULL)\nGROUP BY personne having(dette) >= 50\nORDER BY dette DESC",
+        "columns": [
+          "personne",
+          "dette"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>dette</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Théophile Esquirol</td>\n            <td>530.00</td>\n            <td>60086115509306</td>\n        </tr>\n        <tr>\n            <td>Vania Pons</td>\n            <td>395.00</td>\n            <td>60086115509306</td>\n        </tr>\n</table>\nTotal: 17 rows affected.",
         "token": "60086115509306"
       }
@@ -1446,9 +1644,13 @@
     "statement": "Pour prendre connaissance de cette nouvelle lettre du Corbeau, extraire de la table `fragment` toutes les phrases apparaissant exactement deux fois.",
     "salt": "089",
     "formula": "salt_089(bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 465000,
     "solutions": [
       {
         "query": "SELECT texte\nFROM fragment A\nGROUP BY texte\nHAVING count(*) = 2",
+        "columns": [
+          "texte"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>texte</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝔸𝕌𝕏 ℙ𝔸ℝ𝕆𝕀𝕊𝕊𝕀𝔼ℕ𝕊 𝔻𝔼 ℕ𝕆𝕋ℝ𝔼⌁𝔻𝔸𝕄𝔼</td>\n            <td>231782804999116</td>\n        </tr>\n        <tr>\n            <td>𝕄𝔼𝕊 ℂℍ𝔼ℝ𝕊 𝔽ℝ𝔼ℝ𝔼𝕊</td>\n            <td>231782804999116</td>\n        </tr>\n</table>\nTotal: 9 rows affected.",
         "token": "231782804999116"
       }
@@ -1472,9 +1674,13 @@
     "statement": "Lister les paroissiens assistant à la messe ce jour-là.\n\n_Aide._ La colonne `pratiquant` de la table `personne` indique si un paroissien est pratiquant, c'est-à-dire s'il va normalement à l'église tous les dimanches. Pour optimiser le stockage et vous donner un peu de fil à retordre, la table `assistance` ne liste que les exceptions à la pratique religieuse, à savoir, les dates auxquelles soit tel pratiquant était absent, soit tel non-pratiquant était présent.",
     "salt": "061",
     "formula": "salt_061(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 496000,
     "solutions": [
       {
         "query": "SELECT personne\nFROM personne A\nWHERE pratiquant xor personne IN\n        (SELECT personne\n         FROM assistance A\n         WHERE date = \"1933-05-07\" )",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Adrienne Picard</td>\n            <td>225758797168147</td>\n        </tr>\n        <tr>\n            <td>Adrienne Robert</td>\n            <td>225758797168147</td>\n        </tr>\n</table>\nTotal: 228 rows affected.",
         "token": "225758797168147"
       }
@@ -1516,9 +1722,14 @@
     "statement": "Avec qui (nom, nom de travail) le directeur de la poste trompe-t-il sa femme ?\n\n_Aide._ À titre exceptionnel et pour vous aider, toutes les tables de la jointure figurent dans la formule du token.",
     "salt": "088",
     "formula": "salt_088(sum(nn(A.hash) + nn(B.hash) + nn(C.hash) + nn(D.hash) + nn(E.hash)) OVER()) AS token",
+    "reward": 528000,
     "solutions": [
       {
         "query": "SELECT D.personne\n     , E.nom_travail\nFROM personne A\nJOIN travail B ON A.id_travail = B.id_travail\nJOIN amants C ON A.personne IN (personne_1, personne_2)\nJOIN personne D ON D.personne IN (personne_1 , personne_2)\nJOIN travail E ON D.id_travail = E.id_travail\nWHERE B.nom_travail = \"directeur\"\n    AND B.site = \"poste\"\n    AND A.personne != D.personne",
+        "columns": [
+          "personne",
+          "nom_travail"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>nom_travail</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Gatien Réginaud</td>\n            <td>postier</td>\n            <td>198610734269545</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "198610734269545"
       }
@@ -1542,15 +1753,28 @@
     "statement": "Donnez la liste des conspirateurs, avec le nom de leur travail, le site où ils sont employés et enfin leur voie. Seule la table `personne` sera utilisée dans la formule du token.",
     "salt": "030",
     "formula": "salt_030(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 561000,
     "solutions": [
       {
         "query": "WITH\n    hommes_mariés AS (\n        SELECT personne_1 as personne\n        FROM relation\n        WHERE nature = 'mari'\n    ),\n    employés_sur_place AS (\n        SELECT personne, nom_travail, site, voie\n        FROM personne P\n        JOIN travail USING (id_travail)\n        JOIN site S USING (site, voie)\n    ),\n    personnes_2 AS (\n        SELECT personne\n        FROM personne\n        WHERE (complément, numéro, voie) IN (\n            SELECT complément, numéro, voie\n            FROM personne\n            GROUP BY complément, numéro, voie\n            HAVING count(*) = 2\n        )\n    )\nSELECT A.personne\n     , C.nom_travail\n     , C.site\n     , A.voie\nFROM personne A\nJOIN hommes_mariés B using (personne)\nJOIN employés_sur_place C using (personne)\nJOIN personnes_2 D using (personne)",
+        "columns": [
+          "personne",
+          "nom_travail",
+          "site",
+          "voie"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>nom_travail</th>\n            <th>site</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>directeur</td>\n            <td>hôpital</td>\n            <td>rue du Docteur Larrieu</td>\n            <td>90805938243861</td>\n        </tr>\n        <tr>\n            <td>Bernard Delorme</td>\n            <td>substitut</td>\n            <td>tribunal</td>\n            <td>rue François Quesnay</td>\n            <td>90805938243861</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "90805938243861"
       },
       {
         "intro": "Variante. Sans CTE.",
         "query": "SELECT A.personne\n     , B.nom_travail\n     , C.site\n     , A.voie\nFROM personne A\nJOIN travail B USING (id_travail)\nJOIN site C USING (site, voie)\nWHERE A.personne IN (\n        SELECT personne_1\n        FROM relation\n        WHERE nature = \"mari\"\n    )\n    AND (A.complément, A.numéro, A.voie) IN (\n        SELECT complément, numéro, voie\n        FROM personne\n        GROUP BY complément, numéro, voie\n        HAVING count(*) = 2\n    )",
+        "columns": [
+          "personne",
+          "nom_travail",
+          "site",
+          "voie"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>nom_travail</th>\n            <th>site</th>\n            <th>voie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Antoine Delorme</td>\n            <td>directeur</td>\n            <td>hôpital</td>\n            <td>rue du Docteur Larrieu</td>\n            <td>90805938243861</td>\n        </tr>\n        <tr>\n            <td>Bernard Delorme</td>\n            <td>substitut</td>\n            <td>tribunal</td>\n            <td>rue François Quesnay</td>\n            <td>90805938243861</td>\n        </tr>\n</table>\nTotal: 4 rows affected.",
         "token": "90805938243861"
       }
@@ -1574,9 +1798,13 @@
     "statement": "Affichez la liste des femmes qui n'ont aucun amant (comme la femme du médecin-chef) ou n'ont jamais manqué la messe (comme la femme du maire).",
     "salt": "081",
     "formula": "salt_081(sum(nn(A.hash)) OVER ()) AS token",
+    "reward": 595000,
     "solutions": [
       {
         "query": "SELECT personne\nFROM personne A\nLEFT JOIN assistance B USING (personne)\nWHERE sexe = \"F\"\n    AND ((pratiquant AND B.personne IS NULL)\n         OR (personne NOT IN\n                 (SELECT personne_1\n                  FROM amants)\n             AND personne NOT IN\n                 (SELECT personne_2\n                  FROM amants)))",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Adrienne Picard</td>\n            <td>155975930645834</td>\n        </tr>\n        <tr>\n            <td>Aimée Fleury</td>\n            <td>155975930645834</td>\n        </tr>\n</table>\nTotal: 67 rows affected.",
         "token": "155975930645834"
       }
@@ -1606,9 +1834,14 @@
     "statement": "Quel est le nom de cette fillette ?",
     "salt": "009",
     "formula": "salt_009(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "reward": 630000,
     "solutions": [
       {
         "query": "SELECT A.personne\n     , A.âge\nFROM personne A\nJOIN relation B ON personne = personne_2\nWHERE nature = \"mère\"\n    AND (personne_1 IN\n             (SELECT personne_1\n              FROM amants)\n         OR personne_1 IN\n             (SELECT personne_2\n              FROM amants))\n    AND âge = 7\n    AND sexe = \"F\"",
+        "columns": [
+          "personne",
+          "âge"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>âge</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Annette Poirier</td>\n            <td>7</td>\n            <td>251739877315743</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "251739877315743"
       }
@@ -1656,15 +1889,26 @@
     "statement": "Vérifiez que Vorzet est le médecin qui prescrit le plus fréquemment une spécialité ne faisant pas partie des indications d'un trouble qu'il a diagnostiqué, et que cette spécialité est la morphine. Pour cela, vous listerez par ordre décroissant, pour chaque prescripteur et chaque spécialité prescrite mais non indiquée, le nombre de prescriptions concernées.\n\n_Aide._ La table `indication` liste des couples de troubles et de spécialités : elle note que telle et telle spécialité est _indiquée_ pour traiter tel ou tel trouble.",
     "salt": "057",
     "formula": "salt_057(bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "reward": 666000,
     "solutions": [
       {
         "query": "SELECT B.docteur\n     , A.spécialité\n     , count(*) AS prescriptions\nFROM prescription A\nJOIN consultation B USING (consultation)\nWHERE spécialité NOT IN\n        (SELECT spécialité\n         FROM indication I\n         JOIN diagnostic USING (trouble)\n         WHERE consultation = A.consultation )\nGROUP BY docteur, spécialité\nORDER BY prescriptions DESC",
+        "columns": [
+          "docteur",
+          "spécialité",
+          "prescriptions"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>spécialité</th>\n            <th>prescriptions</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Michel Vorzet</td>\n            <td>Morphine</td>\n            <td>9</td>\n            <td>100323367752641</td>\n        </tr>\n        <tr>\n            <td>Théodore Linz</td>\n            <td>Néoby</td>\n            <td>2</td>\n            <td>100323367752641</td>\n        </tr>\n</table>\nTotal: 56 rows affected.",
         "token": "100323367752641"
       },
       {
         "intro": "Variante. Avec l'opérateur EXISTS (conseillé).",
         "query": "SELECT B.docteur\n     , A.spécialité\n     , count(*) AS prescriptions\nFROM prescription A\nJOIN consultation B USING (consultation)\nWHERE NOT EXISTS (\n        SELECT 1\n        FROM indication I\n        JOIN diagnostic USING (trouble)\n        WHERE consultation = A.consultation\n          AND I.spécialité = A.spécialité\n      )\nGROUP BY docteur, spécialité\nORDER BY prescriptions DESC",
+        "columns": [
+          "docteur",
+          "spécialité",
+          "prescriptions"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>spécialité</th>\n            <th>prescriptions</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Michel Vorzet</td>\n            <td>Morphine</td>\n            <td>9</td>\n            <td>100323367752641</td>\n        </tr>\n        <tr>\n            <td>Théodore Linz</td>\n            <td>Néoby</td>\n            <td>2</td>\n            <td>100323367752641</td>\n        </tr>\n</table>\nTotal: 56 rows affected.",
         "token": "100323367752641"
       }
@@ -1694,9 +1938,15 @@
     "statement": "Listez les patients qui ont été hospitalisés en même temps que François Boulin, avec leurs dates d'entrée et de sortie.",
     "salt": "042",
     "formula": "salt_042(sum(nn(A.hash) + nn(B.hash)) OVER()) AS token",
+    "reward": 703000,
     "solutions": [
       {
         "query": "SELECT A.patient\n     , B.entrée\n     , B.sortie\nFROM consultation A\nJOIN hospitalisation B ON A.consultation = B.consultation\nJOIN hospitalisation C ON B.entrée < C.sortie AND B.sortie > C.entrée\nJOIN consultation D ON C.consultation = D.consultation\nWHERE D.patient = 'François Boulin' AND A.patient != 'François Boulin'\nORDER BY A.patient",
+        "columns": [
+          "patient",
+          "entrée",
+          "sortie"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>patient</th>\n            <th>entrée</th>\n            <th>sortie</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Adrienne Robert</td>\n            <td>1933-04-06</td>\n            <td>1933-04-12</td>\n            <td>258311964244527</td>\n        </tr>\n        <tr>\n            <td>Aimée Fleury</td>\n            <td>1933-04-23</td>\n            <td>1933-05-11</td>\n            <td>258311964244527</td>\n        </tr>\n</table>\nTotal: 24 rows affected.",
         "token": "258311964244527"
       }
@@ -1732,15 +1982,24 @@
     "statement": "Lister les personnes qui ont reçu une lettre du Corbeau le jour de leur mort, avec leur nom et la date.",
     "salt": "054",
     "formula": "salt_054(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 741000,
     "solutions": [
       {
         "query": "SELECT personne\n     , date_décès\nFROM personne A\nJOIN lettre B ON date = date_décès\nWHERE A.personne = B.destinataire",
+        "columns": [
+          "personne",
+          "date_décès"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>date_décès</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>François Boulin</td>\n            <td>1933-04-28</td>\n            <td>63948705644169</td>\n        </tr>\n        <tr>\n            <td>Modeste Manosque</td>\n            <td>1933-05-09</td>\n            <td>63948705644169</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "63948705644169"
       },
       {
         "intro": "Variante. La condition du WHERE est en fait une condition de jointure.",
         "query": "SELECT personne\n     , date_décès\nFROM personne A\nJOIN lettre B ON date = date_décès AND A.personne = B.destinataire",
+        "columns": [
+          "personne",
+          "date_décès"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>date_décès</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>François Boulin</td>\n            <td>1933-04-28</td>\n            <td>63948705644169</td>\n        </tr>\n        <tr>\n            <td>Modeste Manosque</td>\n            <td>1933-05-09</td>\n            <td>63948705644169</td>\n        </tr>\n</table>\nTotal: 2 rows affected.",
         "token": "63948705644169"
       }
@@ -1764,9 +2023,13 @@
     "statement": "Quels amants de Denise Saillens sont décédés ?",
     "salt": "047",
     "formula": "salt_047(sum(nn(A.hash)) OVER()) AS token",
+    "reward": 780000,
     "solutions": [
       {
         "query": "SELECT personne\nFROM personne A\nJOIN amants B ON \"Denise Saillens\" IN (personne_1, personne_2)\n                  AND personne IN (personne_1, personne_2)\nWHERE date_décès IS NOT NULL",
+        "columns": [
+          "personne"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>personne</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Alphonse Jacques</td>\n            <td>78824031526341</td>\n        </tr>\n        <tr>\n            <td>Horace Édouard</td>\n            <td>78824031526341</td>\n        </tr>\n</table>\nTotal: 3 rows affected.",
         "token": "78824031526341"
       }
@@ -1790,9 +2053,13 @@
     "statement": "Concaténez avec un séparateur vide le premier caractère de toutes les phrases de `fragment` dont l'identifiant coïncide avec celui d'une lettre reçue par Laura Vorzet.",
     "salt": "014",
     "formula": "salt_014(bit_xor(sum(nn(A.hash)) + count(*)) OVER ()) AS token",
+    "reward": 820000,
     "solutions": [
       {
         "query": "SELECT group_concat(substring(A.texte, 1, 1) SEPARATOR \"\") AS acrostiche\nFROM fragment A\nJOIN lettre B ON lettre = fragment\nWHERE destinataire = \"Laura Vorzet\"",
+        "columns": [
+          "acrostiche"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>acrostiche</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>𝕃𝔼 ℂ𝕆ℝ𝔹𝔼𝔸𝕌</td>\n            <td>118173955981433</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "118173955981433"
       }
@@ -1816,22 +2083,32 @@
     "statement": "Quelle est la différence d'âge moyenne au sein des couples dont la femme trompe son mari ?",
     "salt": "017",
     "formula": "salt_017((0) + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER()) AS token",
+    "reward": 861000,
     "tweak": "la partie décimale de cette différence (p. ex., 1415 pour 3.1415)",
     "solutions": [
       {
         "query": "WITH\n    couples_infidèles AS (\n        SELECT DISTINCT R.personne_1 as femme_infidèle, R.personne_2 as mari_trompé\n        FROM relation R\n        JOIN amants L ON R.personne_1 IN (L.personne_1, L.personne_2)\n        WHERE R.nature = \"femme\"\n    )\nSELECT abs(avg(A.âge - B.âge)) AS différence       \nFROM couples_infidèles\nJOIN personne A ON A.personne = femme_infidèle\nJOIN personne B ON B.personne = mari_trompé",
+        "columns": [
+          "différence"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>différence</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>0.5714</td>\n            <td>202552683166466</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "202552683166466"
       },
       {
         "intro": "Variante. Avec l'opérateur d'appartenance `IN`, le `DISTINCT` devient inutile.",
         "query": "SELECT abs(avg(A.âge - B.âge)) AS différence       \nFROM personne A, personne B\nWHERE (A.personne, B.personne) IN (\n        SELECT R.personne_1 as femme_infidèle, R.personne_2 as mari_trompé\n        FROM relation R\n        JOIN amants L ON R.personne_1 IN (L.personne_1, L.personne_2)\n        WHERE R.nature = \"femme\"\n    )",
+        "columns": [
+          "différence"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>différence</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>0.5714</td>\n            <td>202552683166466</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "202552683166466"
       },
       {
         "intro": "Variante. Avec une union.",
         "query": "SELECT abs(avg(A.âge - B.âge)) AS différence       \nFROM relation R\nJOIN personne A ON A.personne = R.personne_1\nJOIN personne B ON B.personne = R.personne_2\nWHERE R.nature = \"femme\"\n    AND R.personne_1 IN\n        (SELECT personne_1 FROM amants\n         UNION ALL\n         SELECT personne_2 FROM amants)",
+        "columns": [
+          "différence"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>différence</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>0.5714</td>\n            <td>202552683166466</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "202552683166466"
       }
@@ -1879,10 +2156,17 @@
     "statement": "Listez par dates croissantes les consultations ayant donné lieu au diagnostic d'un seul trouble et à la prescription de sérum névrosthénique. Colonnes attendues : date, patient, médecin, troubles (concaténation des troubles, pour permettre de vérifier qu'il y en a un seul).",
     "salt": "067",
     "formula": "salt_067(string_hash('(0)') + bit_xor(sum(nn(A.hash) + nn(B.hash))) OVER ()) AS token",
+    "reward": 903000,
     "tweak": "la date de la première de ces consultations",
     "solutions": [
       {
         "query": "SELECT B.date\n     , B.patient\n     , B.docteur\n     , group_concat(A.trouble) AS troubles\nFROM diagnostic A\nJOIN consultation B USING (consultation)\nJOIN prescription USING (consultation)\nWHERE spécialité = 'Sérum névrosthénique'\nGROUP BY B.date, B.patient, B.docteur\nHAVING count(*) = 1\nORDER BY B.date",
+        "columns": [
+          "date",
+          "patient",
+          "docteur",
+          "troubles"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>date</th>\n            <th>patient</th>\n            <th>docteur</th>\n            <th>troubles</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>1933-04-28</td>\n            <td>Laura Vorzet</td>\n            <td>Michel Vorzet</td>\n            <td>hystérie</td>\n            <td>133385354248234</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "133385354248234"
       }
@@ -1918,10 +2202,14 @@
     "statement": "Qui est le véritable Corbeau, sachant qu'il a pour patient exactement un amant de Denise ?",
     "salt": "087",
     "formula": "salt_087(string_hash('(0)') + bit_xor(sum(nn(A.hash))) OVER ()) AS token",
+    "reward": 946000,
     "tweak": "le Corbeau",
     "solutions": [
       {
         "query": "WITH\n    amants_denise AS (\n        SELECT personne_1 AS amant FROM amants WHERE personne_2 = \"Denise Saillens\"\n        UNION ALL\n        SELECT personne_2 AS amant FROM amants WHERE personne_1 = \"Denise Saillens\"\n    )\nSELECT docteur\nFROM consultation A\nJOIN amants_denise on patient = amant\nGROUP BY docteur\nHAVING count(DISTINCT patient) = 1",
+        "columns": [
+          "docteur"
+        ],
         "result_head": "<table>\n    <thead>\n        <tr>\n            <th>docteur</th>\n            <th>token</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>Michel Vorzet</td>\n            <td>54254940905285</td>\n        </tr>\n</table>\nTotal: 1 row affected.",
         "token": "54254940905285"
       }
@@ -1976,6 +2264,7 @@
     "context": "Le docteur Germain court chez les Vorzet. Sur la route, il croise le fourgon d'une ambulance. Les gémissements de Laura lui parviennent au passage : « Laissez-moi, c'est lui, c'est lui ! ».\n\nArrivé devant la porte, il appelle : « Vorzet ! ».\n\nPas de réponse. Il entre, traverse le vestibule, court au bureau. Là, il stoppe net, pétrifié. Le psychiatre est à son secrétaire, la gorge tranchée. Sous sa tête, le grand buvard du Corbeau est déjà saturé de sang. À côté, le rasoir de François Boulin, grand ouvert.\n\n— Ainsi, murmure-t-il, c'était bien Vorzet...\n\nIl entend la porte du vestibule qui se referme, un bruit de pas devant la maison. Il court à la fenêtre, l'ouvre en grand.\n\nDans la rue déserte, une femme toute vêtue de noir s'éloigne d'un pas tranquille.\n\nIl porte la main à son front.\n\nSoudain, un moineau entre par la fenêtre, immédiatement suivi d'un autre, puis d'un troisième.\n\nBientôt, toute la pièce est envahie d'oiseaux.",
     "statement": "Vous avez vaincu le Corbeau ! Vous êtes maintenant prêt à voler de vos propres SQL.",
     "salt": "084",
+    "reward": 990000,
     "solutions": []
   }
 }
